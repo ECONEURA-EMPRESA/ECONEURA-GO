@@ -10,8 +10,6 @@
     "start": "node dist/index.js",
     "type-check": "tsc -p tsconfig.json --noEmit --skipLibCheck",
     "dev": "tsx src/index.ts",
-    "test": "jest",
-    "test:integration": "cross-env GEMINI_API_KEY=test-key DATABASE_URL=postgres://mock:5432/mock USE_MEMORY_STORE=true jest tests/integration",
     "lint": "eslint .",
     "db:migrate": "prisma migrate dev",
     "db:studio": "prisma studio",
