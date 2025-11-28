@@ -1,0 +1,56 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: econeura-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: econeura
+      POSTGRES_PASSWORD: econeurapassword
+      POSTGRES_DB: econeura
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - econeura-network
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U econeura" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: econeura-redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - econeura-network
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  adminer:
+    image: adminer
+    container_name: econeura-adminer
+    restart: always
+    ports:
+      - "8081:8080"
+    networks:
+      - econeura-network
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
+  redis_data:
+
+
+networks:
+  econeura-network:
+    driver: bridge

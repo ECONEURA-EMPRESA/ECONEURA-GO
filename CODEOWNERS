@@ -1,0 +1,7 @@
+* @ECONEURA-EMPRESA/arquitectos
+/packages/backend/ @ECONEURA-EMPRESA/backend
+/packages/frontend/ @ECONEURA-EMPRESA/frontend
+/infrastructure/azure/ @ECONEURA-EMPRESA/devops
+/docs/ @ECONEURA-EMPRESA/arquitectos
+
+

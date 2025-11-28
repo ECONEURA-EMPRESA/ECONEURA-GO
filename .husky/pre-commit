@@ -1,0 +1,32 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Mejora 4: Pre-commit hooks automáticos
+# Ejecuta lint y type-check antes de cada commit
+
+echo "🔍 Ejecutando validaciones pre-commit..."
+
+# Type-check backend
+echo "📝 Verificando TypeScript (backend)..."
+cd packages/backend
+npm run type-check
+if [ $? -ne 0 ]; then
+  echo "❌ Errores de TypeScript en backend. Commit cancelado."
+  exit 1
+fi
+cd ../..
+
+# Type-check frontend
+echo "📝 Verificando TypeScript (frontend)..."
+cd packages/frontend
+npm run type-check
+if [ $? -ne 0 ]; then
+  echo "❌ Errores de TypeScript en frontend. Commit cancelado."
+  exit 1
+fi
+cd ../..
+
+echo "✅ Validaciones completadas"
+exit 0
+
+
