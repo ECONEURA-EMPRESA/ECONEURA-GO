@@ -59,7 +59,7 @@ jobs:
           package: out
 
       - name: Configure Startup Command
-        uses: azure/CLI@v1
+        uses: azure/CLI@v2
         with:
           inlineScript: |
             az webapp config set --resource-group rg-econeura-ok-prod --name ${{ secrets.AZURE_WEBAPP_NAME_BACKEND }} --startup-file "node packages/backend/dist/index.js"
