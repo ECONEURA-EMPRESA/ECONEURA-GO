@@ -5,7 +5,7 @@
 ![ECONEURA](https://img.shields.io/badge/ECONEURA-2025-blue)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.4-blue)
 ![Node.js](https://img.shields.io/badge/Node.js-20-green)
-![License](https://img.shields.io/badge/License-MIT-yellow)
+
 
 **SaaS Multi-tenant con 11 NEURAS (IA por departamento) + CRM Premium**
 
@@ -145,7 +145,7 @@ npm run lint
 ### 🔍 Búsqueda Rápida
 
 - **¿Cómo desplegar?** → Ver `docs/deployment/`
-- **¿Problemas?** → Ver `docs/development/TROUBLESHOOTING-GUIA-COMPLETA.md`
+- **¿Problemas?** → Contactar al equipo técnico
 - **¿Arquitectura?** → Ver `docs/architecture/ARCHITECTURE.md`
 
 ---
