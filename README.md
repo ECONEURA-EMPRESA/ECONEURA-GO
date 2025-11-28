@@ -1,15 +1,3 @@
-# 🚀 ECONEURA-FULL
-
-<div align="center">
-
-![ECONEURA](https://img.shields.io/badge/ECONEURA-2025-blue)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.4-blue)
-![Node.js](https://img.shields.io/badge/Node.js-20-green)
-
-
-**SaaS Multi-tenant con 11 NEURAS (IA por departamento) + CRM Premium**
-
-[Arquitectura](#-arquitectura) • [Quick Start](#-quick-start) • [Documentación](#-documentación) • [Deployment](#-deployment)
 
 </div>
 
@@ -138,20 +126,6 @@ npm run lint
 ### 📖 Guías Principales
 
 - **[Arquitectura](docs/architecture/ARCHITECTURE.md)** - Arquitectura del sistema
-- **[Deployment](docs/deployment/README.md)** - Guías de despliegue en Azure
-- **[Development](docs/development/README.md)** - Guías de desarrollo
-- **[Operations](docs/operations/OPERATIONS.md)** - Operaciones y monitoreo
-
-### 🔍 Búsqueda Rápida
-
-- **¿Cómo desplegar?** → Ver `docs/deployment/`
-- **¿Problemas?** → Contactar al equipo técnico
-- **¿Arquitectura?** → Ver `docs/architecture/ARCHITECTURE.md`
-
----
-
-## 🚀 Deployment
-
 ### GitHub Actions
 
 El proyecto incluye workflows CI/CD completos en `.github/workflows/`:
