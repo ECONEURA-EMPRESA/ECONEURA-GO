@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+
+name: econeura-go
+metadata:
+  template: econeura-go-monorepo@0.0.1
+
+services:
+  backend:
+    project: packages/backend
+    language: js
+    host: appservice
+  
+  frontend:
+    project: packages/frontend
+    language: js
+    host: staticwebapp

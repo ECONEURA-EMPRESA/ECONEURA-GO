@@ -1,0 +1,20 @@
+extends: default
+
+ignore: |
+  node_modules/
+  .git/
+  dist/
+  out/
+  coverage/
+
+rules:
+  line-length: disable
+  truthy: disable
+  document-start: disable
+  brackets: disable
+  comments: disable
+  empty-lines: disable
+  indentation: disable
+  braces:
+    min-spaces-inside: 0
+    max-spaces-inside: 0

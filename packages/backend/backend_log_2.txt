@@ -1,0 +1,38 @@
+2025-11-21 10:35:31 [[33MWARN[39M]: [Redis] REDIS_URL no configurado, Redis deshabilitado {"service":"econeura-backend","environment":"development"}
+2025-11-21 10:35:31 [[33MWARN[39M]: [RateLimit] Redis no disponible, usando memory store (no distribuido) {"service":"econeura-backend","environment":"development"}
+2025-11-21 10:35:31 [[33MWARN[39M]: [AzureBlobAdapter] AZURE_STORAGE_CONNECTION_STRING no configurado, usando almacenamiento local {"service":"econeura-backend","environment":"development"}
+2025-11-21 10:35:33 [[33MWARN[39M]: [UserRateLimiter] Redis no disponible, usando memory store (no distribuido) {"service":"econeura-backend","environment":"development"}
+2025-11-21 10:35:33 [[33MWARN[39M]: [WebhookRateLimit] Redis no disponible, usando memory store (no distribuido) {"service":"econeura-backend","environment":"development"}
+[dotenv@17.2.3] injecting env (7) from .env -- tip: ÔÜÖ´©Å  suppress all logs with { quiet: true }
+2025-11-21 10:35:34 [[32MINFO[39M]: [Startup] Variables de entorno validadas correctamente {"service":"econeura-backend","environment":"development"}
+2025-11-21 10:35:34 [[32MINFO[39M]: [DI] Servicios registrados correctamente {"service":"econeura-backend","environment":"development"}
+2025-11-21 10:35:34 [[32MINFO[39M]: [Startup] Servicios inicializados correctamente {"service":"econeura-backend","environment":"development"}
+2025-11-21 10:35:34 [[32MINFO[39M]: [PostgresPool] Pool inicializado {"service":"econeura-backend","environment":"development","max":10}
+FATAL STARTUP ERROR: AggregateError [ECONNREFUSED]: 
+    at C:\Users\Usuario\ECONEURA-FULL\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async initDatabase (C:\Users\Usuario\ECONEURA-FULL\packages\backend\src\infra\persistence\initDb.ts:6:18)
+    at async startServer (C:\Users\Usuario\ECONEURA-FULL\packages\backend\src\index.ts:67:3) {
+  code: 'ECONNREFUSED',
+  [errors]: [
+    Error: connect ECONNREFUSED ::1:5432
+        at createConnectionError (node:net:1678:14)
+        at afterConnectMultiple (node:net:1708:16) {
+      errno: -4078,
+      code: 'ECONNREFUSED',
+      syscall: 'connect',
+      address: '::1',
+      port: 5432
+    },
+    Error: connect ECONNREFUSED 127.0.0.1:5432
+        at createConnectionError (node:net:1678:14)
+        at afterConnectMultiple (node:net:1708:16) {
+      errno: -4078,
+      code: 'ECONNREFUSED',
+      syscall: 'connect',
+      address: '127.0.0.1',
+      port: 5432
+    }
+  ]
+}
+2025-11-21 10:35:34 [[31MERROR[39M]: [Startup] Error fatal iniciando servidor {"service":"econeura-backend","environment":"development","error":"","stack":"AggregateError [ECONNREFUSED]: \n    at C:\\Users\\Usuario\\ECONEURA-FULL\\node_modules\\pg-pool\\index.js:45:11\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async initDatabase (C:\\Users\\Usuario\\ECONEURA-FULL\\packages\\backend\\src\\infra\\persistence\\initDb.ts:6:18)\n    at async startServer (C:\\Users\\Usuario\\ECONEURA-FULL\\packages\\backend\\src\\index.ts:67:3)"}

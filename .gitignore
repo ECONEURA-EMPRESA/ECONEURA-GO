@@ -1,0 +1,76 @@
+# Dependencies
+node_modules
+
+# Build outputs
+dist
+build
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+validation_log*.txt
+test_report*.txt
+test_failure*.txt
+lint_debug.txt
+
+# Coverage
+coverage/
+.nyc_output/
+
+# Environment variables
+.env
+.env.*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Temporary files
+*.temp
+*.tmp
+*.bak
+*~
+.cache/
+
+# Carpetas de referencia (ya migradas)
+ECONEURA-REMOTE
+ECONEURA-PRO
+
+# Development scripts (no subir a producción)
+inject-session.js
+mock-login.html
+
+deployment-outputs.json
+backend-deploy.zip
+infrastructure/azure/main.json
+
+# Documentation archives and reports
+docs/archive/
+docs/reports/
+
+# Scripts (except verified ones)
+# scripts/
+# We keep scripts/ in git but ignore temp inside it
+scripts/temp/
+
+# Test outputs
+test-output*.txt
+debug-routes.ts
+frontend-test-diag*.txt
