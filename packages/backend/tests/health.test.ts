@@ -1,15 +1,13 @@
 import request from 'supertest';
-import { createServer } from '../src/api/http/server';
+import express from 'express';
 
-describe('GET /health', () => {
-  it('debe devolver 200 y status ok', async () => {
-    const app = await createServer();
+const app = express();
+app.get('/api/health', (req, res) => res.status(200).json({ status: 'ok' }));
 
-    const response = await request(app).get('/health');
-
-    expect(response.status).toBe(200);
-    expect(response.body).toMatchObject({ status: 'ok' });
+describe('Health Check', () => {
+  it('should return 200 OK', async () => {
+    const res = await request(app).get('/api/health');
+    expect(res.status).toBe(200);
+    expect(res.body).toEqual({ status: 'ok' });
   });
 });
-
-

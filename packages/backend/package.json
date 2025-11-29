@@ -10,6 +10,7 @@
     "start": "node dist/index.js",
     "type-check": "tsc -p tsconfig.json --noEmit --skipLibCheck",
     "dev": "tsx src/index.ts",
+    "test": "jest",
     "lint": "eslint .",
     "db:migrate": "prisma migrate dev",
     "db:studio": "prisma studio",
