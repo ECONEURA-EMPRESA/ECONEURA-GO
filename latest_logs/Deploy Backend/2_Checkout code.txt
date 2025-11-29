@@ -1,0 +1,71 @@
+﻿2025-11-29T09:43:59.8168590Z ##[group]Run actions/checkout@v4
+2025-11-29T09:43:59.8169480Z with:
+2025-11-29T09:43:59.8169771Z   repository: ECONEURA-EMPRESA/ECONEURA-GO
+2025-11-29T09:43:59.8170267Z   token: ***
+2025-11-29T09:43:59.8170500Z   ssh-strict: true
+2025-11-29T09:43:59.8170723Z   ssh-user: git
+2025-11-29T09:43:59.8170963Z   persist-credentials: true
+2025-11-29T09:43:59.8171260Z   clean: true
+2025-11-29T09:43:59.8171494Z   sparse-checkout-cone-mode: true
+2025-11-29T09:43:59.8171779Z   fetch-depth: 1
+2025-11-29T09:43:59.8171996Z   fetch-tags: false
+2025-11-29T09:43:59.8172228Z   show-progress: true
+2025-11-29T09:43:59.8172470Z   lfs: false
+2025-11-29T09:43:59.8172679Z   submodules: false
+2025-11-29T09:43:59.8172936Z   set-safe-directory: true
+2025-11-29T09:43:59.8173389Z ##[endgroup]
+2025-11-29T09:43:59.9244562Z Syncing repository: ECONEURA-EMPRESA/ECONEURA-GO
+2025-11-29T09:43:59.9246036Z ##[group]Getting Git version info
+2025-11-29T09:43:59.9246494Z Working directory is '/home/runner/work/ECONEURA-GO/ECONEURA-GO'
+2025-11-29T09:43:59.9247195Z [command]/usr/bin/git version
+2025-11-29T09:43:59.9331060Z git version 2.51.2
+2025-11-29T09:43:59.9356429Z ##[endgroup]
+2025-11-29T09:43:59.9370006Z Temporarily overriding HOME='/home/runner/work/_temp/9479fe7e-4a30-4e12-8065-cd1f975c47c9' before making global git config changes
+2025-11-29T09:43:59.9371021Z Adding repository directory to the temporary git global config as a safe directory
+2025-11-29T09:43:59.9382143Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ECONEURA-GO/ECONEURA-GO
+2025-11-29T09:43:59.9418488Z Deleting the contents of '/home/runner/work/ECONEURA-GO/ECONEURA-GO'
+2025-11-29T09:43:59.9422136Z ##[group]Initializing the repository
+2025-11-29T09:43:59.9425855Z [command]/usr/bin/git init /home/runner/work/ECONEURA-GO/ECONEURA-GO
+2025-11-29T09:43:59.9566093Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-11-29T09:43:59.9566982Z hint: is subject to change. To configure the initial branch name to use in all
+2025-11-29T09:43:59.9567604Z hint: of your new repositories, which will suppress this warning, call:
+2025-11-29T09:43:59.9568280Z hint:
+2025-11-29T09:43:59.9568770Z hint: 	git config --global init.defaultBranch <name>
+2025-11-29T09:43:59.9569331Z hint:
+2025-11-29T09:43:59.9569712Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-11-29T09:43:59.9570316Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-11-29T09:43:59.9570779Z hint:
+2025-11-29T09:43:59.9571041Z hint: 	git branch -m <name>
+2025-11-29T09:43:59.9571453Z hint:
+2025-11-29T09:43:59.9572091Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2025-11-29T09:43:59.9572984Z Initialized empty Git repository in /home/runner/work/ECONEURA-GO/ECONEURA-GO/.git/
+2025-11-29T09:43:59.9582762Z [command]/usr/bin/git remote add origin https://github.com/ECONEURA-EMPRESA/ECONEURA-GO
+2025-11-29T09:43:59.9615676Z ##[endgroup]
+2025-11-29T09:43:59.9616166Z ##[group]Disabling automatic garbage collection
+2025-11-29T09:43:59.9620072Z [command]/usr/bin/git config --local gc.auto 0
+2025-11-29T09:43:59.9646639Z ##[endgroup]
+2025-11-29T09:43:59.9647070Z ##[group]Setting up auth
+2025-11-29T09:43:59.9653789Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-11-29T09:43:59.9682776Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-11-29T09:44:00.0053474Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-11-29T09:44:00.0086330Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-11-29T09:44:00.0337008Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2025-11-29T09:44:00.0380588Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2025-11-29T09:44:00.0618225Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-11-29T09:44:00.0651544Z ##[endgroup]
+2025-11-29T09:44:00.0652211Z ##[group]Fetching the repository
+2025-11-29T09:44:00.0661133Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +c5f493e5dd67f45519ade8e9d5260c5b00e9d5df:refs/remotes/origin/main
+2025-11-29T09:44:00.5917688Z From https://github.com/ECONEURA-EMPRESA/ECONEURA-GO
+2025-11-29T09:44:00.5920390Z  * [new ref]         c5f493e5dd67f45519ade8e9d5260c5b00e9d5df -> origin/main
+2025-11-29T09:44:00.5950958Z ##[endgroup]
+2025-11-29T09:44:00.5951458Z ##[group]Determining the checkout info
+2025-11-29T09:44:00.5953246Z ##[endgroup]
+2025-11-29T09:44:00.5958025Z [command]/usr/bin/git sparse-checkout disable
+2025-11-29T09:44:00.5997744Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-11-29T09:44:00.6022651Z ##[group]Checking out the ref
+2025-11-29T09:44:00.6026196Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2025-11-29T09:44:00.7272535Z Switched to a new branch 'main'
+2025-11-29T09:44:00.7273404Z branch 'main' set up to track 'origin/main'.
+2025-11-29T09:44:00.7290620Z ##[endgroup]
+2025-11-29T09:44:00.7329703Z [command]/usr/bin/git log -1 --format=%H
+2025-11-29T09:44:00.7352490Z c5f493e5dd67f45519ade8e9d5260c5b00e9d5df

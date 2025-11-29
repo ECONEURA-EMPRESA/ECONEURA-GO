@@ -1,0 +1,29 @@
+﻿2025-11-29T20:34:46.0622363Z ##[group]Run Azure/static-web-apps-deploy@v1
+2025-11-29T20:34:46.0622692Z with:
+2025-11-29T20:34:46.0623406Z   azure_static_web_apps_api_token: ***
+2025-11-29T20:34:46.0623805Z   repo_token: ***
+2025-11-29T20:34:46.0624000Z   action: upload
+2025-11-29T20:34:46.0624199Z   app_location: packages/frontend/dist
+2025-11-29T20:34:46.0624455Z   skip_app_build: true
+2025-11-29T20:34:46.0624657Z ##[endgroup]
+2025-11-29T20:34:46.0732605Z ##[command]/usr/bin/docker run --name c7979ebecbef14483d4040813e82630968ed95_f0314f --label c7979e --workdir /github/workspace --rm -e "INPUT_AZURE_STATIC_WEB_APPS_API_TOKEN" -e "INPUT_REPO_TOKEN" -e "INPUT_ACTION" -e "INPUT_APP_LOCATION" -e "INPUT_SKIP_APP_BUILD" -e "INPUT_API_BUILD_COMMAND" -e "INPUT_API_LOCATION" -e "INPUT_APP_ARTIFACT_LOCATION" -e "INPUT_OUTPUT_LOCATION" -e "INPUT_APP_BUILD_COMMAND" -e "INPUT_ROUTES_LOCATION" -e "INPUT_CONFIG_FILE_LOCATION" -e "INPUT_SKIP_API_BUILD" -e "INPUT_PRODUCTION_BRANCH" -e "INPUT_DEPLOYMENT_ENVIRONMENT" -e "INPUT_IS_STATIC_EXPORT" -e "INPUT_DATA_API_LOCATION" -e "INPUT_GITHUB_ID_TOKEN" -e "HOME" -e "GITHUB_JOB" -e "GITHUB_REF" -e "GITHUB_SHA" -e "GITHUB_REPOSITORY" -e "GITHUB_REPOSITORY_OWNER" -e "GITHUB_REPOSITORY_OWNER_ID" -e "GITHUB_RUN_ID" -e "GITHUB_RUN_NUMBER" -e "GITHUB_RETENTION_DAYS" -e "GITHUB_RUN_ATTEMPT" -e "GITHUB_ACTOR_ID" -e "GITHUB_ACTOR" -e "GITHUB_WORKFLOW" -e "GITHUB_HEAD_REF" -e "GITHUB_BASE_REF" -e "GITHUB_EVENT_NAME" -e "GITHUB_SERVER_URL" -e "GITHUB_API_URL" -e "GITHUB_GRAPHQL_URL" -e "GITHUB_REF_NAME" -e "GITHUB_REF_PROTECTED" -e "GITHUB_REF_TYPE" -e "GITHUB_WORKFLOW_REF" -e "GITHUB_WORKFLOW_SHA" -e "GITHUB_REPOSITORY_ID" -e "GITHUB_TRIGGERING_ACTOR" -e "GITHUB_WORKSPACE" -e "GITHUB_ACTION" -e "GITHUB_EVENT_PATH" -e "GITHUB_ACTION_REPOSITORY" -e "GITHUB_ACTION_REF" -e "GITHUB_PATH" -e "GITHUB_ENV" -e "GITHUB_STEP_SUMMARY" -e "GITHUB_STATE" -e "GITHUB_OUTPUT" -e "RUNNER_OS" -e "RUNNER_ARCH" -e "RUNNER_NAME" -e "RUNNER_ENVIRONMENT" -e "RUNNER_TOOL_CACHE" -e "RUNNER_TEMP" -e "RUNNER_WORKSPACE" -e "ACTIONS_RUNTIME_URL" -e "ACTIONS_RUNTIME_TOKEN" -e "ACTIONS_CACHE_URL" -e "ACTIONS_ID_TOKEN_REQUEST_URL" -e "ACTIONS_ID_TOKEN_REQUEST_TOKEN" -e "ACTIONS_RESULTS_URL" -e GITHUB_ACTIONS=true -e CI=true -v "/var/run/docker.sock":"/var/run/docker.sock" -v "/home/runner/work/_temp":"/github/runner_temp" -v "/home/runner/work/_temp/_github_home":"/github/home" -v "/home/runner/work/_temp/_github_workflow":"/github/workflow" -v "/home/runner/work/_temp/_runner_file_commands":"/github/file_commands" -v "/home/runner/work/ECONEURA-GO/ECONEURA-GO":"/github/workspace" c7979e:becbef14483d4040813e82630968ed95
+2025-11-29T20:34:47.5277174Z DeploymentId: 03284d12-0412-4199-a1ad-ff3fdeb409a6
+2025-11-29T20:34:47.5277957Z 
+2025-11-29T20:34:47.6402905Z [37mTry to validate location at: '/github/workspace/packages/frontend/dist'.[0m
+2025-11-29T20:34:47.6415428Z [37mApp Directory Location: 'packages/frontend/dist' was found.[0m
+2025-11-29T20:34:47.6416623Z [37mTry to validate location at: '/github/workspace/swa-db-connections'.[0m
+2025-11-29T20:34:47.6418050Z [37mLooking for event info[0m
+2025-11-29T20:34:48.5342161Z [37mSkipping step to build /github/workspace/packages/frontend/dist with Oryx[0m
+2025-11-29T20:34:48.5593388Z [37mNo Api directory specified. Azure Functions will not be created.[0m
+2025-11-29T20:34:48.5756883Z [33mEither no Api directory was specified, or the specified directory was not found. Azure Functions will not be created.[0m
+2025-11-29T20:34:49.4344506Z [37mZipping App Artifacts[0m
+2025-11-29T20:34:49.6975923Z [37mDone Zipping App Artifacts[0m
+2025-11-29T20:34:49.6977694Z [37mUploading build artifacts.[0m
+2025-11-29T20:34:52.5599303Z [32mFinished Upload. Polling on deployment.[0m
+2025-11-29T20:34:52.8143580Z [37mStatus: InProgress. Time: 0.2521891(s)[0m
+2025-11-29T20:35:08.4937736Z [37mStatus: InProgress. Time: 15.9337482(s)[0m
+2025-11-29T20:35:23.7181934Z [37mStatus: Succeeded. Time: 31.1581252(s)[0m
+2025-11-29T20:35:23.7182684Z [32mDeployment Complete :)[0m
+2025-11-29T20:35:23.7183694Z [32mVisit your site at: https://yellow-meadow-004e16d03.3.azurestaticapps.net[0m
+2025-11-29T20:35:23.8142111Z [37mThanks for using Azure Static Web Apps![0m
+2025-11-29T20:35:23.8142756Z [37mExiting[0m

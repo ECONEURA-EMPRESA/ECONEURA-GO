@@ -1,0 +1,15 @@
+﻿2025-11-29T20:34:23.8407961Z ##[group]Run npm ci
+2025-11-29T20:34:23.8408249Z [36;1mnpm ci[0m
+2025-11-29T20:34:23.8453683Z shell: /usr/bin/bash -e {0}
+2025-11-29T20:34:23.8453950Z ##[endgroup]
+2025-11-29T20:34:28.8274359Z npm warn deprecated @types/winston@2.4.4: This is a stub types definition. winston provides its own type definitions, so you do not need this installed.
+2025-11-29T20:34:28.8278834Z npm warn deprecated @types/express-rate-limit@6.0.2: This is a stub types definition. express-rate-limit provides its own type definitions, so you do not need this installed.
+2025-11-29T20:34:28.8707193Z npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+2025-11-29T20:34:29.2158050Z npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+2025-11-29T20:34:36.0942226Z 
+2025-11-29T20:34:36.0943068Z added 1187 packages, and audited 1192 packages in 12s
+2025-11-29T20:34:36.0943596Z 
+2025-11-29T20:34:36.0943835Z 310 packages are looking for funding
+2025-11-29T20:34:36.0944292Z   run `npm fund` for details
+2025-11-29T20:34:36.0955889Z 
+2025-11-29T20:34:36.0956362Z found 0 vulnerabilities

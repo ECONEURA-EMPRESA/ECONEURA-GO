@@ -1,0 +1,217 @@
+﻿2025-11-29T16:43:51.4757350Z Current runner version: '2.329.0'
+2025-11-29T16:43:51.4787196Z ##[group]Runner Image Provisioner
+2025-11-29T16:43:51.4788005Z Hosted Compute Agent
+2025-11-29T16:43:51.4788694Z Version: 20251016.436
+2025-11-29T16:43:51.4789289Z Commit: 8ab8ac8bfd662a3739dab9fe09456aba92132568
+2025-11-29T16:43:51.4790040Z Build Date: 2025-10-15T20:44:12Z
+2025-11-29T16:43:51.4790729Z ##[endgroup]
+2025-11-29T16:43:51.4791230Z ##[group]Operating System
+2025-11-29T16:43:51.4791774Z Ubuntu
+2025-11-29T16:43:51.4792320Z 24.04.3
+2025-11-29T16:43:51.4792761Z LTS
+2025-11-29T16:43:51.4793254Z ##[endgroup]
+2025-11-29T16:43:51.4793832Z ##[group]Runner Image
+2025-11-29T16:43:51.4794353Z Image: ubuntu-24.04
+2025-11-29T16:43:51.4794866Z Version: 20251112.124.1
+2025-11-29T16:43:51.4795962Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20251112.124/images/ubuntu/Ubuntu2404-Readme.md
+2025-11-29T16:43:51.4797788Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20251112.124
+2025-11-29T16:43:51.4798908Z ##[endgroup]
+2025-11-29T16:43:51.4799894Z ##[group]GITHUB_TOKEN Permissions
+2025-11-29T16:43:51.4801850Z Contents: read
+2025-11-29T16:43:51.4802763Z Metadata: read
+2025-11-29T16:43:51.4803558Z ##[endgroup]
+2025-11-29T16:43:51.4806587Z Secret source: Actions
+2025-11-29T16:43:51.4807592Z Prepare workflow directory
+2025-11-29T16:43:51.5255059Z Prepare all required actions
+2025-11-29T16:43:51.5309790Z Getting action download info
+2025-11-29T16:43:51.8398611Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2025-11-29T16:43:52.1439398Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2025-11-29T16:43:52.2349549Z Download action repository 'azure/login@v2' (SHA:a457da9ea143d694b1b9c7c869ebb04ebe844ef5)
+2025-11-29T16:43:52.4300448Z Download action repository 'azure/webapps-deploy@v2' (SHA:122b7ec46017e53a3f71e3a027d67550a1641f5e)
+2025-11-29T16:43:54.5685984Z Complete job name: Deploy Backend
+2025-11-29T16:43:54.6353413Z ##[group]Run actions/checkout@v4
+2025-11-29T16:43:54.6354066Z with:
+2025-11-29T16:43:54.6354349Z   repository: ECONEURA-EMPRESA/ECONEURA-GO
+2025-11-29T16:43:54.6354906Z   token: ***
+2025-11-29T16:43:54.6355153Z   ssh-strict: true
+2025-11-29T16:43:54.6355387Z   ssh-user: git
+2025-11-29T16:43:54.6355634Z   persist-credentials: true
+2025-11-29T16:43:54.6355900Z   clean: true
+2025-11-29T16:43:54.6356140Z   sparse-checkout-cone-mode: true
+2025-11-29T16:43:54.6356601Z   fetch-depth: 1
+2025-11-29T16:43:54.6356837Z   fetch-tags: false
+2025-11-29T16:43:54.6357078Z   show-progress: true
+2025-11-29T16:43:54.6357339Z   lfs: false
+2025-11-29T16:43:54.6357573Z   submodules: false
+2025-11-29T16:43:54.6357812Z   set-safe-directory: true
+2025-11-29T16:43:54.6358316Z ##[endgroup]
+2025-11-29T16:43:54.7421077Z Syncing repository: ECONEURA-EMPRESA/ECONEURA-GO
+2025-11-29T16:43:54.7422869Z ##[group]Getting Git version info
+2025-11-29T16:43:54.7423418Z Working directory is '/home/runner/work/ECONEURA-GO/ECONEURA-GO'
+2025-11-29T16:43:54.7424054Z [command]/usr/bin/git version
+2025-11-29T16:43:54.7506122Z git version 2.51.2
+2025-11-29T16:43:54.7600339Z ##[endgroup]
+2025-11-29T16:43:54.7608699Z Temporarily overriding HOME='/home/runner/work/_temp/83f78e99-f0f8-4ae8-9e67-8e2559001ca1' before making global git config changes
+2025-11-29T16:43:54.7610090Z Adding repository directory to the temporary git global config as a safe directory
+2025-11-29T16:43:54.7611317Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ECONEURA-GO/ECONEURA-GO
+2025-11-29T16:43:54.7613143Z Deleting the contents of '/home/runner/work/ECONEURA-GO/ECONEURA-GO'
+2025-11-29T16:43:54.7614658Z ##[group]Initializing the repository
+2025-11-29T16:43:54.7619981Z [command]/usr/bin/git init /home/runner/work/ECONEURA-GO/ECONEURA-GO
+2025-11-29T16:43:54.7739892Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-11-29T16:43:54.7740936Z hint: is subject to change. To configure the initial branch name to use in all
+2025-11-29T16:43:54.7741910Z hint: of your new repositories, which will suppress this warning, call:
+2025-11-29T16:43:54.7742293Z hint:
+2025-11-29T16:43:54.7742627Z hint: 	git config --global init.defaultBranch <name>
+2025-11-29T16:43:54.7743233Z hint:
+2025-11-29T16:43:54.7743861Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-11-29T16:43:54.7744524Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-11-29T16:43:54.7744918Z hint:
+2025-11-29T16:43:54.7745213Z hint: 	git branch -m <name>
+2025-11-29T16:43:54.7745668Z hint:
+2025-11-29T16:43:54.7746515Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2025-11-29T16:43:54.7747650Z Initialized empty Git repository in /home/runner/work/ECONEURA-GO/ECONEURA-GO/.git/
+2025-11-29T16:43:54.7758323Z [command]/usr/bin/git remote add origin https://github.com/ECONEURA-EMPRESA/ECONEURA-GO
+2025-11-29T16:43:54.7795301Z ##[endgroup]
+2025-11-29T16:43:54.7796096Z ##[group]Disabling automatic garbage collection
+2025-11-29T16:43:54.7800691Z [command]/usr/bin/git config --local gc.auto 0
+2025-11-29T16:43:54.7829463Z ##[endgroup]
+2025-11-29T16:43:54.7830222Z ##[group]Setting up auth
+2025-11-29T16:43:54.7837358Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-11-29T16:43:54.7868080Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-11-29T16:43:54.8227664Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-11-29T16:43:54.8258731Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-11-29T16:43:54.8486060Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2025-11-29T16:43:54.8518015Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2025-11-29T16:43:54.8744707Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-11-29T16:43:54.8779936Z ##[endgroup]
+2025-11-29T16:43:54.8780596Z ##[group]Fetching the repository
+2025-11-29T16:43:54.8788213Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +9b0b00baf9280b6a7db2bfd6b1a942bd3781993f:refs/remotes/origin/main
+2025-11-29T16:43:55.4013297Z From https://github.com/ECONEURA-EMPRESA/ECONEURA-GO
+2025-11-29T16:43:55.4015752Z  * [new ref]         9b0b00baf9280b6a7db2bfd6b1a942bd3781993f -> origin/main
+2025-11-29T16:43:55.4049587Z ##[endgroup]
+2025-11-29T16:43:55.4050227Z ##[group]Determining the checkout info
+2025-11-29T16:43:55.4052849Z ##[endgroup]
+2025-11-29T16:43:55.4058134Z [command]/usr/bin/git sparse-checkout disable
+2025-11-29T16:43:55.4102183Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-11-29T16:43:55.4130252Z ##[group]Checking out the ref
+2025-11-29T16:43:55.4135767Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2025-11-29T16:43:55.5424116Z Switched to a new branch 'main'
+2025-11-29T16:43:55.5425509Z branch 'main' set up to track 'origin/main'.
+2025-11-29T16:43:55.5443050Z ##[endgroup]
+2025-11-29T16:43:55.5482750Z [command]/usr/bin/git log -1 --format=%H
+2025-11-29T16:43:55.5504537Z 9b0b00baf9280b6a7db2bfd6b1a942bd3781993f
+2025-11-29T16:43:55.5730296Z ##[group]Run actions/setup-node@v4
+2025-11-29T16:43:55.5730567Z with:
+2025-11-29T16:43:55.5730747Z   node-version: 20
+2025-11-29T16:43:55.5730933Z   cache: npm
+2025-11-29T16:43:55.5731102Z   always-auth: false
+2025-11-29T16:43:55.5731312Z   check-latest: false
+2025-11-29T16:43:55.5731626Z   token: ***
+2025-11-29T16:43:55.5731799Z ##[endgroup]
+2025-11-29T16:43:55.7693786Z Found in cache @ /opt/hostedtoolcache/node/20.19.5/x64
+2025-11-29T16:43:55.7701015Z ##[group]Environment details
+2025-11-29T16:43:57.6461408Z node: v20.19.5
+2025-11-29T16:43:57.6461873Z npm: 10.8.2
+2025-11-29T16:43:57.6462195Z yarn: 1.22.22
+2025-11-29T16:43:57.6463228Z ##[endgroup]
+2025-11-29T16:43:57.6485073Z [command]/opt/hostedtoolcache/node/20.19.5/x64/bin/npm config get cache
+2025-11-29T16:43:57.8849627Z /home/runner/.npm
+2025-11-29T16:43:58.0404423Z Cache hit for: node-cache-Linux-x64-npm-8caa1747b02b9575ba30c2177b94686b55ebfce4790e6735468efa53b744b388
+2025-11-29T16:43:58.6724407Z Received 116021934 of 116021934 (100.0%), 185.6 MBs/sec
+2025-11-29T16:43:58.6726230Z Cache Size: ~111 MB (116021934 B)
+2025-11-29T16:43:58.6764980Z [command]/usr/bin/tar -xf /home/runner/work/_temp/d210e4d1-0f1e-494b-82b8-4a7754d6e3c8/cache.tzst -P -C /home/runner/work/ECONEURA-GO/ECONEURA-GO --use-compress-program unzstd
+2025-11-29T16:43:59.0182822Z Cache restored successfully
+2025-11-29T16:43:59.0461476Z Cache restored from key: node-cache-Linux-x64-npm-8caa1747b02b9575ba30c2177b94686b55ebfce4790e6735468efa53b744b388
+2025-11-29T16:43:59.0642437Z ##[group]Run npm install -g turbo
+2025-11-29T16:43:59.0642804Z [36;1mnpm install -g turbo[0m
+2025-11-29T16:43:59.0687539Z shell: /usr/bin/bash -e {0}
+2025-11-29T16:43:59.0687881Z ##[endgroup]
+2025-11-29T16:44:01.0712301Z 
+2025-11-29T16:44:01.0719659Z added 2 packages in 2s
+2025-11-29T16:44:01.0839507Z ##[group]Run turbo prune --scope=@econeura/backend
+2025-11-29T16:44:01.0839940Z [36;1mturbo prune --scope=@econeura/backend[0m
+2025-11-29T16:44:01.0873995Z shell: /usr/bin/bash -e {0}
+2025-11-29T16:44:01.0874242Z ##[endgroup]
+2025-11-29T16:44:01.1246194Z  WARNING  No locally installed `turbo` found in your repository. Using globally installed version (2.6.1), which can cause unexpected behavior.
+2025-11-29T16:44:01.1247058Z 
+2025-11-29T16:44:01.1247651Z Installing the version in your repository (^2.3.0) before calling `turbo` will result in more predictable behavior across environments.
+2025-11-29T16:44:01.1378169Z 
+2025-11-29T16:44:01.1378676Z Attention:
+2025-11-29T16:44:01.1379594Z Turborepo now collects completely anonymous telemetry regarding usage.
+2025-11-29T16:44:01.1380746Z This information is used to shape the Turborepo roadmap and prioritize features.
+2025-11-29T16:44:01.1382117Z You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+2025-11-29T16:44:01.1383070Z https://turborepo.com/docs/telemetry
+2025-11-29T16:44:01.1383367Z 
+2025-11-29T16:44:01.1670467Z Generating pruned monorepo for @econeura/backend in /home/runner/work/ECONEURA-GO/ECONEURA-GO/out
+2025-11-29T16:44:01.1859934Z  - Added @econeura/backend
+2025-11-29T16:44:01.1872514Z  - Added @econeura/config
+2025-11-29T16:44:01.1885817Z  - Added @econeura/shared
+2025-11-29T16:44:01.3144338Z ##[group]Run npm install
+2025-11-29T16:44:01.3144620Z [36;1mnpm install[0m
+2025-11-29T16:44:01.3177945Z shell: /usr/bin/bash -e {0}
+2025-11-29T16:44:01.3178190Z ##[endgroup]
+2025-11-29T16:44:03.9735476Z npm warn deprecated @types/winston@2.4.4: This is a stub types definition. winston provides its own type definitions, so you do not need this installed.
+2025-11-29T16:44:03.9744153Z npm warn deprecated @types/express-rate-limit@6.0.2: This is a stub types definition. express-rate-limit provides its own type definitions, so you do not need this installed.
+2025-11-29T16:44:04.0042808Z npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+2025-11-29T16:44:04.2202663Z npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+2025-11-29T16:44:08.3725986Z 
+2025-11-29T16:44:08.3727074Z added 745 packages, and audited 749 packages in 7s
+2025-11-29T16:44:08.3727501Z 
+2025-11-29T16:44:08.3727763Z 124 packages are looking for funding
+2025-11-29T16:44:08.3728237Z   run `npm fund` for details
+2025-11-29T16:44:08.3740060Z 
+2025-11-29T16:44:08.3740351Z found 0 vulnerabilities
+2025-11-29T16:44:08.4233875Z ##[group]Run npx turbo run build --filter=@econeura/backend...
+2025-11-29T16:44:08.4234558Z [36;1mnpx turbo run build --filter=@econeura/backend...[0m
+2025-11-29T16:44:08.4272081Z shell: /usr/bin/bash -e {0}
+2025-11-29T16:44:08.4272446Z ##[endgroup]
+2025-11-29T16:44:08.8811712Z • Packages in scope: @econeura/backend, @econeura/config, @econeura/shared
+2025-11-29T16:44:08.8812615Z • Running build in 3 packages
+2025-11-29T16:44:08.8813158Z • Remote caching disabled
+2025-11-29T16:44:10.5089097Z ##[group]@econeura/shared:build
+2025-11-29T16:44:10.5089908Z cache miss, executing cf595fe561044f67
+2025-11-29T16:44:10.5090256Z 
+2025-11-29T16:44:10.5090496Z > @econeura/shared@0.0.1 build
+2025-11-29T16:44:10.5090906Z > tsc
+2025-11-29T16:44:10.5091095Z 
+2025-11-29T16:44:10.5091463Z ##[endgroup]
+2025-11-29T16:44:15.3916955Z ##[group]@econeura/backend:build
+2025-11-29T16:44:15.3917873Z cache miss, executing 0f11d249ac4bf94a
+2025-11-29T16:44:15.3918219Z 
+2025-11-29T16:44:15.3918495Z > @econeura/backend@1.0.0 build
+2025-11-29T16:44:15.3919036Z > tsc -p tsconfig.json --skipLibCheck
+2025-11-29T16:44:15.3919353Z 
+2025-11-29T16:44:15.3919721Z ##[endgroup]
+2025-11-29T16:44:15.3935022Z 
+2025-11-29T16:44:15.3935810Z  Tasks:    2 successful, 2 total
+2025-11-29T16:44:15.3936929Z Cached:    0 cached, 2 total
+2025-11-29T16:44:15.3938640Z   Time:    6.536s 
+2025-11-29T16:44:15.3938871Z 
+2025-11-29T16:44:15.4244926Z ##[group]Run azure/login@v2
+2025-11-29T16:44:15.4245185Z with:
+2025-11-29T16:44:15.4245638Z   creds: ***
+2025-11-29T16:44:15.4245848Z   enable-AzPSSession: false
+2025-11-29T16:44:15.4246076Z   environment: azurecloud
+2025-11-29T16:44:15.4246303Z   allow-no-subscriptions: false
+2025-11-29T16:44:15.4246723Z   audience: api://AzureADTokenExchange
+2025-11-29T16:44:15.4246991Z   auth-type: SERVICE_PRINCIPAL
+2025-11-29T16:44:15.4247211Z ##[endgroup]
+2025-11-29T16:44:15.4639489Z ##[error]Login failed with SyntaxError: Unexpected token 'P', "***" is not valid JSON. Double check if the 'auth-type' is correct. Refer to https://github.com/Azure/login#readme for more information.
+2025-11-29T16:44:15.4758928Z Post job cleanup.
+2025-11-29T16:44:15.5144155Z Clearing azure cli accounts from the local cache.
+2025-11-29T16:44:15.5152840Z [command]/usr/bin/az account clear
+2025-11-29T16:44:28.1193195Z Post job cleanup.
+2025-11-29T16:44:28.2137826Z [command]/usr/bin/git version
+2025-11-29T16:44:28.2176576Z git version 2.51.2
+2025-11-29T16:44:28.2223757Z Temporarily overriding HOME='/home/runner/work/_temp/2ed439c1-145e-4ad8-9798-8135a6b24fab' before making global git config changes
+2025-11-29T16:44:28.2225240Z Adding repository directory to the temporary git global config as a safe directory
+2025-11-29T16:44:28.2231152Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ECONEURA-GO/ECONEURA-GO
+2025-11-29T16:44:28.2276939Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-11-29T16:44:28.2310642Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-11-29T16:44:28.2544056Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-11-29T16:44:28.2567123Z http.https://github.com/.extraheader
+2025-11-29T16:44:28.2579815Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2025-11-29T16:44:28.2610497Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-11-29T16:44:28.2833920Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2025-11-29T16:44:28.2865847Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2025-11-29T16:44:28.3202223Z Cleaning up orphan processes

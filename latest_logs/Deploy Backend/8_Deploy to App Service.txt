@@ -1,0 +1,7 @@
+﻿2025-11-29T09:44:18.5603140Z ##[group]Run azure/webapps-deploy@v2
+2025-11-29T09:44:18.5603436Z with:
+2025-11-29T09:44:18.5603768Z   app-name: ***
+2025-11-29T09:44:18.5603963Z   package: out
+2025-11-29T09:44:18.5604166Z   slot-name: production
+2025-11-29T09:44:18.5604375Z ##[endgroup]
+2025-11-29T09:44:33.2408025Z ##[error]Deployment Failed, Error: No credentials found. Add an Azure login action before this action. For more details refer https://github.com/azure/login

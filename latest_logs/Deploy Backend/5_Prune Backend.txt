@@ -1,0 +1,18 @@
+﻿2025-11-29T09:44:04.2421418Z ##[group]Run turbo prune --scope=@econeura/backend
+2025-11-29T09:44:04.2421962Z [36;1mturbo prune --scope=@econeura/backend[0m
+2025-11-29T09:44:04.2454855Z shell: /usr/bin/bash -e {0}
+2025-11-29T09:44:04.2455115Z ##[endgroup]
+2025-11-29T09:44:04.2826633Z  WARNING  No locally installed `turbo` found in your repository. Using globally installed version (2.6.1), which can cause unexpected behavior.
+2025-11-29T09:44:04.2827211Z 
+2025-11-29T09:44:04.2827793Z Installing the version in your repository (^2.3.0) before calling `turbo` will result in more predictable behavior across environments.
+2025-11-29T09:44:04.2957162Z 
+2025-11-29T09:44:04.2957469Z Attention:
+2025-11-29T09:44:04.2958238Z Turborepo now collects completely anonymous telemetry regarding usage.
+2025-11-29T09:44:04.2959407Z This information is used to shape the Turborepo roadmap and prioritize features.
+2025-11-29T09:44:04.2960538Z You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+2025-11-29T09:44:04.2961326Z https://turborepo.com/docs/telemetry
+2025-11-29T09:44:04.2961548Z 
+2025-11-29T09:44:04.3251825Z Generating pruned monorepo for @econeura/backend in /home/runner/work/ECONEURA-GO/ECONEURA-GO/out
+2025-11-29T09:44:04.3446267Z  - Added @econeura/backend
+2025-11-29T09:44:04.3458566Z  - Added @econeura/config
+2025-11-29T09:44:04.3471719Z  - Added @econeura/shared

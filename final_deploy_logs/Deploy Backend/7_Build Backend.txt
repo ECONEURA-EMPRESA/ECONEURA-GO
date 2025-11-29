@@ -1,0 +1,26 @@
+﻿2025-11-29T16:44:08.4233859Z ##[group]Run npx turbo run build --filter=@econeura/backend...
+2025-11-29T16:44:08.4234554Z [36;1mnpx turbo run build --filter=@econeura/backend...[0m
+2025-11-29T16:44:08.4272074Z shell: /usr/bin/bash -e {0}
+2025-11-29T16:44:08.4272443Z ##[endgroup]
+2025-11-29T16:44:08.8811670Z • Packages in scope: @econeura/backend, @econeura/config, @econeura/shared
+2025-11-29T16:44:08.8812606Z • Running build in 3 packages
+2025-11-29T16:44:08.8813153Z • Remote caching disabled
+2025-11-29T16:44:10.5089051Z ##[group]@econeura/shared:build
+2025-11-29T16:44:10.5089901Z cache miss, executing cf595fe561044f67
+2025-11-29T16:44:10.5090252Z 
+2025-11-29T16:44:10.5090493Z > @econeura/shared@0.0.1 build
+2025-11-29T16:44:10.5090901Z > tsc
+2025-11-29T16:44:10.5091092Z 
+2025-11-29T16:44:10.5091460Z ##[endgroup]
+2025-11-29T16:44:15.3916913Z ##[group]@econeura/backend:build
+2025-11-29T16:44:15.3917867Z cache miss, executing 0f11d249ac4bf94a
+2025-11-29T16:44:15.3918214Z 
+2025-11-29T16:44:15.3918443Z > @econeura/backend@1.0.0 build
+2025-11-29T16:44:15.3919030Z > tsc -p tsconfig.json --skipLibCheck
+2025-11-29T16:44:15.3919348Z 
+2025-11-29T16:44:15.3919717Z ##[endgroup]
+2025-11-29T16:44:15.3935003Z 
+2025-11-29T16:44:15.3935801Z  Tasks:    2 successful, 2 total
+2025-11-29T16:44:15.3936919Z Cached:    0 cached, 2 total
+2025-11-29T16:44:15.3938629Z   Time:    6.536s 
+2025-11-29T16:44:15.3938866Z 

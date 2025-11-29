@@ -1,0 +1,22 @@
+﻿2025-11-29T20:34:22.0964873Z ##[group]Run actions/setup-node@v4
+2025-11-29T20:34:22.0965161Z with:
+2025-11-29T20:34:22.0965326Z   node-version: 20
+2025-11-29T20:34:22.0965505Z   cache: npm
+2025-11-29T20:34:22.0965671Z   always-auth: false
+2025-11-29T20:34:22.0965865Z   check-latest: false
+2025-11-29T20:34:22.0966178Z   token: ***
+2025-11-29T20:34:22.0966344Z ##[endgroup]
+2025-11-29T20:34:22.2783884Z Found in cache @ /opt/hostedtoolcache/node/20.19.5/x64
+2025-11-29T20:34:22.2784693Z ##[group]Environment details
+2025-11-29T20:34:22.6306893Z node: v20.19.5
+2025-11-29T20:34:22.6307501Z npm: 10.8.2
+2025-11-29T20:34:22.6307770Z yarn: 1.22.22
+2025-11-29T20:34:22.6308539Z ##[endgroup]
+2025-11-29T20:34:22.6331035Z [command]/opt/hostedtoolcache/node/20.19.5/x64/bin/npm config get cache
+2025-11-29T20:34:22.7523921Z /home/runner/.npm
+2025-11-29T20:34:22.8838493Z Cache hit for: node-cache-Linux-x64-npm-8caa1747b02b9575ba30c2177b94686b55ebfce4790e6735468efa53b744b388
+2025-11-29T20:34:23.4505422Z Received 116021934 of 116021934 (100.0%), 207.6 MBs/sec
+2025-11-29T20:34:23.4506741Z Cache Size: ~111 MB (116021934 B)
+2025-11-29T20:34:23.4535653Z [command]/usr/bin/tar -xf /home/runner/work/_temp/27fb3644-453f-4050-a5ff-bec0fd831089/cache.tzst -P -C /home/runner/work/ECONEURA-GO/ECONEURA-GO --use-compress-program unzstd
+2025-11-29T20:34:23.8014002Z Cache restored successfully
+2025-11-29T20:34:23.8237497Z Cache restored from key: node-cache-Linux-x64-npm-8caa1747b02b9575ba30c2177b94686b55ebfce4790e6735468efa53b744b388

@@ -1,0 +1,10 @@
+﻿2025-11-29T20:34:23.7961093Z ##[group]Run azure/login@v2
+2025-11-29T20:34:23.7961316Z with:
+2025-11-29T20:34:23.7961727Z   creds: ***
+2025-11-29T20:34:23.7961919Z   enable-AzPSSession: false
+2025-11-29T20:34:23.7962483Z   environment: azurecloud
+2025-11-29T20:34:23.7962806Z   allow-no-subscriptions: false
+2025-11-29T20:34:23.7963063Z   audience: api://AzureADTokenExchange
+2025-11-29T20:34:23.7963318Z   auth-type: SERVICE_PRINCIPAL
+2025-11-29T20:34:23.7963537Z ##[endgroup]
+2025-11-29T20:34:23.8329300Z ##[error]Login failed with SyntaxError: Unexpected token 'P', "***" is not valid JSON. Double check if the 'auth-type' is correct. Refer to https://github.com/Azure/login#readme for more information.

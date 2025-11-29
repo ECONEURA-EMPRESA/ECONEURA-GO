@@ -1,0 +1,335 @@
+﻿2025-11-29T20:33:58.2325394Z Current runner version: '2.329.0'
+2025-11-29T20:33:58.2349131Z ##[group]Runner Image Provisioner
+2025-11-29T20:33:58.2350127Z Hosted Compute Agent
+2025-11-29T20:33:58.2350935Z Version: 20251016.436
+2025-11-29T20:33:58.2351878Z Commit: 8ab8ac8bfd662a3739dab9fe09456aba92132568
+2025-11-29T20:33:58.2352824Z Build Date: 2025-10-15T20:44:12Z
+2025-11-29T20:33:58.2353500Z ##[endgroup]
+2025-11-29T20:33:58.2354077Z ##[group]Operating System
+2025-11-29T20:33:58.2354660Z Ubuntu
+2025-11-29T20:33:58.2355143Z 24.04.3
+2025-11-29T20:33:58.2355595Z LTS
+2025-11-29T20:33:58.2356054Z ##[endgroup]
+2025-11-29T20:33:58.2356568Z ##[group]Runner Image
+2025-11-29T20:33:58.2357106Z Image: ubuntu-24.04
+2025-11-29T20:33:58.2357969Z Version: 20251112.124.1
+2025-11-29T20:33:58.2359085Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20251112.124/images/ubuntu/Ubuntu2404-Readme.md
+2025-11-29T20:33:58.2360668Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20251112.124
+2025-11-29T20:33:58.2361740Z ##[endgroup]
+2025-11-29T20:33:58.2362795Z ##[group]GITHUB_TOKEN Permissions
+2025-11-29T20:33:58.2364979Z Contents: read
+2025-11-29T20:33:58.2365565Z Metadata: read
+2025-11-29T20:33:58.2366139Z ##[endgroup]
+2025-11-29T20:33:58.2368501Z Secret source: Actions
+2025-11-29T20:33:58.2369212Z Prepare workflow directory
+2025-11-29T20:33:58.2735944Z Prepare all required actions
+2025-11-29T20:33:58.2792938Z Getting action download info
+2025-11-29T20:33:58.6273962Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2025-11-29T20:33:58.9483463Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2025-11-29T20:33:59.0373959Z Download action repository 'Azure/static-web-apps-deploy@v1' (SHA:4d27395796ac319302594769cfe812bd207490b1)
+2025-11-29T20:33:59.3071320Z Complete job name: Deploy Frontend
+2025-11-29T20:33:59.3568113Z ##[group]Build container for action use: '/home/runner/work/_actions/Azure/static-web-apps-deploy/v1/Dockerfile'.
+2025-11-29T20:33:59.3620608Z ##[command]/usr/bin/docker build -t c7979e:becbef14483d4040813e82630968ed95 -f "/home/runner/work/_actions/Azure/static-web-apps-deploy/v1/Dockerfile" "/home/runner/work/_actions/Azure/static-web-apps-deploy/v1"
+2025-11-29T20:34:02.2126718Z #0 building with "default" instance using docker driver
+2025-11-29T20:34:02.2127431Z 
+2025-11-29T20:34:02.2127649Z #1 [internal] load build definition from Dockerfile
+2025-11-29T20:34:02.2128068Z #1 transferring dockerfile: 160B done
+2025-11-29T20:34:02.2128484Z #1 DONE 0.0s
+2025-11-29T20:34:02.2128628Z 
+2025-11-29T20:34:02.2128889Z #2 [internal] load metadata for mcr.microsoft.com/appsvc/staticappsclient:stable
+2025-11-29T20:34:02.2248014Z #2 DONE 0.2s
+2025-11-29T20:34:02.3442460Z 
+2025-11-29T20:34:02.3443024Z #3 [internal] load .dockerignore
+2025-11-29T20:34:02.3443744Z #3 transferring context: 2B done
+2025-11-29T20:34:02.3444225Z #3 DONE 0.0s
+2025-11-29T20:34:02.3444487Z 
+2025-11-29T20:34:02.3444668Z #4 [internal] load build context
+2025-11-29T20:34:02.3445143Z #4 transferring context: 107B done
+2025-11-29T20:34:02.3445544Z #4 DONE 0.0s
+2025-11-29T20:34:02.3445821Z 
+2025-11-29T20:34:02.3446554Z #5 [1/2] FROM mcr.microsoft.com/appsvc/staticappsclient:stable@sha256:3178a283e885dc45a0c7b4c6e9f728f0331ae7fb93de75db4181fa38651170f2
+2025-11-29T20:34:02.3448134Z #5 resolve mcr.microsoft.com/appsvc/staticappsclient:stable@sha256:3178a283e885dc45a0c7b4c6e9f728f0331ae7fb93de75db4181fa38651170f2 done
+2025-11-29T20:34:02.3449497Z #5 sha256:3178a283e885dc45a0c7b4c6e9f728f0331ae7fb93de75db4181fa38651170f2 2.88kB / 2.88kB done
+2025-11-29T20:34:02.3450634Z #5 sha256:2377065f3b700cf1b5e391d26c572c8b91892dd44acd75deebdab5e403b23175 8.39MB / 15.56MB 0.1s
+2025-11-29T20:34:02.3451781Z #5 sha256:5ee26b7a209f9a26720207792b237af3e19c0efeed8695e1e630fcd0feef9230 15.24MB / 54.75MB 0.1s
+2025-11-29T20:34:02.3452542Z #5 sha256:1df8e0748f30e89b0c0477edfc706fc39242e1d6008433c0494113de267e7ca8 15.34kB / 15.34kB done
+2025-11-29T20:34:02.3453555Z #5 sha256:5d6e107a26c2ffb6e234f04132358dea70a691a64c1152f984d2f2ba0e218c58 8.39MB / 53.74MB 0.1s
+2025-11-29T20:34:02.5445956Z #5 sha256:2377065f3b700cf1b5e391d26c572c8b91892dd44acd75deebdab5e403b23175 15.56MB / 15.56MB 0.1s done
+2025-11-29T20:34:02.5447878Z #5 sha256:5ee26b7a209f9a26720207792b237af3e19c0efeed8695e1e630fcd0feef9230 54.75MB / 54.75MB 0.3s done
+2025-11-29T20:34:02.5449082Z #5 sha256:5d6e107a26c2ffb6e234f04132358dea70a691a64c1152f984d2f2ba0e218c58 53.74MB / 53.74MB 0.3s
+2025-11-29T20:34:02.5449725Z #5 sha256:41c7cd6fb37363fd1ec16dad3463ecc5820eda12c418a82b4849604252d29b88 33.43MB / 197.07MB 0.3s
+2025-11-29T20:34:02.6652982Z #5 sha256:5d6e107a26c2ffb6e234f04132358dea70a691a64c1152f984d2f2ba0e218c58 53.74MB / 53.74MB 0.3s done
+2025-11-29T20:34:02.6659909Z #5 sha256:41c7cd6fb37363fd1ec16dad3463ecc5820eda12c418a82b4849604252d29b88 58.72MB / 197.07MB 0.4s
+2025-11-29T20:34:02.6661992Z #5 extracting sha256:5d6e107a26c2ffb6e234f04132358dea70a691a64c1152f984d2f2ba0e218c58 0.1s
+2025-11-29T20:34:02.6663986Z #5 sha256:c279a6399750ee20e802fb2c47da034ccee5eb4f3b89087f32618f10e8af074a 1.56MB / 1.56MB 0.4s done
+2025-11-29T20:34:02.6667096Z #5 sha256:aede74d79976f9d1be608a1286cdb2ca61aad25185440263691db6a0880adadd 20.97MB / 24.46MB 0.4s
+2025-11-29T20:34:02.6673223Z #5 sha256:ec0af1da0a0576de654092a28624c0565c6d854216944f18159460338af43293 1.05MB / 72.99MB 0.4s
+2025-11-29T20:34:02.6675965Z #5 sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1 32B / 32B 0.3s done
+2025-11-29T20:34:02.7708700Z #5 sha256:41c7cd6fb37363fd1ec16dad3463ecc5820eda12c418a82b4849604252d29b88 84.65MB / 197.07MB 0.5s
+2025-11-29T20:34:02.7709920Z #5 sha256:aede74d79976f9d1be608a1286cdb2ca61aad25185440263691db6a0880adadd 24.46MB / 24.46MB 0.4s done
+2025-11-29T20:34:02.7711031Z #5 sha256:ec0af1da0a0576de654092a28624c0565c6d854216944f18159460338af43293 26.21MB / 72.99MB 0.5s
+2025-11-29T20:34:02.7713347Z #5 sha256:eec8099d3f58ba87e25216a07db18b5a0de40b6921ee61ea8ab9b4c29b53a12f 1.16MB / 1.16MB 0.5s done
+2025-11-29T20:34:02.7714700Z #5 sha256:351447e6e3829fac25a761f87d07dc5bfc289f38908901d05fa53aaab54dbdcd 115.52kB / 115.52kB 0.5s done
+2025-11-29T20:34:02.8734712Z #5 sha256:41c7cd6fb37363fd1ec16dad3463ecc5820eda12c418a82b4849604252d29b88 112.20MB / 197.07MB 0.6s
+2025-11-29T20:34:02.8735926Z #5 sha256:ec0af1da0a0576de654092a28624c0565c6d854216944f18159460338af43293 52.43MB / 72.99MB 0.6s
+2025-11-29T20:34:02.8737133Z #5 sha256:cddc70a1cccef26d55fcf9242759c41404c305acea0b4c3a30961c99846a0a55 637.94kB / 637.94kB 0.5s done
+2025-11-29T20:34:02.8738527Z #5 sha256:36312d7930e0666f8cfc7940823ac101235e873b7cbb8b20d9481fd404095767 6.66MB / 35.20MB 0.6s
+2025-11-29T20:34:02.9749761Z #5 sha256:41c7cd6fb37363fd1ec16dad3463ecc5820eda12c418a82b4849604252d29b88 138.41MB / 197.07MB 0.7s
+2025-11-29T20:34:02.9750947Z #5 sha256:ec0af1da0a0576de654092a28624c0565c6d854216944f18159460338af43293 72.99MB / 72.99MB 0.7s
+2025-11-29T20:34:02.9752062Z #5 sha256:36312d7930e0666f8cfc7940823ac101235e873b7cbb8b20d9481fd404095767 30.52MB / 35.20MB 0.7s
+2025-11-29T20:34:03.1032312Z #5 sha256:41c7cd6fb37363fd1ec16dad3463ecc5820eda12c418a82b4849604252d29b88 167.77MB / 197.07MB 0.8s
+2025-11-29T20:34:03.1035449Z #5 sha256:ec0af1da0a0576de654092a28624c0565c6d854216944f18159460338af43293 72.99MB / 72.99MB 0.7s done
+2025-11-29T20:34:03.1036589Z #5 sha256:36312d7930e0666f8cfc7940823ac101235e873b7cbb8b20d9481fd404095767 35.20MB / 35.20MB 0.7s done
+2025-11-29T20:34:03.1037832Z #5 sha256:4a1fde1690fe113870084a3224c66554fc9cbd2310abb9593b0244ec21f4b76d 168B / 168B 0.8s done
+2025-11-29T20:34:03.1038878Z #5 sha256:8023cb51985fccd3faa4be6340cdc75b72240277850569aa974767dda5176159 168B / 168B 0.8s done
+2025-11-29T20:34:03.1040079Z #5 sha256:4836a863d60df9ca0cedad0eb5e729c4a7f755449fbfbd6d4ea6443e64c990e0 0B / 118.65MB 0.8s
+2025-11-29T20:34:03.2116920Z #5 sha256:41c7cd6fb37363fd1ec16dad3463ecc5820eda12c418a82b4849604252d29b88 190.84MB / 197.07MB 0.9s
+2025-11-29T20:34:03.2119768Z #5 sha256:4836a863d60df9ca0cedad0eb5e729c4a7f755449fbfbd6d4ea6443e64c990e0 25.17MB / 118.65MB 0.9s
+2025-11-29T20:34:03.3442786Z #5 sha256:4836a863d60df9ca0cedad0eb5e729c4a7f755449fbfbd6d4ea6443e64c990e0 75.50MB / 118.65MB 1.1s
+2025-11-29T20:34:03.4858088Z #5 sha256:41c7cd6fb37363fd1ec16dad3463ecc5820eda12c418a82b4849604252d29b88 197.07MB / 197.07MB 1.1s done
+2025-11-29T20:34:03.4861849Z #5 sha256:4836a863d60df9ca0cedad0eb5e729c4a7f755449fbfbd6d4ea6443e64c990e0 100.66MB / 118.65MB 1.2s
+2025-11-29T20:34:03.6445618Z #5 sha256:4836a863d60df9ca0cedad0eb5e729c4a7f755449fbfbd6d4ea6443e64c990e0 118.65MB / 118.65MB 1.4s
+2025-11-29T20:34:03.7476034Z #5 sha256:4836a863d60df9ca0cedad0eb5e729c4a7f755449fbfbd6d4ea6443e64c990e0 118.65MB / 118.65MB 1.4s done
+2025-11-29T20:34:04.8834310Z #5 extracting sha256:5d6e107a26c2ffb6e234f04132358dea70a691a64c1152f984d2f2ba0e218c58 2.3s done
+2025-11-29T20:34:05.0109564Z #5 extracting sha256:2377065f3b700cf1b5e391d26c572c8b91892dd44acd75deebdab5e403b23175 0.1s
+2025-11-29T20:34:05.4506390Z #5 extracting sha256:2377065f3b700cf1b5e391d26c572c8b91892dd44acd75deebdab5e403b23175 0.4s done
+2025-11-29T20:34:05.6712591Z #5 extracting sha256:5ee26b7a209f9a26720207792b237af3e19c0efeed8695e1e630fcd0feef9230
+2025-11-29T20:34:07.6556640Z #5 extracting sha256:5ee26b7a209f9a26720207792b237af3e19c0efeed8695e1e630fcd0feef9230 1.9s done
+2025-11-29T20:34:07.6560802Z #5 extracting sha256:41c7cd6fb37363fd1ec16dad3463ecc5820eda12c418a82b4849604252d29b88
+2025-11-29T20:34:12.3554112Z #5 extracting sha256:41c7cd6fb37363fd1ec16dad3463ecc5820eda12c418a82b4849604252d29b88 4.7s done
+2025-11-29T20:34:13.5013718Z #5 extracting sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1
+2025-11-29T20:34:13.6425234Z #5 extracting sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1 done
+2025-11-29T20:34:13.6432232Z #5 extracting sha256:aede74d79976f9d1be608a1286cdb2ca61aad25185440263691db6a0880adadd 0.1s
+2025-11-29T20:34:14.3841173Z #5 extracting sha256:aede74d79976f9d1be608a1286cdb2ca61aad25185440263691db6a0880adadd 0.7s done
+2025-11-29T20:34:14.3842563Z #5 extracting sha256:c279a6399750ee20e802fb2c47da034ccee5eb4f3b89087f32618f10e8af074a 0.1s
+2025-11-29T20:34:14.5131822Z #5 extracting sha256:c279a6399750ee20e802fb2c47da034ccee5eb4f3b89087f32618f10e8af074a 0.1s done
+2025-11-29T20:34:14.5133801Z #5 extracting sha256:ec0af1da0a0576de654092a28624c0565c6d854216944f18159460338af43293 0.1s
+2025-11-29T20:34:15.4737883Z #5 extracting sha256:ec0af1da0a0576de654092a28624c0565c6d854216944f18159460338af43293 0.9s done
+2025-11-29T20:34:15.5014640Z #5 extracting sha256:351447e6e3829fac25a761f87d07dc5bfc289f38908901d05fa53aaab54dbdcd
+2025-11-29T20:34:15.6353384Z #5 extracting sha256:351447e6e3829fac25a761f87d07dc5bfc289f38908901d05fa53aaab54dbdcd done
+2025-11-29T20:34:15.6354489Z #5 extracting sha256:eec8099d3f58ba87e25216a07db18b5a0de40b6921ee61ea8ab9b4c29b53a12f 0.0s done
+2025-11-29T20:34:15.6355520Z #5 extracting sha256:cddc70a1cccef26d55fcf9242759c41404c305acea0b4c3a30961c99846a0a55 0.0s done
+2025-11-29T20:34:15.7608163Z #5 extracting sha256:36312d7930e0666f8cfc7940823ac101235e873b7cbb8b20d9481fd404095767 0.1s
+2025-11-29T20:34:16.0770758Z #5 extracting sha256:36312d7930e0666f8cfc7940823ac101235e873b7cbb8b20d9481fd404095767 0.4s done
+2025-11-29T20:34:16.0771711Z #5 extracting sha256:4a1fde1690fe113870084a3224c66554fc9cbd2310abb9593b0244ec21f4b76d
+2025-11-29T20:34:16.2202294Z #5 extracting sha256:4a1fde1690fe113870084a3224c66554fc9cbd2310abb9593b0244ec21f4b76d done
+2025-11-29T20:34:16.2203653Z #5 extracting sha256:8023cb51985fccd3faa4be6340cdc75b72240277850569aa974767dda5176159 done
+2025-11-29T20:34:19.5045692Z #5 extracting sha256:4836a863d60df9ca0cedad0eb5e729c4a7f755449fbfbd6d4ea6443e64c990e0 0.1s
+2025-11-29T20:34:19.5046487Z #5 extracting sha256:4836a863d60df9ca0cedad0eb5e729c4a7f755449fbfbd6d4ea6443e64c990e0 3.2s done
+2025-11-29T20:34:19.9599239Z #5 DONE 17.7s
+2025-11-29T20:34:20.1240928Z 
+2025-11-29T20:34:20.1241374Z #6 [2/2] COPY entrypoint.sh /entrypoint.sh
+2025-11-29T20:34:20.1241886Z #6 DONE 0.0s
+2025-11-29T20:34:20.1242102Z 
+2025-11-29T20:34:20.1242244Z #7 exporting to image
+2025-11-29T20:34:20.1242562Z #7 exporting layers
+2025-11-29T20:34:21.1417784Z #7 exporting layers 1.2s done
+2025-11-29T20:34:21.1663942Z #7 writing image sha256:a45ca6b8c14fa1bd97fe34da569f37fd9b1bc42f839ef2e226ed5a88ff44b9d2 done
+2025-11-29T20:34:21.1664972Z #7 naming to docker.io/library/c7979e:becbef14483d4040813e82630968ed95 done
+2025-11-29T20:34:21.1705117Z #7 DONE 1.2s
+2025-11-29T20:34:21.1713688Z ##[endgroup]
+2025-11-29T20:34:21.1974383Z ##[group]Run actions/checkout@v4
+2025-11-29T20:34:21.1975233Z with:
+2025-11-29T20:34:21.1975461Z   repository: ECONEURA-EMPRESA/ECONEURA-GO
+2025-11-29T20:34:21.1975885Z   token: ***
+2025-11-29T20:34:21.1976071Z   ssh-strict: true
+2025-11-29T20:34:21.1976251Z   ssh-user: git
+2025-11-29T20:34:21.1976430Z   persist-credentials: true
+2025-11-29T20:34:21.1976637Z   clean: true
+2025-11-29T20:34:21.1976821Z   sparse-checkout-cone-mode: true
+2025-11-29T20:34:21.1977047Z   fetch-depth: 1
+2025-11-29T20:34:21.1977218Z   fetch-tags: false
+2025-11-29T20:34:21.1977654Z   show-progress: true
+2025-11-29T20:34:21.1977835Z   lfs: false
+2025-11-29T20:34:21.1978006Z   submodules: false
+2025-11-29T20:34:21.1978185Z   set-safe-directory: true
+2025-11-29T20:34:21.1978699Z ##[endgroup]
+2025-11-29T20:34:21.3042951Z Syncing repository: ECONEURA-EMPRESA/ECONEURA-GO
+2025-11-29T20:34:21.3044414Z ##[group]Getting Git version info
+2025-11-29T20:34:21.3044945Z Working directory is '/home/runner/work/ECONEURA-GO/ECONEURA-GO'
+2025-11-29T20:34:21.3045674Z [command]/usr/bin/git version
+2025-11-29T20:34:21.3061940Z git version 2.51.2
+2025-11-29T20:34:21.3088925Z ##[endgroup]
+2025-11-29T20:34:21.3103080Z Temporarily overriding HOME='/home/runner/work/_temp/d7eb917b-795d-4648-b766-48bbe350111c' before making global git config changes
+2025-11-29T20:34:21.3104314Z Adding repository directory to the temporary git global config as a safe directory
+2025-11-29T20:34:21.3116632Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ECONEURA-GO/ECONEURA-GO
+2025-11-29T20:34:21.3153686Z Deleting the contents of '/home/runner/work/ECONEURA-GO/ECONEURA-GO'
+2025-11-29T20:34:21.3157441Z ##[group]Initializing the repository
+2025-11-29T20:34:21.3161518Z [command]/usr/bin/git init /home/runner/work/ECONEURA-GO/ECONEURA-GO
+2025-11-29T20:34:21.3264348Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-11-29T20:34:21.3265136Z hint: is subject to change. To configure the initial branch name to use in all
+2025-11-29T20:34:21.3265688Z hint: of your new repositories, which will suppress this warning, call:
+2025-11-29T20:34:21.3266097Z hint:
+2025-11-29T20:34:21.3266438Z hint: 	git config --global init.defaultBranch <name>
+2025-11-29T20:34:21.3266797Z hint:
+2025-11-29T20:34:21.3267155Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-11-29T20:34:21.3267836Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-11-29T20:34:21.3268331Z hint:
+2025-11-29T20:34:21.3268672Z hint: 	git branch -m <name>
+2025-11-29T20:34:21.3269070Z hint:
+2025-11-29T20:34:21.3269615Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2025-11-29T20:34:21.3270556Z Initialized empty Git repository in /home/runner/work/ECONEURA-GO/ECONEURA-GO/.git/
+2025-11-29T20:34:21.3280010Z [command]/usr/bin/git remote add origin https://github.com/ECONEURA-EMPRESA/ECONEURA-GO
+2025-11-29T20:34:21.3313950Z ##[endgroup]
+2025-11-29T20:34:21.3314666Z ##[group]Disabling automatic garbage collection
+2025-11-29T20:34:21.3319509Z [command]/usr/bin/git config --local gc.auto 0
+2025-11-29T20:34:21.3346138Z ##[endgroup]
+2025-11-29T20:34:21.3346466Z ##[group]Setting up auth
+2025-11-29T20:34:21.3353578Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-11-29T20:34:21.3382624Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-11-29T20:34:21.3727653Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-11-29T20:34:21.3758829Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-11-29T20:34:21.3985640Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2025-11-29T20:34:21.4026197Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2025-11-29T20:34:21.4254843Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-11-29T20:34:21.4289627Z ##[endgroup]
+2025-11-29T20:34:21.4290240Z ##[group]Fetching the repository
+2025-11-29T20:34:21.4298330Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +4ba773a591a2bf36e99c15f55b8532e93cbf3b7b:refs/remotes/origin/main
+2025-11-29T20:34:21.9297926Z From https://github.com/ECONEURA-EMPRESA/ECONEURA-GO
+2025-11-29T20:34:21.9298690Z  * [new ref]         4ba773a591a2bf36e99c15f55b8532e93cbf3b7b -> origin/main
+2025-11-29T20:34:21.9333105Z ##[endgroup]
+2025-11-29T20:34:21.9333715Z ##[group]Determining the checkout info
+2025-11-29T20:34:21.9336474Z ##[endgroup]
+2025-11-29T20:34:21.9341955Z [command]/usr/bin/git sparse-checkout disable
+2025-11-29T20:34:21.9379947Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-11-29T20:34:21.9404830Z ##[group]Checking out the ref
+2025-11-29T20:34:21.9409404Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2025-11-29T20:34:22.0670984Z Switched to a new branch 'main'
+2025-11-29T20:34:22.0671757Z branch 'main' set up to track 'origin/main'.
+2025-11-29T20:34:22.0689944Z ##[endgroup]
+2025-11-29T20:34:22.0728679Z [command]/usr/bin/git log -1 --format=%H
+2025-11-29T20:34:22.0751146Z 4ba773a591a2bf36e99c15f55b8532e93cbf3b7b
+2025-11-29T20:34:22.0964885Z ##[group]Run actions/setup-node@v4
+2025-11-29T20:34:22.0965165Z with:
+2025-11-29T20:34:22.0965328Z   node-version: 20
+2025-11-29T20:34:22.0965507Z   cache: npm
+2025-11-29T20:34:22.0965673Z   always-auth: false
+2025-11-29T20:34:22.0965867Z   check-latest: false
+2025-11-29T20:34:22.0966180Z   token: ***
+2025-11-29T20:34:22.0966346Z ##[endgroup]
+2025-11-29T20:34:22.2783915Z Found in cache @ /opt/hostedtoolcache/node/20.19.5/x64
+2025-11-29T20:34:22.2784699Z ##[group]Environment details
+2025-11-29T20:34:22.6306937Z node: v20.19.5
+2025-11-29T20:34:22.6307507Z npm: 10.8.2
+2025-11-29T20:34:22.6307773Z yarn: 1.22.22
+2025-11-29T20:34:22.6308544Z ##[endgroup]
+2025-11-29T20:34:22.6331049Z [command]/opt/hostedtoolcache/node/20.19.5/x64/bin/npm config get cache
+2025-11-29T20:34:22.7523964Z /home/runner/.npm
+2025-11-29T20:34:22.8838520Z Cache hit for: node-cache-Linux-x64-npm-8caa1747b02b9575ba30c2177b94686b55ebfce4790e6735468efa53b744b388
+2025-11-29T20:34:23.4505564Z Received 116021934 of 116021934 (100.0%), 207.6 MBs/sec
+2025-11-29T20:34:23.4506752Z Cache Size: ~111 MB (116021934 B)
+2025-11-29T20:34:23.4535670Z [command]/usr/bin/tar -xf /home/runner/work/_temp/27fb3644-453f-4050-a5ff-bec0fd831089/cache.tzst -P -C /home/runner/work/ECONEURA-GO/ECONEURA-GO --use-compress-program unzstd
+2025-11-29T20:34:23.8014040Z Cache restored successfully
+2025-11-29T20:34:23.8237527Z Cache restored from key: node-cache-Linux-x64-npm-8caa1747b02b9575ba30c2177b94686b55ebfce4790e6735468efa53b744b388
+2025-11-29T20:34:23.8407974Z ##[group]Run npm ci
+2025-11-29T20:34:23.8408252Z [36;1mnpm ci[0m
+2025-11-29T20:34:23.8453693Z shell: /usr/bin/bash -e {0}
+2025-11-29T20:34:23.8453952Z ##[endgroup]
+2025-11-29T20:34:28.8274406Z npm warn deprecated @types/winston@2.4.4: This is a stub types definition. winston provides its own type definitions, so you do not need this installed.
+2025-11-29T20:34:28.8278850Z npm warn deprecated @types/express-rate-limit@6.0.2: This is a stub types definition. express-rate-limit provides its own type definitions, so you do not need this installed.
+2025-11-29T20:34:28.8707241Z npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+2025-11-29T20:34:29.2158089Z npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+2025-11-29T20:34:36.0942280Z 
+2025-11-29T20:34:36.0943187Z added 1187 packages, and audited 1192 packages in 12s
+2025-11-29T20:34:36.0943601Z 
+2025-11-29T20:34:36.0943839Z 310 packages are looking for funding
+2025-11-29T20:34:36.0944298Z   run `npm fund` for details
+2025-11-29T20:34:36.0955908Z 
+2025-11-29T20:34:36.0956372Z found 0 vulnerabilities
+2025-11-29T20:34:36.1752547Z ##[group]Run npx turbo run build --filter=@econeura/web...
+2025-11-29T20:34:36.1752973Z [36;1mnpx turbo run build --filter=@econeura/web...[0m
+2025-11-29T20:34:36.1791766Z shell: /usr/bin/bash -e {0}
+2025-11-29T20:34:36.1791992Z ##[endgroup]
+2025-11-29T20:34:36.5304967Z 
+2025-11-29T20:34:36.5306203Z Attention:
+2025-11-29T20:34:36.5307095Z Turborepo now collects completely anonymous telemetry regarding usage.
+2025-11-29T20:34:36.5308594Z This information is used to shape the Turborepo roadmap and prioritize features.
+2025-11-29T20:34:36.5310273Z You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+2025-11-29T20:34:36.5311514Z https://turborepo.com/docs/telemetry
+2025-11-29T20:34:36.5311925Z 
+2025-11-29T20:34:36.5815173Z • Packages in scope: @econeura/config, @econeura/shared, @econeura/web
+2025-11-29T20:34:36.5816169Z • Running build in 3 packages
+2025-11-29T20:34:36.5816878Z • Remote caching disabled
+2025-11-29T20:34:38.2207238Z ##[group]@econeura/shared:build
+2025-11-29T20:34:38.2208645Z cache miss, executing cf595fe561044f67
+2025-11-29T20:34:38.2208950Z 
+2025-11-29T20:34:38.2209143Z > @econeura/shared@0.0.1 build
+2025-11-29T20:34:38.2209370Z > tsc
+2025-11-29T20:34:38.2209467Z 
+2025-11-29T20:34:38.2209737Z ##[endgroup]
+2025-11-29T20:34:46.0141951Z ##[group]@econeura/web:build
+2025-11-29T20:34:46.0142688Z cache miss, executing c51a05b302399b8b
+2025-11-29T20:34:46.0143014Z 
+2025-11-29T20:34:46.0143294Z > @econeura/web@0.0.1 build
+2025-11-29T20:34:46.0143677Z > npx vite build
+2025-11-29T20:34:46.0143885Z 
+2025-11-29T20:34:46.0144701Z [36mvite v7.2.4 [32mbuilding client environment for production...[36m[39m
+2025-11-29T20:34:46.0145346Z transforming...
+2025-11-29T20:34:46.0146138Z [32m✓[39m 3286 modules transformed.
+2025-11-29T20:34:46.0146609Z rendering chunks...
+2025-11-29T20:34:46.0146993Z computing gzip size...
+2025-11-29T20:34:46.0148650Z [2mdist/[22m[32mindex.html                       [39m[1m[2m  1.45 kB[22m[1m[22m[2m │ gzip:   0.65 kB[22m
+2025-11-29T20:34:46.0150074Z [2mdist/[22m[2massets/[22m[35mindex-bKvjckza.css        [39m[1m[2m 18.79 kB[22m[1m[22m[2m │ gzip:   3.84 kB[22m
+2025-11-29T20:34:46.0151407Z [2mdist/[22m[2massets/[22m[36mreact-vendor-B6_PLOK3.js  [39m[1m[2m 44.41 kB[22m[1m[22m[2m │ gzip:  16.02 kB[22m
+2025-11-29T20:34:46.0152838Z [2mdist/[22m[2massets/[22m[36mui-vendor-gAipy2Zs.js     [39m[1m[2m133.81 kB[22m[1m[22m[2m │ gzip:  44.88 kB[22m
+2025-11-29T20:34:46.0154309Z [2mdist/[22m[2massets/[22m[36mclient-C73EbFQ4.js        [39m[1m[2m180.88 kB[22m[1m[22m[2m │ gzip:  56.88 kB[22m
+2025-11-29T20:34:46.0155846Z [2mdist/[22m[2massets/[22m[36mindex-Dhh8zdb1.js         [39m[1m[2m257.08 kB[22m[1m[22m[2m │ gzip:  85.09 kB[22m
+2025-11-29T20:34:46.0157454Z [2mdist/[22m[2massets/[22m[36mApp-DoiGZKlA.js           [39m[1m[33m797.31 kB[39m[22m[2m │ gzip: 232.40 kB[22m
+2025-11-29T20:34:46.0158278Z [33m
+2025-11-29T20:34:46.0158871Z (!) Some chunks are larger than 600 kB after minification. Consider:
+2025-11-29T20:34:46.0159633Z - Using dynamic import() to code-split the application
+2025-11-29T20:34:46.0160952Z - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+2025-11-29T20:34:46.0162848Z - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+2025-11-29T20:34:46.0163650Z [32m✓ built in 7.04s[39m
+2025-11-29T20:34:46.0164317Z ##[endgroup]
+2025-11-29T20:34:46.0164513Z 
+2025-11-29T20:34:46.0164718Z  Tasks:    2 successful, 2 total
+2025-11-29T20:34:46.0165155Z Cached:    0 cached, 2 total
+2025-11-29T20:34:46.0165519Z   Time:    9.463s 
+2025-11-29T20:34:46.0165718Z 
+2025-11-29T20:34:46.0622377Z ##[group]Run Azure/static-web-apps-deploy@v1
+2025-11-29T20:34:46.0622695Z with:
+2025-11-29T20:34:46.0623409Z   azure_static_web_apps_api_token: ***
+2025-11-29T20:34:46.0623808Z   repo_token: ***
+2025-11-29T20:34:46.0624002Z   action: upload
+2025-11-29T20:34:46.0624202Z   app_location: packages/frontend/dist
+2025-11-29T20:34:46.0624457Z   skip_app_build: true
+2025-11-29T20:34:46.0624659Z ##[endgroup]
+2025-11-29T20:34:46.0732677Z ##[command]/usr/bin/docker run --name c7979ebecbef14483d4040813e82630968ed95_f0314f --label c7979e --workdir /github/workspace --rm -e "INPUT_AZURE_STATIC_WEB_APPS_API_TOKEN" -e "INPUT_REPO_TOKEN" -e "INPUT_ACTION" -e "INPUT_APP_LOCATION" -e "INPUT_SKIP_APP_BUILD" -e "INPUT_API_BUILD_COMMAND" -e "INPUT_API_LOCATION" -e "INPUT_APP_ARTIFACT_LOCATION" -e "INPUT_OUTPUT_LOCATION" -e "INPUT_APP_BUILD_COMMAND" -e "INPUT_ROUTES_LOCATION" -e "INPUT_CONFIG_FILE_LOCATION" -e "INPUT_SKIP_API_BUILD" -e "INPUT_PRODUCTION_BRANCH" -e "INPUT_DEPLOYMENT_ENVIRONMENT" -e "INPUT_IS_STATIC_EXPORT" -e "INPUT_DATA_API_LOCATION" -e "INPUT_GITHUB_ID_TOKEN" -e "HOME" -e "GITHUB_JOB" -e "GITHUB_REF" -e "GITHUB_SHA" -e "GITHUB_REPOSITORY" -e "GITHUB_REPOSITORY_OWNER" -e "GITHUB_REPOSITORY_OWNER_ID" -e "GITHUB_RUN_ID" -e "GITHUB_RUN_NUMBER" -e "GITHUB_RETENTION_DAYS" -e "GITHUB_RUN_ATTEMPT" -e "GITHUB_ACTOR_ID" -e "GITHUB_ACTOR" -e "GITHUB_WORKFLOW" -e "GITHUB_HEAD_REF" -e "GITHUB_BASE_REF" -e "GITHUB_EVENT_NAME" -e "GITHUB_SERVER_URL" -e "GITHUB_API_URL" -e "GITHUB_GRAPHQL_URL" -e "GITHUB_REF_NAME" -e "GITHUB_REF_PROTECTED" -e "GITHUB_REF_TYPE" -e "GITHUB_WORKFLOW_REF" -e "GITHUB_WORKFLOW_SHA" -e "GITHUB_REPOSITORY_ID" -e "GITHUB_TRIGGERING_ACTOR" -e "GITHUB_WORKSPACE" -e "GITHUB_ACTION" -e "GITHUB_EVENT_PATH" -e "GITHUB_ACTION_REPOSITORY" -e "GITHUB_ACTION_REF" -e "GITHUB_PATH" -e "GITHUB_ENV" -e "GITHUB_STEP_SUMMARY" -e "GITHUB_STATE" -e "GITHUB_OUTPUT" -e "RUNNER_OS" -e "RUNNER_ARCH" -e "RUNNER_NAME" -e "RUNNER_ENVIRONMENT" -e "RUNNER_TOOL_CACHE" -e "RUNNER_TEMP" -e "RUNNER_WORKSPACE" -e "ACTIONS_RUNTIME_URL" -e "ACTIONS_RUNTIME_TOKEN" -e "ACTIONS_CACHE_URL" -e "ACTIONS_ID_TOKEN_REQUEST_URL" -e "ACTIONS_ID_TOKEN_REQUEST_TOKEN" -e "ACTIONS_RESULTS_URL" -e GITHUB_ACTIONS=true -e CI=true -v "/var/run/docker.sock":"/var/run/docker.sock" -v "/home/runner/work/_temp":"/github/runner_temp" -v "/home/runner/work/_temp/_github_home":"/github/home" -v "/home/runner/work/_temp/_github_workflow":"/github/workflow" -v "/home/runner/work/_temp/_runner_file_commands":"/github/file_commands" -v "/home/runner/work/ECONEURA-GO/ECONEURA-GO":"/github/workspace" c7979e:becbef14483d4040813e82630968ed95
+2025-11-29T20:34:47.5277215Z DeploymentId: 03284d12-0412-4199-a1ad-ff3fdeb409a6
+2025-11-29T20:34:47.5277968Z 
+2025-11-29T20:34:47.6402952Z [37mTry to validate location at: '/github/workspace/packages/frontend/dist'.[0m
+2025-11-29T20:34:47.6415446Z [37mApp Directory Location: 'packages/frontend/dist' was found.[0m
+2025-11-29T20:34:47.6416667Z [37mTry to validate location at: '/github/workspace/swa-db-connections'.[0m
+2025-11-29T20:34:47.6418064Z [37mLooking for event info[0m
+2025-11-29T20:34:48.5342206Z [37mSkipping step to build /github/workspace/packages/frontend/dist with Oryx[0m
+2025-11-29T20:34:48.5593431Z [37mNo Api directory specified. Azure Functions will not be created.[0m
+2025-11-29T20:34:48.5756909Z [33mEither no Api directory was specified, or the specified directory was not found. Azure Functions will not be created.[0m
+2025-11-29T20:34:49.4344537Z [37mZipping App Artifacts[0m
+2025-11-29T20:34:49.6975972Z [37mDone Zipping App Artifacts[0m
+2025-11-29T20:34:49.6977707Z [37mUploading build artifacts.[0m
+2025-11-29T20:34:52.5599347Z [32mFinished Upload. Polling on deployment.[0m
+2025-11-29T20:34:52.8143619Z [37mStatus: InProgress. Time: 0.2521891(s)[0m
+2025-11-29T20:35:08.4937774Z [37mStatus: InProgress. Time: 15.9337482(s)[0m
+2025-11-29T20:35:23.7181973Z [37mStatus: Succeeded. Time: 31.1581252(s)[0m
+2025-11-29T20:35:23.7182688Z [32mDeployment Complete :)[0m
+2025-11-29T20:35:23.7184030Z [32mVisit your site at: https://yellow-meadow-004e16d03.3.azurestaticapps.net[0m
+2025-11-29T20:35:23.8142132Z [37mThanks for using Azure Static Web Apps![0m
+2025-11-29T20:35:23.8142767Z [37mExiting[0m
+2025-11-29T20:35:23.9063816Z Post job cleanup.
+2025-11-29T20:35:24.0584408Z Cache hit occurred on the primary key node-cache-Linux-x64-npm-8caa1747b02b9575ba30c2177b94686b55ebfce4790e6735468efa53b744b388, not saving cache.
+2025-11-29T20:35:24.0681000Z Post job cleanup.
+2025-11-29T20:35:24.1609982Z [command]/usr/bin/git version
+2025-11-29T20:35:24.1646950Z git version 2.51.2
+2025-11-29T20:35:24.1691993Z Temporarily overriding HOME='/home/runner/work/_temp/ddf36f89-3961-4752-bfae-dd5892eccb27' before making global git config changes
+2025-11-29T20:35:24.1693498Z Adding repository directory to the temporary git global config as a safe directory
+2025-11-29T20:35:24.1705196Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ECONEURA-GO/ECONEURA-GO
+2025-11-29T20:35:24.1738788Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-11-29T20:35:24.1770895Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-11-29T20:35:24.1998392Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-11-29T20:35:24.2018221Z http.https://github.com/.extraheader
+2025-11-29T20:35:24.2032329Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2025-11-29T20:35:24.2064116Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-11-29T20:35:24.2309602Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2025-11-29T20:35:24.2342512Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2025-11-29T20:35:24.2692613Z Cleaning up orphan processes

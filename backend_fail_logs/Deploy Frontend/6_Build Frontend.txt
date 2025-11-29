@@ -1,0 +1,51 @@
+﻿2025-11-29T20:34:36.1752533Z ##[group]Run npx turbo run build --filter=@econeura/web...
+2025-11-29T20:34:36.1752969Z [36;1mnpx turbo run build --filter=@econeura/web...[0m
+2025-11-29T20:34:36.1791760Z shell: /usr/bin/bash -e {0}
+2025-11-29T20:34:36.1791989Z ##[endgroup]
+2025-11-29T20:34:36.5304889Z 
+2025-11-29T20:34:36.5306183Z Attention:
+2025-11-29T20:34:36.5307086Z Turborepo now collects completely anonymous telemetry regarding usage.
+2025-11-29T20:34:36.5308582Z This information is used to shape the Turborepo roadmap and prioritize features.
+2025-11-29T20:34:36.5310263Z You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+2025-11-29T20:34:36.5311504Z https://turborepo.com/docs/telemetry
+2025-11-29T20:34:36.5311916Z 
+2025-11-29T20:34:36.5815120Z • Packages in scope: @econeura/config, @econeura/shared, @econeura/web
+2025-11-29T20:34:36.5816159Z • Running build in 3 packages
+2025-11-29T20:34:36.5816781Z • Remote caching disabled
+2025-11-29T20:34:38.2207200Z ##[group]@econeura/shared:build
+2025-11-29T20:34:38.2208642Z cache miss, executing cf595fe561044f67
+2025-11-29T20:34:38.2208942Z 
+2025-11-29T20:34:38.2209139Z > @econeura/shared@0.0.1 build
+2025-11-29T20:34:38.2209368Z > tsc
+2025-11-29T20:34:38.2209465Z 
+2025-11-29T20:34:38.2209735Z ##[endgroup]
+2025-11-29T20:34:46.0141905Z ##[group]@econeura/web:build
+2025-11-29T20:34:46.0142677Z cache miss, executing c51a05b302399b8b
+2025-11-29T20:34:46.0143007Z 
+2025-11-29T20:34:46.0143290Z > @econeura/web@0.0.1 build
+2025-11-29T20:34:46.0143674Z > npx vite build
+2025-11-29T20:34:46.0143880Z 
+2025-11-29T20:34:46.0144695Z [36mvite v7.2.4 [32mbuilding client environment for production...[36m[39m
+2025-11-29T20:34:46.0145342Z transforming...
+2025-11-29T20:34:46.0146130Z [32m✓[39m 3286 modules transformed.
+2025-11-29T20:34:46.0146604Z rendering chunks...
+2025-11-29T20:34:46.0146984Z computing gzip size...
+2025-11-29T20:34:46.0148602Z [2mdist/[22m[32mindex.html                       [39m[1m[2m  1.45 kB[22m[1m[22m[2m │ gzip:   0.65 kB[22m
+2025-11-29T20:34:46.0150068Z [2mdist/[22m[2massets/[22m[35mindex-bKvjckza.css        [39m[1m[2m 18.79 kB[22m[1m[22m[2m │ gzip:   3.84 kB[22m
+2025-11-29T20:34:46.0151402Z [2mdist/[22m[2massets/[22m[36mreact-vendor-B6_PLOK3.js  [39m[1m[2m 44.41 kB[22m[1m[22m[2m │ gzip:  16.02 kB[22m
+2025-11-29T20:34:46.0152830Z [2mdist/[22m[2massets/[22m[36mui-vendor-gAipy2Zs.js     [39m[1m[2m133.81 kB[22m[1m[22m[2m │ gzip:  44.88 kB[22m
+2025-11-29T20:34:46.0154304Z [2mdist/[22m[2massets/[22m[36mclient-C73EbFQ4.js        [39m[1m[2m180.88 kB[22m[1m[22m[2m │ gzip:  56.88 kB[22m
+2025-11-29T20:34:46.0155838Z [2mdist/[22m[2massets/[22m[36mindex-Dhh8zdb1.js         [39m[1m[2m257.08 kB[22m[1m[22m[2m │ gzip:  85.09 kB[22m
+2025-11-29T20:34:46.0157440Z [2mdist/[22m[2massets/[22m[36mApp-DoiGZKlA.js           [39m[1m[33m797.31 kB[39m[22m[2m │ gzip: 232.40 kB[22m
+2025-11-29T20:34:46.0158271Z [33m
+2025-11-29T20:34:46.0158848Z (!) Some chunks are larger than 600 kB after minification. Consider:
+2025-11-29T20:34:46.0159629Z - Using dynamic import() to code-split the application
+2025-11-29T20:34:46.0160947Z - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+2025-11-29T20:34:46.0162841Z - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+2025-11-29T20:34:46.0163645Z [32m✓ built in 7.04s[39m
+2025-11-29T20:34:46.0164313Z ##[endgroup]
+2025-11-29T20:34:46.0164509Z 
+2025-11-29T20:34:46.0164715Z  Tasks:    2 successful, 2 total
+2025-11-29T20:34:46.0165151Z Cached:    0 cached, 2 total
+2025-11-29T20:34:46.0165516Z   Time:    9.463s 
+2025-11-29T20:34:46.0165714Z 

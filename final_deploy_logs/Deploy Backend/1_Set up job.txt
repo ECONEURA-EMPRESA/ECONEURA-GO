@@ -1,0 +1,31 @@
+﻿2025-11-29T16:43:51.4755997Z Current runner version: '2.329.0'
+2025-11-29T16:43:51.4787171Z ##[group]Runner Image Provisioner
+2025-11-29T16:43:51.4788000Z Hosted Compute Agent
+2025-11-29T16:43:51.4788690Z Version: 20251016.436
+2025-11-29T16:43:51.4789286Z Commit: 8ab8ac8bfd662a3739dab9fe09456aba92132568
+2025-11-29T16:43:51.4790036Z Build Date: 2025-10-15T20:44:12Z
+2025-11-29T16:43:51.4790725Z ##[endgroup]
+2025-11-29T16:43:51.4791227Z ##[group]Operating System
+2025-11-29T16:43:51.4791771Z Ubuntu
+2025-11-29T16:43:51.4792317Z 24.04.3
+2025-11-29T16:43:51.4792758Z LTS
+2025-11-29T16:43:51.4793250Z ##[endgroup]
+2025-11-29T16:43:51.4793828Z ##[group]Runner Image
+2025-11-29T16:43:51.4794350Z Image: ubuntu-24.04
+2025-11-29T16:43:51.4794862Z Version: 20251112.124.1
+2025-11-29T16:43:51.4795957Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20251112.124/images/ubuntu/Ubuntu2404-Readme.md
+2025-11-29T16:43:51.4797598Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20251112.124
+2025-11-29T16:43:51.4798903Z ##[endgroup]
+2025-11-29T16:43:51.4799870Z ##[group]GITHUB_TOKEN Permissions
+2025-11-29T16:43:51.4801828Z Contents: read
+2025-11-29T16:43:51.4802749Z Metadata: read
+2025-11-29T16:43:51.4803550Z ##[endgroup]
+2025-11-29T16:43:51.4806563Z Secret source: Actions
+2025-11-29T16:43:51.4807585Z Prepare workflow directory
+2025-11-29T16:43:51.5255026Z Prepare all required actions
+2025-11-29T16:43:51.5309764Z Getting action download info
+2025-11-29T16:43:51.8398571Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2025-11-29T16:43:52.1439370Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2025-11-29T16:43:52.2349518Z Download action repository 'azure/login@v2' (SHA:a457da9ea143d694b1b9c7c869ebb04ebe844ef5)
+2025-11-29T16:43:52.4300416Z Download action repository 'azure/webapps-deploy@v2' (SHA:122b7ec46017e53a3f71e3a027d67550a1641f5e)
+2025-11-29T16:43:54.5685924Z Complete job name: Deploy Backend
