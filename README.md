@@ -103,8 +103,8 @@ cd ECONEURA-GO
 npm run dev
 ```
 
-*   **Frontend**: [http://localhost:5173](http://localhost:5173) (Badge "LOCAL DEV MODE" activo)
-*   **Backend**: [http://localhost:3000](http://localhost:3000)
+*   **Frontend**: [https://econeura.com](https://econeura.com) (Production)
+*   **Backend**: [https://econeura-backend-production.azurewebsites.net](https://econeura-backend-production.azurewebsites.net)
 
 ### Comandos Manuales
 
