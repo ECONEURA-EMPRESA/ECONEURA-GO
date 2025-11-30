@@ -1,69 +1,40 @@
-# 🔄 Pull Request
+# Pull Request Template
 
-## 📋 Descripción
+## 📋 Description
+<!-- Provide a brief description of the changes in this PR -->
 
-<!-- Describe los cambios realizados en este PR -->
+## 🔗 Related Issue
+<!-- Link to the issue this PR addresses. Use "Closes #123" syntax -->
 
-## 🎯 Tipo de Cambio
+## ✨ Type of Change
+<!-- Mark the relevant option with an "x" -->
 
-<!-- Marca con una X las opciones que apliquen -->
-
-- [ ] 🐛 Bug fix (cambio que corrige un problema)
-- [ ] ✨ Nueva funcionalidad (cambio que añade funcionalidad)
-- [ ] 💥 Breaking change (cambio que rompe compatibilidad)
-- [ ] 📚 Documentación (cambios en documentación)
-- [ ] 🎨 Estilo/UI (cambios que no afectan la lógica)
-- [ ] ♻️ Refactor (cambios que no corrigen bugs ni añaden features)
-- [ ] ⚡ Performance (mejoras de rendimiento)
-- [ ] ✅ Tests (añadir o corregir tests)
-- [ ] 🔧 Build/CI (cambios en build o CI/CD)
-- [ ] 🔒 Security (cambios relacionados con seguridad)
-
-## 🔗 Issues Relacionados
-
-<!-- Lista los issues relacionados con este PR -->
-<!-- Ejemplo: Closes #123, Fixes #456 -->
-
-Closes #
+- [ ] 🐛 Bug fix (non-breaking change which fixes an issue)
+- [ ] ✨ New feature (non-breaking change which adds functionality)
+- [ ] 💥 Breaking change (fix or feature that would cause existing functionality to not work as expected)
+- [ ] 📝 Documentation update
+- [ ] 🔧 Configuration change
+- [ ] ♻️ Code refactoring
+- [ ] 🧪 Test improvements
 
 ## 🧪 Testing
+<!-- Describe the tests you ran and how to reproduce them -->
 
-<!-- Describe las pruebas realizadas -->
+- [ ] Tests pass locally (`npm run test`)
+- [ ] Linting passes (`npm run lint`)
+- [ ] Type checking passes (`npm run type-check`)
 
-- [ ] Tests unitarios pasan
-- [ ] Tests de integración pasan
-- [ ] Tests E2E pasan (si aplica)
-- [ ] Probado manualmente en local
-- [ ] Probado en staging (si aplica)
-
-### Pasos para probar:
-
-1. 
-2. 
-3. 
-
-## 📸 Screenshots (si aplica)
-
-<!-- Añade screenshots si hay cambios visuales -->
+## 📸 Screenshots (if applicable)
+<!-- Add screenshots for UI changes -->
 
 ## ✅ Checklist
+- [ ] My code follows the project's style guidelines
+- [ ] I have performed a self-review of my own code
+- [ ] I have commented my code, particularly in hard-to-understand areas
+- [ ] I have made corresponding changes to the documentation
+- [ ] My changes generate no new warnings
+- [ ] I have added tests that prove my fix is effective or that my feature works
+- [ ] New and existing unit tests pass locally with my changes
 
-- [ ] Mi código sigue las guías de estilo del proyecto
-- [ ] He realizado una auto-revisión de mi código
-- [ ] He comentado código complejo donde sea necesario
-- [ ] He actualizado la documentación si es necesario
-- [ ] Mis cambios no generan warnings nuevos
-- [ ] He añadido tests que prueban mi funcionalidad
-- [ ] Los tests nuevos y existentes pasan localmente
-- [ ] He verificado que no hay breaking changes (o los he documentado)
-
-## 📝 Notas Adicionales
-
-<!-- Añade cualquier información adicional que sea relevante -->
-
-## 🔍 Reviewers
-
-<!-- Menciona a los reviewers que deberían revisar este PR -->
-
-@econeura-team
-
+## 📝 Additional Notes
+<!-- Any additional information or context -->
