@@ -14,6 +14,7 @@
   ],
   "scripts": {
     "build": "turbo run build",
+    "start": "node packages/backend/dist/src/index.js",
     "dev": "turbo run dev --parallel",
     "test": "turbo run test",
     "lint": "turbo run lint",
