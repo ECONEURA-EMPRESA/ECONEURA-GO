@@ -1,3 +1,16 @@
+<div align="center">
+
+# 🧠 ECONEURA
+
+### Enterprise AI SaaS Platform with 11 Specialized NEURA Agents
+
+[![Deploy Frontend](https://github.com/ECONEURA-EMPRESA/ECONEURA-GO/workflows/Deploy%20to%20Azure/badge.svg)](https://github.com/ECONEURA-EMPRESA/ECONEURA-GO/actions)
+[![Backend Status](https://img.shields.io/badge/backend-deployed-success)](https://econeura-backend-production.azurewebsites.net/api/health)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+[![Node.js](https://img.shields.io/badge/node-%3E%3D20.0.0-brightgreen)](https://nodejs.org/)
+[![TypeScript](https://img.shields.io/badge/typescript-5.6.3-blue)](https://www.typescriptlang.org/)
+
+**[🌐 Live Demo](https://econeura.com)** • **[📚 Docs](./docs)** • **[🚀 Quick Start](#-quick-start)**
 
 </div>
 
