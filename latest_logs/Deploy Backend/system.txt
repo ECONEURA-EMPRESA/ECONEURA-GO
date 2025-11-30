@@ -1,5 +1,0 @@
-2025-11-29T09:43:54.8220000Z Requested labels: ubuntu-latest
-2025-11-29T09:43:54.8220000Z Job defined at: ECONEURA-EMPRESA/ECONEURA-GO/.github/workflows/deploy.yml@refs/heads/main
-2025-11-29T09:43:54.8220000Z Waiting for a runner to pick up this job...
-2025-11-29T09:43:55.3140000Z Job is waiting for a hosted runner to come online.
-2025-11-29T09:43:55.3140000Z Job is about to start running on the hosted runner: GitHub Actions 1000001531

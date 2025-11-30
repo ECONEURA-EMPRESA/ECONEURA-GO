@@ -15,47 +15,6 @@ lerna-debug.log*
 validation_log*.txt
 test_report*.txt
 test_failure*.txt
-lint_debug.txt
-
-# Coverage
-coverage/
-.nyc_output/
-
-# Environment variables
-.env
-.env.*
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# IDEs
-.vscode/
-.idea/
-*.swp
-*.swo
-*.sublime-project
-*.sublime-workspace
-
-# OS
-.DS_Store
-Thumbs.db
-Desktop.ini
-
-# Temporary files
-*.temp
-*.tmp
-*.bak
-*~
-.cache/
-
-# Carpetas de referencia (ya migradas)
-ECONEURA-REMOTE
-ECONEURA-PRO
-
-# Development scripts (no subir a producción)
-inject-session.js
-mock-login.html
 
 deployment-outputs.json
 backend-deploy.zip
@@ -74,3 +33,63 @@ scripts/temp/
 test-output*.txt
 debug-routes.ts
 frontend-test-diag*.txt
+
+# Logs directories
+*_logs/
+*_fail_logs/
+final_deploy_logs/
+backend_fail_logs/
+latest_logs/
+
+# Log archives
+*.zip
+
+# Temporary markdown files
+*CORRECCIONES*.md
+*PERFECTION*.md
+*SECRETOS*.md
+*INSTRUCCIONES*.md
+*MEJORAS*.md
+
+# Backup files
+*.BACKUP.*
+*_OFICIAL.*
+*BACKUP*
+
+# Analysis files
+*-analysis.json
+
+# Runtime logs
+packages/*/logs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Coverage
+coverage/
+.nyc_output/
+
+# Temporary files
+*.tmp
+.cache/
+*.bak
+*.temp
+
+# Turbo
+.turbo/
+
+# Azure
+.azure/

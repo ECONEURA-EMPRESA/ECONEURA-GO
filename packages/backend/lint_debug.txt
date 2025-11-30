@@ -1,0 +1,15 @@
+
+Oops! Something went wrong! :(
+
+ESLint: 9.39.1
+
+ESLint couldn't find a configuration file. To set up a configuration file for this project, please run:
+
+    npm init @eslint/config@latest
+
+ESLint looked for configuration files in C:\Users\Usuario\ECONEURA-FULL\packages\backend\dist\scripts and its ancestors. If it found none, it then looked in your home directory.
+
+If you think you already have a configuration file or if you need more help, please stop by the ESLint Discord server: https://eslint.org/chat
+
+(node:24300) ESLintRCWarning: You are using an eslintrc configuration file, which is deprecated and support will be removed in v10.0.0. Please migrate to an eslint.config.js file. See https://eslint.org/docs/latest/use/configure/migration-guide for details. An eslintrc configuration file is used because you have the ESLINT_USE_FLAT_CONFIG environment variable set to false. If you want to use an eslint.config.js file, remove the environment variable. If you want to find the location of the eslintrc configuration file, use the --debug flag.
+(Use `node --trace-warnings ...` to show where the warning was created)
