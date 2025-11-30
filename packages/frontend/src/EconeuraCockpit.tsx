@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import React, { useMemo, useState, useEffect, useRef, memo } from "react";
 import { Link } from "react-router-dom";
 import {
@@ -588,7 +587,7 @@ export default function EconeuraCockpit({ user, onLogout }: EconeuraCockpitProps
         rec.onend = () => setListening(false);
         recognitionRef.current = rec;
       }
-    } catch { }
+    } catch { /* Speech recognition not supported */ }
   }, []);
 
   function speak(text: string) {
@@ -598,16 +597,16 @@ export default function EconeuraCockpit({ user, onLogout }: EconeuraCockpitProps
       u.lang = 'es-ES';
       window.speechSynthesis.cancel();
       window.speechSynthesis.speak(u);
-    } catch { }
+    } catch { /* Speech synthesis failed */ }
   }
 
-  function stopSpeak() { try { if ('speechSynthesis' in window) window.speechSynthesis.cancel(); } catch { } }
+  function stopSpeak() { try { if ('speechSynthesis' in window) window.speechSynthesis.cancel(); } catch { /* Intentionally empty */ } }
 
   function toggleListen() {
     const rec = recognitionRef.current;
     if (!rec) return;
-    if (!listening) { setChatInput(''); setListening(true); try { rec.start(); } catch { } }
-    else { try { rec.stop(); } catch { } }
+    if (!listening) { setChatInput(''); setListening(true); try { rec.start(); } catch { /* Speech recognition error */ } }
+    else { try { rec.stop(); } catch { /* Speech recognition stop error */ } }
   }
 
 
