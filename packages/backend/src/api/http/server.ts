@@ -30,6 +30,7 @@ import { uploadRoutes } from './routes/uploadRoutes';
 export async function createServer() {
   const app = express();
   const env = getValidatedEnv();
+  logger.info('[Server] Creating Express server...');
   // ✅ SIN RESTRICCIONES: Límite alto para permitir archivos grandes (como ChatGPT)
   const bodyLimit = env.PAYLOAD_LIMIT ?? '50mb';
   const allowedOrigins = (env.CORS_ALLOWED_ORIGINS ?? 'http://localhost:5173,http://localhost:4173')

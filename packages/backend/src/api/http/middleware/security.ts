@@ -100,7 +100,7 @@ export const defaultSecurityMiddleware = securityMiddleware({
   enableMimeValidation: true,
   enableUserRateLimit: false, // Ya hay rate limiting global
   payloadMaxSize: DEFAULT_PAYLOAD_LIMIT,
-  csrfExclude: ['/api/metrics', '/health'],
+  csrfExclude: ['/api/metrics', '/health', '/api/health'],
   allowedMimeTypes: [
     'application/pdf',
     'text/plain',
