@@ -181,7 +181,7 @@ function getDeptWebhook(deptId: string): string | undefined {
 
 async function invokeAgent(agentId: string, _route: 'local' | 'azure' = 'azure', payload: Record<string, unknown> = {}) {
   const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-  const base = isLocalhost ? 'http://localhost:3000' : (env.GW_URL || 'https://econeura-backend-prod.azurewebsites.net').replace(/\/$/, '');
+  const base = isLocalhost ? 'http://localhost:3000' : (env.GW_URL || 'https://econeura-backend-production.azurewebsites.net').replace(/\/$/, '');
   const url = `${base}/api/invoke/${agentId}`;
 
   try {

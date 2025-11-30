@@ -16,7 +16,7 @@
  * ```typescript
  * const apiUrl = getApiUrl();
  * // Dev: 'http://localhost:3000'
- * // Prod: 'https://econeura-backend-prod.azurewebsites.net'
+ * // Prod: 'https://econeura-backend-production.azurewebsites.net'
  * ```
  */
 export function getApiUrl(): string {
@@ -27,10 +27,10 @@ export function getApiUrl(): string {
 
   const hostname = window.location.hostname;
   const isLocalhost = hostname === 'localhost' || hostname === '127.0.0.1';
-  
-  return isLocalhost 
-    ? 'http://localhost:3000' 
-    : 'https://econeura-backend-prod.azurewebsites.net';
+
+  return isLocalhost
+    ? 'http://localhost:3000'
+    : 'https://econeura-backend-production.azurewebsites.net';
 }
 
 /**
@@ -74,11 +74,11 @@ export function createAuthHeaders(additionalHeaders?: Record<string, string>): R
     'Content-Type': 'application/json',
     ...additionalHeaders
   };
-  
+
   if (token) {
     headers['Authorization'] = `Bearer ${token}`;
   }
-  
+
   return headers;
 }
 
