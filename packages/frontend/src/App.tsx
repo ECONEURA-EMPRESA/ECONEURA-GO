@@ -2,9 +2,7 @@ import React, { useState, useEffect, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { AuthProvider } from './contexts/AuthContext';
-import { LoginView } from './pages/Login/LoginView';
-import { CockpitLayout } from './pages/Cockpit/CockpitLayout';
-
+import EconeuraCockpit from './EconeuraCockpit';
 
 interface User {
   id: string;
@@ -35,11 +33,6 @@ function AppContent() {
     }
   }, []);
 
-  const handleLoginSuccess = (newToken: string, newUser: User) => {
-    setToken(newToken);
-    setUser(newUser);
-  };
-
   const handleLogout = () => {
     localStorage.removeItem('econeura_token');
     localStorage.removeItem('econeura_user');
@@ -52,16 +45,14 @@ function AppContent() {
       <BrowserRouter>
         <ErrorBoundary>
           <Routes>
-            {/* App principal - COCKPIT CON LOGIN INTEGRADO */}
+            {/* App principal - COCKPIT OFICIAL (Monolito) */}
             <Route
               path="/"
               element={
                 <ErrorBoundary>
-                  <Suspense fallback={<div>Cargando...</div>}>
-                    <EconeuraCockpitWithLogin
-                      token={token}
-                      user={user}
-                      onLoginSuccess={handleLoginSuccess}
+                  <Suspense fallback={<div>Cargando ECONEURA...</div>}>
+                    <EconeuraCockpit
+                      user={user || undefined}
                       onLogout={handleLogout}
                     />
                   </Suspense>
@@ -75,35 +66,6 @@ function AppContent() {
         </ErrorBoundary>
       </BrowserRouter>
     </ErrorBoundary>
-  );
-}
-
-// Wrapper que muestra Login u Cockpit según estado de sesión
-function EconeuraCockpitWithLogin({
-  token,
-  user,
-  onLoginSuccess,
-  onLogout
-}: {
-  token: string | null;
-  user: User | null;
-  onLoginSuccess: (token: string, user: User) => void;
-  onLogout: () => void;
-}) {
-  // Si NO hay token, mostrar Login
-  if (!token) {
-    return (
-      <Suspense fallback={<div>Cargando...</div>}>
-        <LoginView onLoginSuccess={onLoginSuccess} />
-      </Suspense>
-    );
-  }
-
-  // Si hay token, mostrar Cockpit
-  return (
-    <Suspense fallback={<div>Cargando...</div>}>
-      <CockpitLayout user={user || undefined} onLogout={onLogout} />
-    </Suspense>
   );
 }
 
