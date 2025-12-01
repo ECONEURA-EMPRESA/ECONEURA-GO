@@ -1,4 +1,19 @@
 /**
+ * Hook para gestionar leads del CRM con paginación, búsqueda y filtrado
+ * @module useCRMLeads
+ */
+
+import { useState, useCallback, useEffect } from 'react';
+import { toast } from 'sonner';
+import { API_URL } from '../config/api';
+
+/**
+ * Interface para un lead del CRM
+ */
+export interface CRMLead {
+  id: string;
+  name: string;
+  company: string;
   score: number;
   status: string;
   owner: string;
@@ -204,4 +219,3 @@ export function useCRMLeads(options: UseCRMLeadsOptions = {}): UseCRMLeadsReturn
     sortDirection
   };
 }
-

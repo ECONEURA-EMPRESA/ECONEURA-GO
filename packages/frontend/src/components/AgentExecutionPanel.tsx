@@ -3,10 +3,16 @@ import { X, Terminal, Play, CheckCircle, AlertCircle, Loader, Cpu, Database, Shi
 import { cx } from '../utils/classnames';
 
 export interface AgentExecutionPanelProps {
-  visible: boolean;
-  onClose: () => void;
+  visible?: boolean;
+  onClose?: () => void;
   chatContext?: string;
   userIntent?: string;
+  dept?: any;
+  darkMode?: boolean;
+  onRunAgent?: (a: any) => Promise<void>;
+  busyId?: string | null;
+  onCreateAgent?: () => void;
+  onConnectAgent?: (agent: any) => void;
 }
 
 export function AgentExecutionPanel({ visible, onClose, chatContext, userIntent }: AgentExecutionPanelProps) {

@@ -2,17 +2,19 @@ import React from 'react';
 import { Brain, MessageCircle, UserCheck, ShieldCheck, Zap } from 'lucide-react';
 import { cx } from '../utils/classnames';
 import { rgba } from '../utils/colors';
-import { Department, TagIcon, getDeptIcon } from '../data/neuraData';
+import { Department, TagIcon, getDeptIcon, getPalette } from '../data/neuraData';
 
 interface DashboardMetricsProps {
     dept: Department;
-    palette: { textHex: string; bgHex: string; accentText: string };
-    setChatOpen: (open: boolean) => void;
-    setPortalOpen: (open: boolean) => void;
-    setAgentExecutionOpen: (open: boolean) => void;
+    darkMode?: boolean;
+    palette?: { textHex: string; bgHex: string; accentText: string };
+    setChatOpen?: (open: boolean) => void;
+    setPortalOpen?: (open: boolean) => void;
+    setAgentExecutionOpen?: (open: boolean) => void;
 }
 
-export function DashboardMetrics({ dept, palette: pal, setChatOpen, setPortalOpen, setAgentExecutionOpen }: DashboardMetricsProps) {
+export function DashboardMetrics({ dept, darkMode, palette, setChatOpen, setPortalOpen, setAgentExecutionOpen }: DashboardMetricsProps) {
+    const pal = palette || getPalette(dept.id);
     const DeptIconComp = getDeptIcon(dept.id);
 
     return (
@@ -98,19 +100,19 @@ export function DashboardMetrics({ dept, palette: pal, setChatOpen, setPortalOpe
                             backgroundColor: pal.textHex,
                             opacity: 0.9
                         }}
-                        onClick={() => setChatOpen(true)}
+                        onClick={() => setChatOpen?.(true)}
                     >
                         <MessageCircle className="w-4 h-4" />
                         Abrir chat
                     </button>
                     <button
-                        onClick={() => setPortalOpen(true)}
+                        onClick={() => setPortalOpen?.(true)}
                         className="h-9 px-4 rounded-lg border border-slate-200 bg-white inline-flex items-center gap-2 text-xs font-medium text-slate-700 hover:bg-slate-50 transition-colors"
                     >
                         Portal Cliente
                     </button>
                     <button
-                        onClick={() => setAgentExecutionOpen(true)}
+                        onClick={() => setAgentExecutionOpen?.(true)}
                         className="h-9 px-4 rounded-lg border border-emerald-200 bg-emerald-50 inline-flex items-center gap-2 text-xs font-medium text-emerald-700 hover:bg-emerald-100 transition-colors"
                     >
                         <Zap className="w-4 h-4" />

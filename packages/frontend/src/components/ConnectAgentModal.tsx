@@ -4,8 +4,9 @@ import { X, Check, ExternalLink, Zap, Workflow, MessageSquare, Cpu } from 'lucid
 interface ConnectAgentModalProps {
   isOpen: boolean;
   onClose: () => void;
+  agent: { id: string; title: string };
+  darkMode: boolean;
   onConnect?: (agentData: any) => void;
-  agentName?: string;
 }
 
 type Provider = {
@@ -62,7 +63,7 @@ const PROVIDERS: Provider[] = [
   }
 ];
 
-export function ConnectAgentModal({ isOpen, onClose, onConnect, agentName }: ConnectAgentModalProps) {
+export function ConnectAgentModal({ isOpen, onClose, onConnect, agent }: ConnectAgentModalProps) {
   const [selectedProvider, setSelectedProvider] = useState<string | null>(null);
   const [webhookUrl, setWebhookUrl] = useState('');
   const [step, setStep] = useState<'select' | 'configure'>('select');
@@ -84,13 +85,13 @@ export function ConnectAgentModal({ isOpen, onClose, onConnect, agentName }: Con
     if (!selectedProvider || !webhookUrl.trim()) return;
 
     const provider = PROVIDERS.find(p => p.id === selectedProvider);
-    
+
     if (onConnect) {
       onConnect({
         provider: selectedProvider,
         providerName: provider?.name,
         webhookUrl: webhookUrl.trim(),
-        agentName,
+        agentName: agent.title,
         connectedAt: new Date().toISOString()
       });
     }
@@ -111,8 +112,8 @@ export function ConnectAgentModal({ isOpen, onClose, onConnect, agentName }: Con
         <div className="sticky top-0 bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between rounded-t-2xl">
           <div>
             <h2 className="text-2xl font-bold text-slate-900">Conectar Agente</h2>
-            {agentName && (
-              <p className="text-sm text-slate-600 mt-1">Configurar: <span className="font-semibold">{agentName}</span></p>
+            {agent && (
+              <p className="text-sm text-slate-600 mt-1">Configurar: <span className="font-semibold">{agent.title}</span></p>
             )}
           </div>
           <button
@@ -154,7 +155,7 @@ export function ConnectAgentModal({ isOpen, onClose, onConnect, agentName }: Con
                           </p>
                         </div>
                       </div>
-                      
+
                       <div className="mt-4 flex items-center gap-2 text-xs text-slate-500">
                         <ExternalLink className="w-3 h-3" />
                         <span>Ver documentación</span>
@@ -266,11 +267,10 @@ export function ConnectAgentModal({ isOpen, onClose, onConnect, agentName }: Con
             <button
               onClick={handleConnect}
               disabled={!webhookUrl.trim()}
-              className={`px-6 py-2.5 rounded-lg font-semibold flex items-center gap-2 transition-all ${
-                webhookUrl.trim()
-                  ? 'bg-blue-600 text-white hover:bg-blue-700 hover:shadow-lg'
-                  : 'bg-slate-300 text-slate-500 cursor-not-allowed'
-              }`}
+              className={`px-6 py-2.5 rounded-lg font-semibold flex items-center gap-2 transition-all ${webhookUrl.trim()
+                ? 'bg-blue-600 text-white hover:bg-blue-700 hover:shadow-lg'
+                : 'bg-slate-300 text-slate-500 cursor-not-allowed'
+                }`}
             >
               <Check className="w-4 h-4" />
               Conectar Agente

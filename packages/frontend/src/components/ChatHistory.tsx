@@ -16,7 +16,9 @@ interface Chat {
 interface ChatHistoryProps {
   isOpen: boolean;
   onClose: () => void;
-  token: string;
+  darkMode: boolean;
+  onSelectChat: (chat: any) => void;
+  token?: string;
 }
 
 export function ChatHistory({ isOpen, onClose, token }: ChatHistoryProps) {

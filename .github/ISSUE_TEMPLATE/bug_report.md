@@ -1,50 +1,32 @@
 ---
-name: 🐛 Bug Report
-about: Reportar un bug o problema
-title: '[BUG] '
+name: Bug report
+about: Create a report to help us improve
+title: "[BUG] "
 labels: bug
 assignees: ''
+
 ---
 
-## 🐛 Descripción del Bug
+**Describe the bug**
+A clear and concise description of what the bug is.
 
-<!-- Describe claramente el bug -->
+**To Reproduce**
+Steps to reproduce the behavior:
+1. Go to '...'
+2. Click on '...'
+3. Scroll down to '...'
+4. See error
 
-## 🔄 Pasos para Reproducir
+**Expected behavior**
+A clear and concise description of what you expected to happen.
 
-1. 
-2. 
-3. 
-4. 
+**Screenshots**
+If applicable, add screenshots to help explain your problem.
 
-## ✅ Comportamiento Esperado
+**Desktop (please complete the following information):**
+ - OS: [e.g. iOS]
+ - Browser [e.g. chrome, safari]
+ - Version [e.g. 22]
 
-<!-- Qué debería pasar -->
-
-## ❌ Comportamiento Actual
-
-<!-- Qué está pasando realmente -->
-
-## 📸 Screenshots
-
-<!-- Si aplica, añade screenshots -->
-
-## 🖥️ Entorno
-
-- **OS**: [ej: Windows 11, macOS 14, Ubuntu 22.04]
-- **Node.js**: [ej: 20.10.0]
-- **Navegador**: [ej: Chrome 120, Firefox 121] (si aplica)
-- **Versión**: [ej: 1.0.0]
-
-## 📋 Información Adicional
-
-<!-- Logs, stack traces, etc. -->
-
-```
-Pega aquí logs o errores relevantes
-```
-
-## 🔍 Contexto Adicional
-
-<!-- Cualquier otra información relevante -->
-
+**Additional context**
+Add any other context about the problem here.

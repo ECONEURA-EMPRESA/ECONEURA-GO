@@ -319,7 +319,6 @@ export function CRMPremiumPanel({ departmentName, accentColor, darkMode, departm
     setSortField,
     setSortDirection,
     setCurrentPage: setLeadsPage,
-    _searchQuery,
     sortField,
     sortDirection
   } = useCRMLeads({ department: departmentId, enabled: true, pageSize: ITEMS_PER_PAGE });

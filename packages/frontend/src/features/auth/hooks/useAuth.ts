@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { getApiUrl } from '@/shared/utils/apiUrl';
+import { getApiUrl } from '@/utils/apiUrl';
 
 interface User {
     id: string;

@@ -37,31 +37,36 @@ export interface PendingAttachment {
 }
 
 interface NeuraChatProps {
-    isOpen: boolean;
-    onClose: () => void;
-    dept: Department;
+    isOpen?: boolean;
+    onClose?: () => void;
+    dept?: Department;
+    deptId?: string;
     messages: ChatMessage[];
     input: string;
     setInput: (val: string) => void;
     onSend: () => void;
     isLoading: boolean;
     pendingAttachment: PendingAttachment | null;
-    onUpload: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    onUpload?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    onAttachmentUpload?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    isUploading?: boolean;
+    isUploadingAttachment?: boolean;
     onRemoveAttachment: () => void;
-    isUploading: boolean;
+    onSuggestionClick?: (sug: any) => void;
     darkMode: boolean;
-    voiceSupported: boolean;
-    listening: boolean;
-    onToggleListen: () => void;
-    onSpeak: (text: string) => void;
-    agentExecutionOpen: boolean;
-    onCloseAgentExecution: () => void;
+    voiceSupported?: boolean;
+    listening?: boolean;
+    onToggleListen?: () => void;
+    onSpeak?: (text: string) => void;
+    agentExecutionOpen?: boolean;
+    onCloseAgentExecution?: () => void;
 }
 
 export function NeuraChat({
     isOpen,
     onClose,
     dept,
+    deptId,
     messages,
     input,
     setInput,
@@ -69,8 +74,11 @@ export function NeuraChat({
     isLoading,
     pendingAttachment,
     onUpload,
-    onRemoveAttachment,
+    onAttachmentUpload,
     isUploading,
+    isUploadingAttachment,
+    onRemoveAttachment,
+    onSuggestionClick,
     darkMode,
     voiceSupported,
     listening,
@@ -91,8 +99,10 @@ export function NeuraChat({
 
     if (!isOpen) return null;
 
-    const DeptIconComp = getDeptIcon(dept.id);
-    const pal = getPalette(dept.id);
+    // Get dept from deptId if dept not provided
+    const actualDept = dept || (deptId ? { id: deptId, name: '', agents: [], chips: [], neura: { title: '', subtitle: '', tags: [], value: undefined } } as Department : undefined);
+    const DeptIconComp = actualDept ? getDeptIcon(actualDept.id) : Brain;
+    const pal = actualDept ? getPalette(actualDept.id) : { textHex: '#000', bgHex: '#fff', accentText: '#000' };
 
     return (
         <div className="fixed inset-0 bg-black/5 z-50 animate-fadeIn" onClick={onClose}>
@@ -119,7 +129,7 @@ export function NeuraChat({
                                 <div className="absolute inset-0 bg-gradient-to-br opacity-20 rounded-full" style={{ backgroundColor: pal.textHex }}></div>
                             </div>
                             <div>
-                                <div className="text-base font-semibold text-slate-900">{dept.neura.title}</div>
+                                <div className="text-base font-semibold text-slate-900">{actualDept?.neura.title || 'NEURA'}</div>
                                 <div className="flex items-center gap-2 text-xs font-medium">
                                     <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-slate-50 border border-slate-300">
                                         <span className="w-1.5 h-1.5 rounded-full bg-slate-900"></span>
@@ -233,7 +243,7 @@ export function NeuraChat({
                                                 <FileText className="w-3.5 h-3.5 text-slate-400 group-hover:text-slate-600" />
                                             </button>
                                             {voiceSupported && (
-                                                <button onClick={() => onSpeak(m.text)} className="p-1.5 rounded-lg hover:bg-slate-100 transition-all group" title="Escuchar">
+                                                <button onClick={() => voiceSupported && onSpeak?.(m.text)} className="p-1.5 rounded-lg hover:bg-slate-100 transition-all group" title="Escuchar">
                                                     <Volume2 className="w-3.5 h-3.5 text-slate-400 group-hover:text-slate-600" />
                                                 </button>
                                             )}

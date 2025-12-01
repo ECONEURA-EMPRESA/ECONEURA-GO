@@ -577,7 +577,7 @@ export function CRMExecutiveDashboard({ departmentName, accentColor, darkMode }:
     return 'cmo' as const;
   }, [departmentName]);
 
-  const { metrics, loading, _error, refresh, lastUpdate } = useCRMData(period, departmentId, true);
+  const { metrics, loading, refresh, lastUpdate } = useCRMData(period, departmentId, true);
   const { leads, totalCount } = useCRMLeads({ department: departmentId, enabled: true, pageSize: 5 });
 
   const [agentsData, setAgentsData] = useState<AgentPerformance[]>([]);

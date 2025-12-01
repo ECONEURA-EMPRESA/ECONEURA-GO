@@ -1,34 +1,20 @@
 ---
-name: ✨ Feature Request
-about: Sugerir una nueva funcionalidad
-title: '[FEATURE] '
+name: Feature request
+about: Suggest an idea for this project
+title: "[FEAT] "
 labels: enhancement
 assignees: ''
+
 ---
 
-## 🎯 Descripción de la Feature
+**Is your feature request related to a problem? Please describe.**
+A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
 
-<!-- Describe claramente la funcionalidad que quieres -->
+**Describe the solution you'd like**
+A clear and concise description of what you want to happen.
 
-## 💡 Motivación
+**Describe alternatives you've considered**
+A clear and concise description of any alternative solutions or features you've considered.
 
-<!-- ¿Por qué es necesaria esta feature? ¿Qué problema resuelve? -->
-
-## 🎨 Solución Propuesta
-
-<!-- Describe cómo te imaginas que funcionaría -->
-
-## 🔄 Alternativas Consideradas
-
-<!-- Otras soluciones que consideraste -->
-
-## 📋 Checklist
-
-- [ ] He verificado que no existe una issue similar
-- [ ] He verificado que esta feature no está ya en desarrollo
-- [ ] He considerado el impacto en la arquitectura existente
-
-## 📝 Información Adicional
-
-<!-- Mockups, diagramas, referencias, etc. -->
-
+**Additional context**
+Add any other context or screenshots about the feature request here.

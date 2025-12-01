@@ -30,8 +30,10 @@ export default defineConfig(({ mode }) => ({
     },
   },
 
-  optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom', 'framer-motion']
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, './src')
+    }
   },
 
   server: {

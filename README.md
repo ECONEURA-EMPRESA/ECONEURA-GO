@@ -9,6 +9,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![Node.js](https://img.shields.io/badge/node-%3E%3D20.0.0-brightgreen)](https://nodejs.org/)
 [![TypeScript](https://img.shields.io/badge/typescript-5.6.3-blue)](https://www.typescriptlang.org/)
+[![Type Check](https://img.shields.io/badge/type--check-passing-brightgreen)](https://github.com/ECONEURA-EMPRESA/ECONEURA-GO/actions)
 
 **[🌐 Live Demo](https://econeura.com)** • **[📚 Docs](./docs)** • **[🚀 Quick Start](#-quick-start)**
 

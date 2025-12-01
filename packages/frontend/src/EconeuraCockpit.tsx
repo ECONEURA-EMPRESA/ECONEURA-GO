@@ -70,7 +70,7 @@ type NeuraActivity = {
   executionId?: string;
 };
 
-const HeaderLogo = memo(function HeaderLogo(): JSX.Element {
+const HeaderLogo = memo(function HeaderLogo(): React.ReactElement {
   return <BrandLogo size="xs" showText={false} darkMode className="-translate-y-[1px]" />;
 });
 
@@ -243,6 +243,7 @@ interface EconeuraCockpitProps { user?: EconeuraCockpitUser; onLogout?: () => vo
 
 export default function EconeuraCockpit({ user, onLogout }: EconeuraCockpitProps) {
   const [activeDept, setActiveDept] = useState(DATA[0].id);
+  const [orgView, setOrgView] = useState(false);
   const [busyId, setBusyId] = useState<string | null>(null);
   const [q, setQ] = useState("");
   const [activity, setActivity] = useState<NeuraActivity[]>([]);
@@ -499,12 +500,12 @@ export default function EconeuraCockpit({ user, onLogout }: EconeuraCockpitProps
         </div>
 
         <div className="flex h-[calc(100vh-80px)] relative z-10">
-          <DepartmentSelector activeDept={activeDept} setActiveDept={setActiveDept} darkMode={darkMode} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+          <DepartmentSelector activeDept={activeDept} setActiveDept={setActiveDept} darkMode={darkMode} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} orgView={orgView} setOrgView={setOrgView} />
           <main className="flex-1 overflow-y-auto relative scroll-smooth">
             <div className="max-w-7xl mx-auto px-4 sm:px-8 py-8 space-y-8">
               <div className="animate-fadeInLeft">
                 <div className="flex items-center gap-4 mb-2">
-                  <div className={`p-3 rounded-2xl shadow-lg shadow-${pal.primary}/20 ${darkMode ? 'bg-slate-800' : 'bg-white'}`} style={{ color: pal.primary }}><DeptIconComp className="w-8 h-8" /></div>
+                  <div className={`p-3 rounded-2xl shadow-lg ${darkMode ? 'bg-slate-800' : 'bg-white'}`} style={{ color: pal.textHex, boxShadow: `0 10px 15px -3px ${pal.textHex}20` }}><DeptIconComp className="w-8 h-8" /></div>
                   <div>
                     <h1 className={`text-3xl font-bold tracking-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>{dept.neura.title}</h1>
                     <p className={`text-lg ${darkMode ? 'text-slate-400' : 'text-slate-500'}`}>{dept.neura.subtitle}</p>
@@ -623,3 +624,9 @@ export default function EconeuraCockpit({ user, onLogout }: EconeuraCockpitProps
     </>
   );
 }
+
+// Export for testing
+export const __TEST_HELPERS = {
+  correlationId,
+  iconForAgent
+};

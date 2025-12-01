@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { getApiUrl, createAuthHeaders } from '@/shared/utils/apiUrl';
+import { getApiUrl, createAuthHeaders } from '@/utils/apiUrl';
 import type { Message } from '../types/chat.types';
 
 /**

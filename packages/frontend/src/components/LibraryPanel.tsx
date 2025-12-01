@@ -15,12 +15,12 @@ interface Document {
 
 interface LibraryPanelProps {
   darkMode: boolean;
-  visible: boolean;
+  isOpen: boolean;
   onClose: () => void;
   userId?: string;
 }
 
-export function LibraryPanel({ darkMode, visible, onClose }: LibraryPanelProps) {
+export function LibraryPanel({ darkMode, isOpen, onClose }: LibraryPanelProps) {
   const [documents, setDocuments] = useState<Document[]>([]);
   const [loading, setLoading] = useState(false);
   const [uploading, setUploading] = useState(false);
@@ -30,10 +30,10 @@ export function LibraryPanel({ darkMode, visible, onClose }: LibraryPanelProps) 
 
   // Fetch documentos
   useEffect(() => {
-    if (visible) {
+    if (isOpen) {
       fetchDocuments();
     }
-  }, [visible, selectedDept]);
+  }, [isOpen, selectedDept]);
 
   const fetchDocuments = async () => {
     try {
@@ -168,7 +168,7 @@ export function LibraryPanel({ darkMode, visible, onClose }: LibraryPanelProps) 
     }
   };
 
-  if (!visible) return null;
+  if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 md:inset-4 bg-black/50 backdrop-blur-sm z-[999] flex items-center justify-center p-2 md:p-4">
@@ -208,8 +208,8 @@ export function LibraryPanel({ darkMode, visible, onClose }: LibraryPanelProps) 
             onClick={onClose}
             className={cx(
               "p-2 rounded-lg transition-colors",
-              darkMode 
-                ? 'hover:bg-slate-700 text-slate-400 hover:text-slate-200' 
+              darkMode
+                ? 'hover:bg-slate-700 text-slate-400 hover:text-slate-200'
                 : 'hover:bg-slate-100 text-slate-500 hover:text-slate-700'
             )}
           >
@@ -222,8 +222,8 @@ export function LibraryPanel({ darkMode, visible, onClose }: LibraryPanelProps) 
           {/* Upload Zone */}
           <div className={cx(
             "border-2 border-dashed rounded-2xl p-6 mb-6 text-center transition-all",
-            darkMode 
-              ? 'border-slate-700 hover:border-blue-500/50 bg-slate-900/50' 
+            darkMode
+              ? 'border-slate-700 hover:border-blue-500/50 bg-slate-900/50'
               : 'border-slate-300 hover:border-blue-400 bg-blue-50/30'
           )}>
             <Upload className={cx("w-12 h-12 mx-auto mb-3", darkMode ? 'text-blue-400' : 'text-blue-500')} />
@@ -241,8 +241,8 @@ export function LibraryPanel({ darkMode, visible, onClose }: LibraryPanelProps) 
             </p>
             <label className={cx(
               "inline-flex items-center gap-2 px-4 py-2 rounded-lg cursor-pointer transition-colors",
-              darkMode 
-                ? 'bg-blue-600 hover:bg-blue-700 text-white' 
+              darkMode
+                ? 'bg-blue-600 hover:bg-blue-700 text-white'
                 : 'bg-blue-500 hover:bg-blue-600 text-white'
             )}>
               {uploading ? (
@@ -281,8 +281,8 @@ export function LibraryPanel({ darkMode, visible, onClose }: LibraryPanelProps) 
                 onKeyPress={(e) => e.key === 'Enter' && fetchDocuments()}
                 className={cx(
                   "w-full pl-10 pr-4 py-2 rounded-lg border transition-colors",
-                  darkMode 
-                    ? 'bg-slate-900 border-slate-700 text-slate-100 placeholder-slate-500' 
+                  darkMode
+                    ? 'bg-slate-900 border-slate-700 text-slate-100 placeholder-slate-500'
                     : 'bg-white border-slate-300 text-slate-900 placeholder-slate-400'
                 )}
               />
@@ -292,8 +292,8 @@ export function LibraryPanel({ darkMode, visible, onClose }: LibraryPanelProps) 
               onChange={(e) => setSelectedDept(e.target.value)}
               className={cx(
                 "px-4 py-2 rounded-lg border transition-colors",
-                darkMode 
-                  ? 'bg-slate-900 border-slate-700 text-slate-100' 
+                darkMode
+                  ? 'bg-slate-900 border-slate-700 text-slate-100'
                   : 'bg-white border-slate-300 text-slate-900'
               )}
             >
@@ -331,8 +331,8 @@ export function LibraryPanel({ darkMode, visible, onClose }: LibraryPanelProps) 
                   key={doc.id}
                   className={cx(
                     "p-4 rounded-xl border transition-all",
-                    darkMode 
-                      ? 'bg-slate-900/50 border-slate-800 hover:border-slate-700' 
+                    darkMode
+                      ? 'bg-slate-900/50 border-slate-800 hover:border-slate-700'
                       : 'bg-white border-slate-200 hover:border-slate-300'
                   )}
                 >

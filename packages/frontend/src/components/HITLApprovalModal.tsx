@@ -11,10 +11,13 @@ interface HITLApprovalModalProps {
   onClose: () => void;
   onApprove: () => void;
   onReject: () => void;
-  functionName: string;
-  functionArgs: Record<string, any>;
-  functionResult: Record<string, any>;
-  neuraName: string;
+  darkMode: boolean;
+  data: {
+    functionName: string;
+    functionArgs: Record<string, unknown>;
+    functionResult?: { message?: string };
+    neuraName: string;
+  };
 }
 
 export function HITLApprovalModal({
@@ -22,11 +25,10 @@ export function HITLApprovalModal({
   onClose,
   onApprove,
   onReject,
-  functionName,
-  functionArgs,
-  functionResult,
-  neuraName
+  darkMode,
+  data
 }: HITLApprovalModalProps) {
+  const { functionName, functionArgs, functionResult, neuraName } = data;
   if (!isOpen) return null;
 
   const getFunctionEmoji = (name: string) => {

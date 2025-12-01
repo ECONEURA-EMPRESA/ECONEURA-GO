@@ -1,27 +1,5 @@
-# CODEOWNERS - Define ownership del código
-# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+* @ECONEURA-EMPRESA/developers
 
-# Backend - Equipo backend
-/packages/backend/ @econeura-team
-
-# Frontend - Equipo frontend
-/packages/frontend/ @econeura-team
-
-# Infrastructure - DevOps/Infra
-/infrastructure/ @econeura-team
-
-# GitHub workflows - DevOps
-/.github/ @econeura-team
-
-# Scripts - DevOps
-/scripts/ @econeura-team
-
-# Documentación - Todos pueden editar
-/docs/ @econeura-team
-
-# Configuración root - Requiere aprobación
-/package.json @econeura-team
-/tsconfig.base.json @econeura-team
-/.editorconfig @econeura-team
-/.gitignore @econeura-team
-
+/packages/backend/ @ECONEURA-EMPRESA/backend-team
+/packages/frontend/ @ECONEURA-EMPRESA/frontend-team
+/infrastructure/ @ECONEURA-EMPRESA/devops-team
