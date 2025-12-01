@@ -1,4 +1,4 @@
-// 🎨 ZONA SEGURA DE DISEÑO – modifica libremente el JSX y Tailwind
+// ­ƒÄ¿ ZONA SEGURA DE DISE├æO ÔÇô modifica libremente el JSX y Tailwind
 import React, { useEffect } from 'react';
 import { useAuthLogic } from '../../hooks/useAuthLogic';
 import { Mail, Lock, User } from 'lucide-react';
@@ -47,7 +47,7 @@ export const LoginView: React.FC<LoginViewProps> = ({ onLoginSuccess }) => {
             onLoginSuccess(token, user);
             window.history.replaceState({}, '', '/');
         } else if (auth === 'error') {
-            setError('Error en autenticación OAuth. Inténtalo de nuevo.');
+            setError('Error en autenticaci├│n OAuth. Int├®ntalo de nuevo.');
             window.history.replaceState({}, '', '/');
         }
     }, [onLoginSuccess, setError]);
@@ -97,7 +97,7 @@ export const LoginView: React.FC<LoginViewProps> = ({ onLoginSuccess }) => {
                 <div className="text-center mb-10">
                     <LogoEconeura size="lg" showText={false} darkMode className="mt-16 mb-6" />
 
-                    {/* Título ECONEURA */}
+                    {/* T├¡tulo ECONEURA */}
                     <h1
                         className="text-4xl font-black tracking-tight text-white mb-3"
                         style={{
@@ -109,7 +109,7 @@ export const LoginView: React.FC<LoginViewProps> = ({ onLoginSuccess }) => {
                         ECONEURA
                     </h1>
 
-                    {/* Subtítulo */}
+                    {/* Subt├¡tulo */}
                     <div className="space-y-2">
                         <p
                             className="text-xl font-semibold text-emerald-400"
@@ -178,7 +178,7 @@ export const LoginView: React.FC<LoginViewProps> = ({ onLoginSuccess }) => {
                                     value={formState.name}
                                     onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                                     className="relative z-10 w-full pl-12 pr-4 py-3.5 bg-transparent rounded-2xl text-white placeholder:text-slate-400 focus:outline-none focus:ring-0"
-                                    placeholder="Juan Pérez"
+                                    placeholder="Juan P├®rez"
                                     required
                                 />
                                 <div className="absolute -bottom-2 left-8 right-8 h-px bg-gradient-to-r from-transparent via-emerald-400/60 to-transparent opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"></div>
@@ -215,7 +215,7 @@ export const LoginView: React.FC<LoginViewProps> = ({ onLoginSuccess }) => {
                                 value={formState.password}
                                 onChange={(e) => setFormState({ ...formState, password: e.target.value })}
                                 className="relative z-10 w-full pl-12 pr-4 py-3.5 bg-transparent rounded-2xl text-white placeholder:text-slate-400 focus:outline-none focus:ring-0"
-                                placeholder="••••••••"
+                                placeholder="ÔÇóÔÇóÔÇóÔÇóÔÇóÔÇóÔÇóÔÇó"
                                 required
                             />
                             <div className="absolute -bottom-2 left-8 right-8 h-px bg-gradient-to-r from-transparent via-teal-400/60 to-transparent opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"></div>
@@ -233,7 +233,7 @@ export const LoginView: React.FC<LoginViewProps> = ({ onLoginSuccess }) => {
                                 className="w-4 h-4 rounded border-white/20 bg-white/10 text-emerald-500 focus:ring-2 focus:ring-emerald-500 cursor-pointer"
                             />
                             <label htmlFor="rememberMe" className="text-sm text-slate-300 cursor-pointer select-none">
-                                Mantener sesión iniciada
+                                Mantener sesi├│n iniciada
                             </label>
                         </div>
                     )}
@@ -243,7 +243,7 @@ export const LoginView: React.FC<LoginViewProps> = ({ onLoginSuccess }) => {
                         disabled={isLoading}
                         className="w-full bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 text-white py-3.5 rounded-xl font-bold hover:shadow-2xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:scale-105 active:scale-95"
                     >
-                        {isLoading ? 'Cargando...' : mode === 'login' ? 'Iniciar sesión' : 'Crear cuenta'}
+                        {isLoading ? 'Cargando...' : mode === 'login' ? 'Iniciar sesi├│n' : 'Crear cuenta'}
                     </button>
                 </form>
 
@@ -253,7 +253,7 @@ export const LoginView: React.FC<LoginViewProps> = ({ onLoginSuccess }) => {
                         onClick={() => setMode(mode === 'login' ? 'register' : 'login')}
                         className="text-sm text-emerald-400 hover:text-emerald-300 font-semibold hover:underline transition-all duration-200"
                     >
-                        {mode === 'login' ? '¿No tienes cuenta? Regístrate' : '¿Ya tienes cuenta? Inicia sesión'}
+                        {mode === 'login' ? '┬┐No tienes cuenta? Reg├¡strate' : '┬┐Ya tienes cuenta? Inicia sesi├│n'}
                     </button>
                 </div>
 
@@ -261,7 +261,7 @@ export const LoginView: React.FC<LoginViewProps> = ({ onLoginSuccess }) => {
                 <div className="mt-10 pt-6 border-t border-white/10 text-center text-xs text-slate-400">
                     Al continuar, aceptas nuestros{' '}
                     <a href="/terms" target="_blank" className="text-emerald-400 hover:text-emerald-300 font-medium hover:underline transition-colors">
-                        Términos
+                        T├®rminos
                     </a>{' '}
                     y{' '}
                     <a href="/privacy" target="_blank" className="text-emerald-400 hover:text-emerald-300 font-medium hover:underline transition-colors">

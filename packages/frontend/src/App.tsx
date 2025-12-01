@@ -78,7 +78,14 @@ function AppContent() {
   );
 }
 
-// Wrapper que muestra Login u Cockpit según estado de sesión
+// Wrapper que muestra Login u Cockpit seg├║n estado de sesi├│n
+interface User {
+  id: string;
+  email: string;
+  name: string;
+  tenantId?: string;
+}
+
 function EconeuraCockpitWithLogin({
   token,
   user,
@@ -109,17 +116,11 @@ function EconeuraCockpitWithLogin({
 
 function App() {
   return (
-    <ErrorBoundary>
-      <AuthProvider>
-        {import.meta.env.DEV && (
-          <div className="fixed bottom-4 right-4 z-50 px-3 py-1 bg-yellow-500/90 text-black text-xs font-bold rounded-full shadow-lg backdrop-blur-sm border border-yellow-400 pointer-events-none">
-            ⚡ LOCAL DEV MODE
-          </div>
-        )}
-        <AppContent />
-      </AuthProvider>
-    </ErrorBoundary>
+    <AuthProvider>
+      <AppContent />
+    </AuthProvider>
   );
 }
 
 export default App;
+
