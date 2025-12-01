@@ -52,7 +52,7 @@ export function useAnalytics() {
     // Log solo en desarrollo (será removido en producción por Vite)
     if (import.meta.env.DEV) {
       if (import.meta.env.DEV) {
-        // eslint-disable-next-line no-console
+         
         console.log('📊 Analytics:', event, properties);
       }
     }
@@ -115,7 +115,7 @@ export function identifyUser(userId: string, properties?: AnalyticsProperties) {
 
   // Log solo en desarrollo (será removido en producción por Vite)
   if (import.meta.env.DEV) {
-    // eslint-disable-next-line no-console
+     
     console.log('👤 User identified:', userId, properties);
   }
 }
@@ -131,7 +131,7 @@ export function trackPerformance(metric: string, value: number) {
 
   // Log solo en desarrollo (será removido en producción por Vite)
   if (import.meta.env.DEV) {
-    // eslint-disable-next-line no-console
+     
     console.log(`⚡ Performance - ${metric}:`, value);
   }
 }

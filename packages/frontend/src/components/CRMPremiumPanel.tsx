@@ -22,10 +22,10 @@ import React, { useState, useMemo, useCallback, memo, useEffect } from 'react';
 import { rgba } from '../utils/colors';
 import { sanitizeSearchQuery } from '../utils/sanitize';
 import { useDebounce } from '../utils/debounce';
-import { useCRMData, type Period, type CRMSalesMetrics } from '../hooks/useCRMData';
+import { useCRMData, type Period } from '../hooks/useCRMData';
 import { useCRMLeads, type CRMLead } from '../hooks/useCRMLeads';
 import {
-  TrendingUp, TrendingDown, Users, Activity, Target, Star, CheckCircle2, AlertTriangle,
+  TrendingUp, TrendingDown, Activity, Target, Star, CheckCircle2, AlertTriangle,
   DollarSign, Clock, Zap, Search, Download, RefreshCw, ArrowUpDown, Calendar,
   Maximize2, Minimize2, X, Loader2, AlertCircle, Play, Pause
 } from 'lucide-react';
@@ -319,7 +319,7 @@ export function CRMPremiumPanel({ departmentName, accentColor, darkMode, departm
     setSortField,
     setSortDirection,
     setCurrentPage: setLeadsPage,
-    searchQuery,
+    _searchQuery,
     sortField,
     sortDirection
   } = useCRMLeads({ department: departmentId, enabled: true, pageSize: ITEMS_PER_PAGE });
@@ -423,7 +423,7 @@ export function CRMPremiumPanel({ departmentName, accentColor, darkMode, departm
     return MOCK_STATS;
   }, [metrics]);
 
-  const bgCard = darkMode ? 'bg-slate-800/60 border-slate-700/50' : 'bg-white border-slate-200';
+  const _bgCard = darkMode ? 'bg-slate-800/60 border-slate-700/50' : 'bg-white border-slate-200';
   const textPrimary = darkMode ? 'text-slate-100' : 'text-slate-900';
   const textSecondary = darkMode ? 'text-slate-400' : 'text-slate-600';
   const textMuted = darkMode ? 'text-slate-500' : 'text-slate-500';
@@ -469,7 +469,7 @@ export function CRMPremiumPanel({ departmentName, accentColor, darkMode, departm
       // Log error sin usar console (será removido en producción por Vite)
       const errorMessage = err instanceof Error ? err.message : 'Error desconocido';
       if (import.meta.env.DEV) {
-        // eslint-disable-next-line no-console
+
         console.error('[CRM] Error exporting CSV:', errorMessage);
       }
       toast.error('Error al exportar CSV. Inténtalo de nuevo.');
@@ -480,7 +480,7 @@ export function CRMPremiumPanel({ departmentName, accentColor, darkMode, departm
     try {
       await Promise.all([refreshData(), refreshLeads()]);
       toast.success('Datos actualizados');
-    } catch (err) {
+    } catch (_err) {
       toast.error('Error al actualizar datos');
     }
   }, [refreshData, refreshLeads]);

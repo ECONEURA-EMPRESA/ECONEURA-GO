@@ -23,7 +23,7 @@ export function useErrorHandler() {
     
     // Log error solo en desarrollo (será removido en producción por Vite)
     if (import.meta.env.DEV) {
-      // eslint-disable-next-line no-console
+       
       console.error('[ErrorHandler] Error capturado:', error instanceof Error ? error.message : String(error));
     }
     
@@ -34,7 +34,7 @@ export function useErrorHandler() {
     if (newRetryCount > MAX_RETRIES) {
       // Log warning solo en desarrollo
       if (import.meta.env.DEV) {
-        // eslint-disable-next-line no-console
+         
         console.warn(`[ErrorHandler] Max retries (${MAX_RETRIES}) alcanzado para: ${fullMessage}`);
       }
     }

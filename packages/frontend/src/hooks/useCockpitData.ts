@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { API_URL } from '../config/api';
+// import { API_URL } from '../config/api';
 
 interface Neura {
     id: string;
@@ -22,8 +22,8 @@ interface Department {
 }
 
 export const useCockpitData = () => {
-    const [departments, setDepartments] = useState<Department[]>([]);
-    const [neuras, setNeuras] = useState<Neura[]>([]);
+    const [departments, _setDepartments] = useState<Department[]>([]);
+    const [neuras, _setNeuras] = useState<Neura[]>([]);
     const [isLoading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
@@ -34,6 +34,11 @@ export const useCockpitData = () => {
                 // En el futuro esto podría venir de una API real
                 // Por ahora usamos los datos estáticos que ya existen en el Cockpit
 
+                // Simular carga
+                // await new Promise(resolve => setTimeout(resolve, 1000));
+
+                // setDepartments([]);
+                // setNeuras([]);
                 setLoading(false);
             } catch (err: any) {
                 setError(err.message || 'Error loading cockpit data');

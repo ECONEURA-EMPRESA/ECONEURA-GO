@@ -2,7 +2,7 @@
  * Componente Header del Cockpit - Extraído para mejor organización
  */
 import React, { memo } from 'react';
-import { Menu, X, Moon, Sun, User, LogOut, Settings } from 'lucide-react';
+import { Menu, Moon, Sun, LogOut, Settings } from 'lucide-react';
 import { LogoEconeura } from './LogoEconeura';
 
 interface HeaderProps {
@@ -51,7 +51,7 @@ export const CockpitHeader = memo(function CockpitHeader({
           >
             {darkMode ? <Sun className="w-5 h-5 text-slate-600" /> : <Moon className="w-5 h-5 text-slate-600" />}
           </button>
-          
+
           <button
             onClick={() => setSettingsOpen(!settingsOpen)}
             className="p-2 rounded-lg hover:bg-slate-100 transition-colors"

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Crown, Cpu, Shield, Workflow, Users, Target, Brain, LineChart, Wallet, Database, X } from 'lucide-react';
+import { Crown, Cpu, Shield, Workflow, Users, Target, Brain, Wallet, Database, X } from 'lucide-react';
 import { DepartmentButton } from './DepartmentButton';
 import { getPalette } from '../data/neuraData';
 

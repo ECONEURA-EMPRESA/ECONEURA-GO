@@ -28,7 +28,7 @@ class Logger {
             process.stdout.write(JSON.stringify(entry) + '\n');
         } else {
             // Pretty print in development
-            // eslint-disable-next-line no-console
+             
             console.log(`[${entry.level.toUpperCase()}] ${entry.message}`, metadata || '');
         }
     }

@@ -1,17 +1,4 @@
 /**
- * Hook personalizado para obtener y gestionar leads del CRM
- * Incluye búsqueda, filtrado, ordenamiento y paginación
- */
-
-import { useState, useEffect, useCallback } from 'react';
-import { API_URL } from '../config/api';
-import { toast } from 'sonner';
-import { getApiUrl, createAuthHeaders } from '../utils/apiUrl';
-
-export interface CRMLead {
-  id: string;
-  name: string;
-  company: string;
   score: number;
   status: string;
   owner: string;
@@ -59,7 +46,7 @@ function validateLead(data: unknown): CRMLead | null {
     const tempId = `temp-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
     // Log warning solo en desarrollo (será removido en producción por Vite)
     if (import.meta.env.DEV) {
-      // eslint-disable-next-line no-console
+
       console.warn('[CRM] Lead sin ID, generando temporal:', tempId);
     }
   }
@@ -134,7 +121,7 @@ export function useCRMLeads(options: UseCRMLeadsOptions = {}): UseCRMLeadsReturn
         if (response.status === 400 || response.status === 404) {
           // Log warning solo en desarrollo
           if (import.meta.env.DEV) {
-            // eslint-disable-next-line no-console
+
             console.warn('[CRM] API no disponible o parámetros inválidos, usando datos mock');
           }
           setLeads([]);
@@ -174,7 +161,7 @@ export function useCRMLeads(options: UseCRMLeadsOptions = {}): UseCRMLeadsReturn
       setError(error);
       // Log error solo en desarrollo (será removido en producción por Vite)
       if (import.meta.env.DEV) {
-        // eslint-disable-next-line no-console
+
         console.error('[CRM] Error fetching leads:', error instanceof Error ? error.message : String(error));
       }
 

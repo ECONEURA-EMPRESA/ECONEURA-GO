@@ -47,7 +47,7 @@ interface UseChatOperationsParams {
  */
 export function useChatOperations({
   dept,
-  chatMsgs,
+  chatMsgs: _chatMsgs,
   setChatMsgs,
   setChatInput,
   setAgentExecutionOpen,
@@ -85,10 +85,10 @@ export function useChatOperations({
       const apiUrl = getApiUrl();
 
       // MEMORIA CONVERSACIONAL: Enviar historial completo (últimos 10 mensajes)
-      const conversationHistory = chatMsgs.slice(-10).concat([userMsg]).map(m => ({
-        role: m.role,
-        content: m.text
-      }));
+      // const conversationHistory = chatMsgs.slice(-10).concat([userMsg]).map(m => ({
+      //   role: m.role,
+      //   content: m.text
+      // }));
 
       // ✅ AUDITORÍA: Usar utilidad centralizada para headers
       const headers = createAuthHeaders({
@@ -142,7 +142,7 @@ export function useChatOperations({
         // Obtener contexto especializado para el NEURA actual
         const specializedContext = getSpecializedContext(chatAgentId, text);
         const specializedReasoning = getSpecializedReasoning(chatAgentId, text);
-        const confidenceScore = calculateAgentConfidence(chatAgentId, text, specializedContext);
+        const __confidenceScore = calculateAgentConfidence(chatAgentId, text, specializedContext);
 
         output += `\n\n🤖 **Sistema de Agentes Automatizados Activado**\n\n${specializedContext}\n\n**Razonamiento:** ${specializedReasoning}\n\nAbriendo el panel de ejecución de agentes especializados para tu departamento.`;
       }
@@ -207,7 +207,7 @@ export function useChatOperations({
       const errorMessage = err instanceof Error ? err.message : 'Error desconocido';
       // Log error solo en desarrollo (será removido en producción por Vite)
       if (import.meta.env.DEV) {
-        // eslint-disable-next-line no-console
+
         console.error('[Chat] Error:', err instanceof Error ? err.message : String(err));
       }
 
@@ -223,4 +223,3 @@ export function useChatOperations({
     sendChat
   };
 }
-

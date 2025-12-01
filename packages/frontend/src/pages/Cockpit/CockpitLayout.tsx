@@ -1,4 +1,4 @@
-// ­ƒÄ¿ ZONA SEGURA DE DISE├æO ÔÇô modifica libremente el JSX yTailwind
+// 🎨 ZONA SEGURA DE DISEÑO – modifica libremente el JSX yTailwind
 import React from 'react';
 import { useCockpitData } from '../../hooks/useCockpitData';
 import EconeuraCockpit from '../../EconeuraCockpit';
@@ -14,7 +14,7 @@ interface CockpitLayoutProps {
 }
 
 export const CockpitLayout: React.FC<CockpitLayoutProps> = ({ user, onLogout }) => {
-    const { departments, neuras, isLoading, error } = useCockpitData();
+    const { isLoading, error } = useCockpitData();
 
     if (isLoading) {
         return (
@@ -45,7 +45,7 @@ export const CockpitLayout: React.FC<CockpitLayoutProps> = ({ user, onLogout }) 
     }
 
     // NOTA: Actualmente reutilizamos el componente EconeuraCockpit existente
-    // En el futuro, podemos refactorizar esto en componentes m├ís peque├▒os
-    // y usar los datos de useCockpitData para cargar din├ímicamente
+    // En el futuro, podemos refactorizar esto en componentes más pequeños
+    // y usar los datos de useCockpitData para cargar dinámicamente
     return <EconeuraCockpit user={user} onLogout={onLogout} />;
 };

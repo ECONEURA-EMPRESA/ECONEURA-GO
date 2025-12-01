@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageCircle, Play, Zap, Activity } from 'lucide-react';
+import { MessageCircle, Play, Activity } from 'lucide-react';
 
 interface Agent {
   id: string;
@@ -24,10 +24,10 @@ interface EconeuraMainContentProps {
   onExecuteAgent: (agentId: string) => void;
 }
 
-export function EconeuraMainContent({ 
-  activeDept, 
-  onOpenChat, 
-  onExecuteAgent 
+export function EconeuraMainContent({
+  activeDept,
+  onOpenChat,
+  onExecuteAgent
 }: EconeuraMainContentProps) {
   return (
     <main className="flex-1 p-6">
@@ -40,7 +40,7 @@ export function EconeuraMainContent({
           <p className="text-slate-600 dark:text-gray-400 mb-4">
             {activeDept.neura.subtitle}
           </p>
-          
+
           {/* Tags */}
           <div className="flex flex-wrap gap-2 mb-6">
             {activeDept.neura.tags.map((tag, index) => (
@@ -115,7 +115,7 @@ export function EconeuraMainContent({
               {activeDept.agents.length} agentes especializados para {activeDept.name}
             </p>
           </div>
-          
+
           <div className="p-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {activeDept.agents.map((agent) => (
@@ -128,29 +128,28 @@ export function EconeuraMainContent({
                       {agent.title}
                     </h4>
                     <span
-                      className={`px-2 py-1 rounded-full text-xs font-medium ${
-                        agent.status === 'active'
+                      className={`px-2 py-1 rounded-full text-xs font-medium ${agent.status === 'active'
                           ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400'
                           : agent.status === 'error'
-                          ? 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400'
-                          : 'bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-400'
-                      }`}
+                            ? 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400'
+                            : 'bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-400'
+                        }`}
                     >
                       {agent.status}
                     </span>
                   </div>
-                  
+
                   <p className="text-sm text-slate-600 dark:text-gray-400 mb-4">
                     {agent.description}
                   </p>
-                  
+
                   <div className="flex items-center justify-between">
                     {agent.lastRun && (
                       <span className="text-xs text-slate-500 dark:text-gray-500">
                         Última ejecución: {agent.lastRun}
                       </span>
                     )}
-                    
+
                     <button
                       onClick={() => onExecuteAgent(agent.id)}
                       className="flex items-center gap-2 px-3 py-2 bg-slate-100 dark:bg-gray-700 text-slate-700 dark:text-gray-300 rounded-lg hover:bg-slate-200 dark:hover:bg-gray-600 transition-all duration-200 text-sm"

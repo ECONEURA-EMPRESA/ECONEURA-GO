@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 import { getApiUrl, createAuthHeaders } from '@/shared/utils/apiUrl';
-import type { Message, SendMessageParams } from '../types/chat.types';
+import type { Message } from '../types/chat.types';
 
 /**
  * Hook para gestión de chat con NEURA

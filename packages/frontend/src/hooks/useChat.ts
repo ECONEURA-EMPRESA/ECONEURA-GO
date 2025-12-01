@@ -1,5 +1,5 @@
 ﻿import { useState, useCallback, useRef } from 'react';
-import { createNewChat, addMessageToChat, getMessagesByChatId, LocalChat } from '../utils/localStorage';
+import { createNewChat, addMessageToChat } from '../utils/localStorage';
 import { API_URL } from '../config/api';
 
 interface ChatMessage {
@@ -30,7 +30,7 @@ interface UseChatReturn {
 
 export async function saveChat(token: string, messages: ChatMessage[]) {
   if (!token) throw new Error('Token requerido');
-  
+
   const response = await fetch(`${API_URL}/chats`, {
     method: 'POST',
     headers: {
@@ -42,34 +42,34 @@ export async function saveChat(token: string, messages: ChatMessage[]) {
       messages
     })
   });
-  
+
   if (!response.ok) throw new Error('Error guardando chat');
   return response.json();
 }
 
 export async function loadChats(token: string) {
   if (!token) throw new Error('Token requerido');
-  
+
   const response = await fetch(`${API_URL}/chats`, {
     headers: {
       'Authorization': `Bearer ${token}`
     }
   });
-  
+
   if (!response.ok) throw new Error('Error cargando chats');
   return response.json();
 }
 
-export async function deleteChat(token: string, _chatId: string) {
+export async function deleteChat(token: string, __chatId: string) {
   if (!token) throw new Error('Token requerido');
-  
+
   const response = await fetch(`${API_URL}/chats/`, {
     method: 'DELETE',
     headers: {
       'Authorization': `Bearer ${token}`
     }
   });
-  
+
   if (!response.ok) throw new Error('Error eliminando chat');
   return response.json();
 }
@@ -133,9 +133,9 @@ export function useChat({ neuraId, onError, chatId }: UseChatOptions): UseChatRe
         8: 'a-cfo-01',   // CFO
         9: 'a-cdo-01'    // CDO
       };
-      
+
       const agentId = neuraToAgent[neuraId] || 'a-ceo-01';
-      
+
       const response = await fetch(`${API_URL}/invoke/${agentId}`, {
         method: 'POST',
         headers: {
@@ -206,11 +206,7 @@ export function useChat({ neuraId, onError, chatId }: UseChatOptions): UseChatRe
   const clear = useCallback(() => {
     setMessages([]);
     setError(null);
-
-    // Cancelar request en progreso si existe
-    if (abortControllerRef.current) {
-      abortControllerRef.current.abort();
-    }
+    setCurrentChatId(null);
   }, []);
 
   return {
@@ -222,5 +218,3 @@ export function useChat({ neuraId, onError, chatId }: UseChatOptions): UseChatRe
     currentChatId
   };
 }
-
-

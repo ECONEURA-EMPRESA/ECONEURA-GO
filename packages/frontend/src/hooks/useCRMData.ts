@@ -4,7 +4,7 @@
  */
 
 import { useState, useEffect, useCallback } from 'react';
-import { API_URL } from '../config/api';
+// import { API_URL } from '../config/api';
 import { toast } from 'sonner';
 import { getApiUrl, createAuthHeaders } from '../utils/apiUrl';
 
@@ -115,9 +115,9 @@ export function useCRMData(
 
       // Validar que department sea 'cmo' o 'cso' (backend requiere estos valores exactos)
       const validDepartment = (department === 'cmo' || department === 'cso') ? department : 'cmo';
-      
+
       // Validar que period sea válido (backend acepta: 'day', 'week', 'month', 'year', 'all')
-      const validPeriod = (period === 'week' || period === 'month' || period === 'quarter' || period === 'year') 
+      const validPeriod = (period === 'week' || period === 'month' || period === 'quarter' || period === 'year')
         ? (period === 'quarter' ? 'month' : period) // 'quarter' no existe en backend, usar 'month'
         : 'month';
 
@@ -132,7 +132,7 @@ export function useCRMData(
         if (metricsResponse.status === 400 || metricsResponse.status === 404) {
           // Log warning solo en desarrollo
           if (import.meta.env.DEV) {
-            // eslint-disable-next-line no-console
+
             console.warn('[CRM] API no disponible o parámetros inválidos, usando datos mock');
           }
           setMetrics(null); // null activará datos mock en el componente
@@ -144,12 +144,12 @@ export function useCRMData(
       }
 
       const metricsData = await metricsResponse.json();
-      
+
       // Backend retorna: { success: true, data: { ... } }
-      const actualData = metricsData?.success && metricsData?.data 
-        ? metricsData.data 
+      const actualData = metricsData?.success && metricsData?.data
+        ? metricsData.data
         : metricsData;
-      
+
       const validatedMetrics = validateMetrics(actualData);
 
       if (validatedMetrics) {
@@ -166,7 +166,7 @@ export function useCRMData(
       // - /api/crm/agents  
       // - /api/crm/alerts
       // - /api/crm/revenue-trend
-      
+
       // Por ahora, dejamos arrays vacíos para que use datos mock
       setPipeline([]);
       setAgentImpact([]);
@@ -179,10 +179,10 @@ export function useCRMData(
       setError(error);
       // Log error solo en desarrollo (será removido en producción por Vite)
       if (import.meta.env.DEV) {
-        // eslint-disable-next-line no-console
+
         console.error('[CRM] Error fetching data:', error instanceof Error ? error.message : String(error));
       }
-      
+
       // Solo mostrar toast si no es un error 404 (endpoint no implementado aún)
       if (!(err instanceof Error && err.message.includes('404'))) {
         toast.error('Error al cargar datos del CRM. Usando datos de ejemplo.');

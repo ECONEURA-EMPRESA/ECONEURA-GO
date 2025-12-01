@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import { X, CheckCircle, XCircle, Edit3 } from 'lucide-react';
+import { X, CheckCircle, XCircle } from 'lucide-react';
 
 interface HITLApprovalModalProps {
   isOpen: boolean;
@@ -71,7 +71,7 @@ export function HITLApprovalModal({
                 {functionName.replace(/_/g, ' ').toUpperCase()}
               </h3>
             </div>
-            
+
             {/* Parámetros */}
             <div className="bg-slate-50 rounded-xl p-4 border border-slate-200">
               <div className="text-xs font-semibold text-slate-700 mb-2">Parámetros:</div>

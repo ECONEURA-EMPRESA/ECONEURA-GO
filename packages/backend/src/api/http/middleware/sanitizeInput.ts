@@ -143,7 +143,7 @@ export function sanitizeInputMiddleware(options: { allowHtml?: boolean } = {}) {
           // Fallback for read-only req.query (e.g. in tests)
           try {
             const sanitized = sanitizeObject(req.query, options) as Record<string, unknown>;
-            Object.keys(req.query).forEach(key => delete (req.query as any)[key]);
+            Object.keys(req.query).forEach(key => delete (req.query as Record<string, any>)[key]);
             Object.assign(req.query, sanitized);
           } catch {
             // Ignore if completely immutable

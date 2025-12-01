@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react';
 import { Shield, User, Lock, Key } from 'lucide-react';
 
 export type UserRole = 'admin' | 'manager' | 'user' | 'guest';
@@ -135,13 +135,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return user.role === role;
   };
 
-  const updateUser = (updates: Partial<User>) => {
+  const _updateUser = useCallback((updates: Partial<User>) => {
     if (!user) return;
 
     const updatedUser = { ...user, ...updates };
     setUser(updatedUser);
     localStorage.setItem('econeura-user', JSON.stringify(updatedUser));
-  };
+  }, [user]);
 
   return (
     <AuthContext.Provider value={{
@@ -152,7 +152,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       logout,
       hasPermission,
       hasRole,
-      updateUser
+      updateUser: _updateUser
     }}>
       {children}
     </AuthContext.Provider>
@@ -293,8 +293,8 @@ export function UserProfile() {
         <div className="flex justify-between items-center">
           <span className="font-medium">Estado</span>
           <span className={`px-2 py-1 rounded-full text-sm ${user.isActive
-              ? 'bg-green-100 text-green-800'
-              : 'bg-red-100 text-red-800'
+            ? 'bg-green-100 text-green-800'
+            : 'bg-red-100 text-red-800'
             }`}>
             {user.isActive ? 'Activo' : 'Inactivo'}
           </span>

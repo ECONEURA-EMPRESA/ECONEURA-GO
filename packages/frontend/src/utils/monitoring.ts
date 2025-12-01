@@ -34,7 +34,7 @@ class Logger {
     // Log en consola solo en desarrollo
     if (import.meta.env.DEV) {
       const emoji = type === 'error' ? '❌' : type === 'warning' ? '⚠️' : type === 'performance' ? '⚡' : 'ℹ️';
-      // eslint-disable-next-line no-console
+       
       console.log(`${emoji} [${type.toUpperCase()}]`, message, metadata || '');
     }
 

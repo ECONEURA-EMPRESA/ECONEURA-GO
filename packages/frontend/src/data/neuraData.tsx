@@ -1,20 +1,16 @@
+import React from 'react';
 import {
-    Crown, Cpu, Shield, Workflow, Users, Target, Brain, LineChart, Wallet, Database,
-    TrendingUp, Gauge, Bug, FileText, CalendarDays, Megaphone, Activity as ActivityIcon,
-    FileBarChart2, MessageCircle, ListChecks, Radar, Inbox, Mail, ClipboardList
-} from "lucide-react";
-import React from "react";
-import { rgba } from "../utils/colors"; // Assuming rgba is needed, or I will define it here if it was local.
-// Actually rgba was likely local. I should check.
+    Crown, Brain, Target, Cpu, Shield, Workflow, Users, LineChart, Wallet, Database,
+    CalendarDays, Megaphone, FileText, Gauge, Activity as ActivityIcon, FileBarChart2,
+    MessageCircle, ListChecks, Bug, Radar, Inbox, Mail, TrendingUp, ClipboardList
+} from 'lucide-react';
 
-
-// Tipos
-export type Agent = {
+export interface Agent {
     id: string;
     title: string;
     desc: string;
     pills?: string[];
-};
+}
 
 export interface Department {
     id: string;

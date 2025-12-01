@@ -10,20 +10,15 @@
 
 import React, { useState, useMemo, useCallback, memo, useEffect } from 'react';
 import { rgba, hexToRgb } from '../utils/colors';
-import { useCRMData, type Period, type CRMSalesMetrics } from '../hooks/useCRMData';
-import { useCRMLeads, type CRMLead } from '../hooks/useCRMLeads';
+import { useCRMData, type Period } from '../hooks/useCRMData';
+import { useCRMLeads } from '../hooks/useCRMLeads';
 import { API_URL } from '../config/api';
 import {
-  TrendingUp, TrendingDown, DollarSign, Users, Target, Zap,
-  ArrowUpRight, ArrowDownRight, Award, Trophy, AlertTriangle,
-  CheckCircle2, Clock, Activity, BarChart3, PieChart, RefreshCw,
-  Calendar, Maximize2, Minimize2, Download, Filter, Search, Sparkles
+  TrendingUp, TrendingDown, DollarSign,
+  ArrowUpRight, ArrowDownRight, Award, Trophy,
+  BarChart3, RefreshCw
 } from 'lucide-react';
-import {
-  LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid,
-  Tooltip, ResponsiveContainer, Cell, FunnelChart, Funnel, LabelList
-} from 'recharts';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { toast } from 'sonner';
 
 // ============================================================================
@@ -86,7 +81,7 @@ const HeroMetric = memo(({
   const isAboveTarget = revenue >= target;
   const diff = revenue - target;
   const diffPercent = target > 0 ? ((diff / target) * 100) : 0;
-  const { r, g, b } = hexToRgb(accentColor);
+  const _rgb = hexToRgb(accentColor);
 
   // Estilo premium elegante
   const bgCard = darkMode
@@ -207,7 +202,7 @@ const TopAgentCard = memo(({
   darkMode: boolean;
   accentColor: string;
 }) => {
-  const { r, g, b } = hexToRgb(accentColor);
+  const _rgb = hexToRgb(accentColor);
   const bgCard = darkMode
     ? 'bg-gradient-to-br from-slate-800/80 to-slate-900/80'
     : 'bg-gradient-to-br from-white to-slate-50/50';
@@ -336,7 +331,7 @@ const ConversionFunnel = memo(({
   darkMode: boolean;
   accentColor: string;
 }) => {
-  const { r, g, b } = hexToRgb(accentColor);
+  const _rgb = hexToRgb(accentColor);
   const bgCard = darkMode
     ? 'bg-gradient-to-br from-slate-800/80 to-slate-900/80'
     : 'bg-gradient-to-br from-white to-slate-50/50';
@@ -472,7 +467,7 @@ const AgentLeaderboard = memo(({
   darkMode: boolean;
   accentColor: string;
 }) => {
-  const { r, g, b } = hexToRgb(accentColor);
+  const _rgb = hexToRgb(accentColor);
   const bgCard = darkMode
     ? 'bg-gradient-to-br from-slate-800/80 to-slate-900/80'
     : 'bg-gradient-to-br from-white to-slate-50/50';
@@ -582,7 +577,7 @@ export function CRMExecutiveDashboard({ departmentName, accentColor, darkMode }:
     return 'cmo' as const;
   }, [departmentName]);
 
-  const { metrics, loading, error, refresh, lastUpdate } = useCRMData(period, departmentId, true);
+  const { metrics, loading, _error, refresh, lastUpdate } = useCRMData(period, departmentId, true);
   const { leads, totalCount } = useCRMLeads({ department: departmentId, enabled: true, pageSize: 5 });
 
   const [agentsData, setAgentsData] = useState<AgentPerformance[]>([]);
@@ -636,7 +631,7 @@ export function CRMExecutiveDashboard({ departmentName, accentColor, darkMode }:
       } catch (err) {
         // Log error solo en desarrollo (será removido en producción por Vite)
         if (import.meta.env.DEV) {
-          // eslint-disable-next-line no-console
+
           console.error('[CRM] Error fetching agents data:', err instanceof Error ? err.message : String(err));
         }
         setAgentsData(MOCK_AGENTS);
@@ -648,7 +643,7 @@ export function CRMExecutiveDashboard({ departmentName, accentColor, darkMode }:
 
   const revenue = salesMetrics?.total_revenue || metrics?.totalRevenue || 420000;
   const target = metrics?.revenueTarget || 400000;
-  const dealsWon = metrics?.dealsWon || (salesMetrics?.total_revenue ? Math.round(salesMetrics.total_revenue / 5000) : 87);
+  const _dealsWon = metrics?.dealsWon || (salesMetrics?.total_revenue ? Math.round(salesMetrics.total_revenue / 5000) : 87);
   const dealsInProgress = metrics?.dealsInProgress || 161;
   const totalLeads = totalCount || leads.length || 1240;
 
@@ -670,7 +665,7 @@ export function CRMExecutiveDashboard({ departmentName, accentColor, darkMode }:
     ];
   }, [totalLeads, dealsInProgress, revenue]);
 
-  const textPrimary = darkMode ? 'text-white' : 'text-slate-900';
+  const _textPrimary = darkMode ? 'text-white' : 'text-slate-900';
   const textSecondary = darkMode ? 'text-slate-400' : 'text-slate-600';
 
   const handleRefresh = useCallback(async () => {
