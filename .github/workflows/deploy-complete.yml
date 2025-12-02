@@ -1,0 +1,193 @@
+name: Complete Deployment with Health Checks
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
+
+env:
+  NODE_VERSION: '20.x'
+
+permissions:
+  id-token: write
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  deploy-backend:
+    name: Deploy Backend
+    runs-on: ubuntu-latest
+    environment: production
+    timeout-minutes: 30
+    outputs:
+      backend-url: ${{ steps.deploy.outputs.webapp-url }}
+    
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build and test backend
+        run: |
+          npx turbo run build test --filter=@econeura/backend...
+
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_FA9A4EA81D4D402A9EF87AA300D1858C }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_B64AEDB71A7941F3945AD76BFA69CE60 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_595743B4C90944A28C71720EEC3F5E3B }}
+
+      - name: Get secrets from Key Vault
+        uses: Azure/get-keyvault-secrets@v1
+        with:
+          keyvault: "econeura-kv-production"
+          secrets: 'DATABASE-URL, GEMINI-API-KEY, POSTGRES-ADMIN-PASSWORD, REDIS-PASSWORD, JWT-SECRET'
+        id: keyvault-secrets
+
+      - name: Deploy to Azure Web App
+        id: deploy
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'econeura-backend-production'
+          slot-name: 'Production'
+          package: packages/backend
+
+  deploy-frontend:
+    name: Deploy Frontend
+    runs-on: ubuntu-latest
+    environment: production
+    timeout-minutes: 30
+    outputs:
+      frontend-url: ${{ steps.deploy.outputs.static_web_app_url }}
+    
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build frontend
+        run: npx turbo run build --filter=@econeura/web...
+
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_FA9A4EA81D4D402A9EF87AA300D1858C }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_B64AEDB71A7941F3945AD76BFA69CE60 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_595743B4C90944A28C71720EEC3F5E3B }}
+
+      - name: Get Static Web Apps token from Key Vault
+        uses: Azure/get-keyvault-secrets@v1
+        with:
+          keyvault: "econeura-kv-production"
+          secrets: 'AZURE-STATIC-WEB-APPS-API-TOKEN'
+        id: keyvault-secrets
+
+      - name: Deploy to Static Web Apps
+        id: deploy
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ steps.keyvault-secrets.outputs.AZURE-STATIC-WEB-APPS-API-TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          action: "upload"
+          app_location: "packages/frontend/dist"
+          skip_app_build: true
+
+  health-check:
+    name: Health Check
+    needs: [deploy-backend, deploy-frontend]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    
+    steps:
+      - name: Check Backend Health
+        run: |
+          echo "Checking backend health at https://econeura-backend-production.azurewebsites.net"
+          
+          # Wait for deployment to settle
+          sleep 30
+          
+          # Check health endpoint with retries
+          max_attempts=5
+          attempt=1
+          while [ $attempt -le $max_attempts ]; do
+            echo "Attempt $attempt of $max_attempts"
+            
+            response=$(curl -s -o /dev/null -w "%{http_code}" https://econeura-backend-production.azurewebsites.net/health || echo "000")
+            
+            if [ "$response" = "200" ]; then
+              echo "✅ Backend health check passed"
+              exit 0
+            fi
+            
+            echo "❌ Health check failed with status $response"
+            
+            if [ $attempt -lt $max_attempts ]; then
+              echo "Retrying in 10 seconds..."
+              sleep 10
+            fi
+            
+            attempt=$((attempt + 1))
+          done
+          
+          echo "❌ Backend health check failed after $max_attempts attempts"
+          exit 1
+
+      - name: Check Frontend
+        run: |
+          echo "Checking frontend at https://yellow-meadow-004e16d03.3.azurestaticapps.net"
+          
+          response=$(curl -s -o /dev/null -w "%{http_code}" https://yellow-meadow-004e16d03.3.azurestaticapps.net || echo "000")
+          
+          if [ "$response" = "200" ]; then
+            echo "✅ Frontend health check passed"
+          else
+            echo "❌ Frontend health check failed with status $response"
+            exit 1
+          fi
+
+  rollback:
+    name: Rollback on Failure
+    needs: health-check
+    runs-on: ubuntu-latest
+    if: failure()
+    
+    steps:
+      - name: Notify deployment failure
+        run: |
+          echo "::error::❌ Deployment failed health checks"
+          echo "::error::Automatic rollback should be triggered here"
+          echo "::error::Manual intervention required to restore previous version"
+      
+      - name: Create GitHub issue for failed deployment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: '🚨 Deployment Failed - Health Checks',
+              body: `Deployment failed health checks in run ${context.runId}\n\n**Action Required:** Manual rollback needed.\n\nWorkflow: ${context.workflow}\nRun: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
+              labels: ['deployment', 'critical']
+            })
