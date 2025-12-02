@@ -1,5 +1,14 @@
 extends: default
 
+ignore: |
+  node_modules/
+  dist/
+  build/
+  packages/*/dist/
+  .git/
+  .turbo/
+  coverage/
+
 rules:
   line-length:
     max: 120
