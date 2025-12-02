@@ -32,8 +32,12 @@ jobs:
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
-          name: node-app
-          path: .
+          name: backend-app
+          path: |
+            packages/backend/dist
+            packages/backend/package.json
+            packages/backend/package-lock.json
+            node_modules
 
   deploy:
     runs-on: ubuntu-latest
@@ -46,7 +50,7 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
-          name: node-app
+          name: backend-app
 
       - name: Login to Azure
         uses: azure/login@v2
