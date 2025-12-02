@@ -14,6 +14,9 @@ param dbAdminUsername string
 @secure()
 param dbAdminPassword string
 
+@description('Custom domain for frontend (e.g. econeura.com)')
+param frontendCustomDomain string = ''
+
 // ============================================
 // 1. MANAGED IDENTITY (First - everything depends on this)
 // ============================================
@@ -122,6 +125,7 @@ module webapp 'modules/webapp.bicep' = {
     location: location
     managedIdentityId: identity.outputs.id
     appInsightsKey: monitoring.outputs.instrumentationKey
+    customDomain: frontendCustomDomain
   }
   dependsOn: [
     identity

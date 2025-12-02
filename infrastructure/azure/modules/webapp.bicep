@@ -12,6 +12,9 @@ param managedIdentityId string
 @description('App Insights instrumentation key')
 param appInsightsKey string
 
+@description('Custom domain for frontend (optional)')
+param customDomain string = ''
+
 // App Service Plan
 resource appServicePlan 'Microsoft.Web/serverfarms@2023-01-01' = {
   name: 'econeura-plan-${environment}'
@@ -90,6 +93,12 @@ resource staticWebApp 'Microsoft.Web/staticSites@2023-01-01' = {
     environment: environment
     project: 'econeura'
   }
+}
+
+resource customDomainResource 'Microsoft.Web/staticSites/customDomains@2022-03-01' = if (!empty(customDomain)) {
+  parent: staticWebApp
+  name: customDomain
+  properties: {}
 }
 
 output webAppUrl string = 'https://${staticWebApp.properties.defaultHostname}'
