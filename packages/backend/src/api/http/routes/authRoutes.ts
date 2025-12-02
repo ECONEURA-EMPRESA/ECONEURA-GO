@@ -67,7 +67,7 @@ router.post('/login', async (req: Request, res: Response) => {
       return res.status(400).json({
         success: false,
         error: 'Invalid payload',
-        details: error.errors
+        details: error.issues
       });
     }
 
@@ -126,7 +126,7 @@ router.post('/register', async (req: Request, res: Response) => {
       return res.status(400).json({
         success: false,
         error: 'Invalid payload',
-        details: error.errors
+        details: error.issues
       });
     }
 

@@ -31,7 +31,7 @@ const listLeadsQuerySchema = z.object({
 router.get('/leads', async (req: Request, res: Response) => {
   try {
     const reqWithId = req as RequestWithId;
-    
+
     // ✅ CORRECCIÓN: Logging para debugging
     logger.debug('[CRM Routes] Leads request', {
       query: req.query,
@@ -39,7 +39,7 @@ router.get('/leads', async (req: Request, res: Response) => {
       limit: req.query['limit'],
       offset: req.query['offset']
     });
-    
+
     // Validar query params con Zod
     const parsed = listLeadsQuerySchema.parse(req.query);
 
@@ -84,7 +84,7 @@ router.get('/leads', async (req: Request, res: Response) => {
       return res.status(400).json({
         success: false,
         error: 'Parámetros de consulta inválidos',
-        details: error.errors,
+        details: error.issues,
         code: 'INVALID_QUERY_PARAMS'
       });
     }
@@ -113,14 +113,14 @@ const salesMetricsQuerySchema = z.object({
 router.get('/sales-metrics', async (req: Request, res: Response) => {
   try {
     const reqWithId = req as RequestWithId;
-    
+
     // ✅ CORRECCIÓN: Logging para debugging
     logger.debug('[CRM Routes] Sales metrics request', {
       query: req.query,
       department: req.query['department'],
       period: req.query['period']
     });
-    
+
     // Validar query params con Zod
     const parsed = salesMetricsQuerySchema.parse(req.query);
 
@@ -147,7 +147,7 @@ router.get('/sales-metrics', async (req: Request, res: Response) => {
       return res.status(400).json({
         success: false,
         error: 'Parámetros de consulta inválidos',
-        details: error.errors,
+        details: error.issues,
         code: 'INVALID_QUERY_PARAMS'
       });
     }
