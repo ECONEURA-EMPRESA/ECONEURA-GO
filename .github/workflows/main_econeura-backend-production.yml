@@ -54,6 +54,22 @@ jobs:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_FA9A4EA81D4D402A9EF87AA300D1858C }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_B64AEDB71A7941F3945AD76BFA69CE60 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_595743B4C90944A28C71720EEC3F5E3B }}
+      
+      # CRITICAL SECURITY FIX: Retrieve secrets from Azure Key Vault instead of GitHub Secrets
+      - name: Get secrets from Key Vault
+        uses: Azure/get-keyvault-secrets@v1
+        with:
+          keyvault: "econeura-kv-production"
+          secrets: 'DATABASE-URL, GEMINI-API-KEY, POSTGRES-ADMIN-PASSWORD, REDIS-PASSWORD, JWT-SECRET'
+        id: keyvault-secrets
+      
+      - name: Set environment variables from Key Vault
+        run: |
+          echo "DATABASE_URL=${{ steps.keyvault-secrets.outputs.DATABASE-URL }}" >> $GITHUB_ENV
+          echo "GEMINI_API_KEY=${{ steps.keyvault-secrets.outputs.GEMINI-API-KEY }}" >> $GITHUB_ENV
+          echo "POSTGRES_PASSWORD=${{ steps.keyvault-secrets.outputs.POSTGRES-ADMIN-PASSWORD }}" >> $GITHUB_ENV
+          echo "REDIS_PASSWORD=${{ steps.keyvault-secrets.outputs.REDIS-PASSWORD }}" >> $GITHUB_ENV
+          echo "JWT_SECRET=${{ steps.keyvault-secrets.outputs.JWT-SECRET }}" >> $GITHUB_ENV
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp

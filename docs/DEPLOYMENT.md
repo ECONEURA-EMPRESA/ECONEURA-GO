@@ -14,17 +14,25 @@
 
 **Si hay errores, corregirlos antes de continuar.**
 
-### 2. Configurar GitHub Secrets
+### 2. ⚠️ DEPRECATED: GitHub Secrets (DO NOT USE)
 
-**Ir a:** `https://github.com/TU-REPO/settings/secrets/actions`
+> **IMPORTANT**: GitHub Secrets are NO LONGER USED for sensitive data.
+> All production secrets are now stored in Azure Key Vault.
 
-**Agregar:**
-- `AZURE_CREDENTIALS` (Service Principal JSON)
-- `AZURE_WEBAPP_NAME_BACKEND`
-- `AZURE_WEBAPP_PUBLISH_PROFILE_BACKEND`
+**Previously Required (DEPRECATED)**:
+- ~~POSTGRES_ADMIN_PASSWORD~~
+- ~~GEMINI_API_KEY~~
+- ~~DATABASE_URL~~
+
+**Now Required: Azure Key Vault Migration**
+
+See: [`docs/KEYVAULT-MIGRATION.md`](./KEYVAULT-MIGRATION.md)
+
+**Still Required in GitHub Secrets** (for Azure login only):
+- `AZUREAPPSERVICE_CLIENTID_*`
+- `AZUREAPPSERVICE_TENANTID_*`
+- `AZUREAPPSERVICE_SUBSCRIPTIONID_*`
 - `AZURE_STATIC_WEB_APPS_API_TOKEN`
-- `POSTGRES_ADMIN_PASSWORD`
-- `OPENAI_API_KEY`
 
 ### 3. Deploy
 
