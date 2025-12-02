@@ -27,11 +27,13 @@ describe('Analytics', () => {
     render(<Analytics />);
 
     await waitFor(() => {
-      expect(screen.getByText('1247')).toBeInTheDocument();
+      // Use regex to match numbers regardless of locale formatting (1247, 1,247, 1.247)
+      expect(screen.getByText(/1[.,]?247/)).toBeInTheDocument();
     });
 
     expect(screen.getByText('2.3s')).toBeInTheDocument();
-    expect(screen.getByText('45.678')).toBeInTheDocument();
+    // Match formatted number with optional thousands separator
+    expect(screen.getByText(/45[.,]?678/)).toBeInTheDocument();
     expect(screen.getByText('23')).toBeInTheDocument();
   });
 });
