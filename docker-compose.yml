@@ -14,7 +14,7 @@ services:
     networks:
       - econeura-network
     healthcheck:
-      test: [ "CMD-SHELL", "pg_isready -U econeura" ]
+      test: ["CMD-SHELL", "pg_isready -U econeura"]
       interval: 5s
       timeout: 5s
       retries: 5
@@ -30,7 +30,7 @@ services:
     networks:
       - econeura-network
     healthcheck:
-      test: [ "CMD", "redis-cli", "ping" ]
+      test: ["CMD", "redis-cli", "ping"]
       interval: 5s
       timeout: 5s
       retries: 5

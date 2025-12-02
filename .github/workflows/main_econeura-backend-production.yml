@@ -78,3 +78,6 @@ jobs:
           app-name: 'econeura-backend-production'
           slot-name: 'Production'
           package: .
+
+
+
