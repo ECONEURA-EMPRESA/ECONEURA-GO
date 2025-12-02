@@ -46,9 +46,7 @@ export class N8NAdapter {
       const response: AxiosResponse = await this.axiosInstance.post(
         validated.webhookUrl,
         validated.data,
-        {
-          headers: validated.headers ?? {}
-        }
+        validated.headers ? { headers: validated.headers } : undefined
       );
 
       logger.info('[N8NAdapter] Webhook ejecutado con éxito', {

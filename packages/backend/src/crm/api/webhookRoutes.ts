@@ -198,13 +198,13 @@ router.post('/lead-created', webhookAuthMiddleware, async (req: Request, res: Re
   } catch (error: unknown) {
     if (error instanceof z.ZodError) {
       logger.warn('[CRM Webhooks] Payload inválido', {
-        errors: error.errors,
+        errors: error.issues,
         requestId: reqWithId.id
       });
       return res.status(400).json({
         success: false,
         error: 'Invalid payload',
-        details: error.errors,
+        details: error.issues,
         code: 'VALIDATION_ERROR'
       });
     }
@@ -274,7 +274,7 @@ router.post('/conversation', webhookAuthMiddleware, async (req: Request, res: Re
       res.status(400).json({
         success: false,
         error: 'Invalid payload',
-        details: error.errors,
+        details: error.issues,
         code: 'VALIDATION_ERROR'
       });
       return;
@@ -442,7 +442,7 @@ router.post('/deal-stage-change', webhookAuthMiddleware, async (req: Request, re
       res.status(400).json({
         success: false,
         error: 'Invalid payload',
-        details: error.errors,
+        details: error.issues,
         code: 'VALIDATION_ERROR'
       });
       return;
@@ -511,11 +511,11 @@ router.post('/lead-updated', webhookAuthMiddleware, async (req: Request, res: Re
       await client.query('BEGIN');
 
       const updateData: Partial<Pick<Lead, 'score' | 'status' | 'assigned_agent' | 'enrichment_data'>> = {};
-      
+
       if (payload.score !== undefined) {
         updateData.score = payload.score;
       }
-      
+
       if (payload.status !== undefined) {
         updateData.status = payload.status;
       }
@@ -566,13 +566,13 @@ router.post('/lead-updated', webhookAuthMiddleware, async (req: Request, res: Re
   } catch (error: unknown) {
     if (error instanceof z.ZodError) {
       logger.warn('[CRM Webhooks] Payload inválido', {
-        errors: error.errors,
+        errors: error.issues,
         requestId: reqWithId.id
       });
       return res.status(400).json({
         success: false,
         error: 'Invalid payload',
-        details: error.errors,
+        details: error.issues,
         code: 'VALIDATION_ERROR'
       });
     }
@@ -652,7 +652,7 @@ router.post('/alert', webhookAuthMiddleware, async (req: Request, res: Response)
       res.status(400).json({
         success: false,
         error: 'Invalid payload',
-        details: error.errors,
+        details: error.issues,
         code: 'VALIDATION_ERROR'
       });
       return;
