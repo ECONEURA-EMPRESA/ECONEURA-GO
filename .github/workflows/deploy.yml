@@ -42,15 +42,14 @@ jobs:
 
       - name: Build Frontend
         run: npx turbo run build --filter=@econeura/web...
-      
-      # CRITICAL SECURITY FIX: Retrieve Static Web Apps token from Key Vault instead of GitHub Secrets
+
       - name: Login to Azure
         uses: azure/login@v2
         with:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_FA9A4EA81D4D402A9EF87AA300D1858C }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_B64AEDB71A7941F3945AD76BFA69CE60 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_595743B4C90944A28C71720EEC3F5E3B }}
-      
+
       - name: Get Static Web Apps token from Key Vault
         uses: Azure/get-keyvault-secrets@v1
         with:
