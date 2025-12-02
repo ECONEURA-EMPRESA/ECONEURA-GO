@@ -9,7 +9,7 @@ param location string
 @description('Managed Identity Principal ID')
 param managedIdentityId string
 
-// Key Vault
+// Key Vault - SECURED WITH PRIVATE NETWORKING
 resource keyVault 'Microsoft.KeyVault/vaults@2023-02-01' = {
   name: 'econeurakv${take(environment, 8)}'
   location: location
@@ -25,7 +25,15 @@ resource keyVault 'Microsoft.KeyVault/vaults@2023-02-01' = {
     enableRbacAuthorization: true
     enableSoftDelete: true
     softDeleteRetentionInDays: 7
-    publicNetworkAccess: 'Enabled'
+    // CRITICAL SECURITY FIX: Disable public access
+    publicNetworkAccess: 'Disabled'
+    // Network ACLs: Deny by default, allow only Azure services
+    networkAcls: {
+      defaultAction: 'Deny'
+      bypass: 'AzureServices'
+      ipRules: []
+      virtualNetworkRules: []
+    }
     accessPolicies: []
   }
   tags: {

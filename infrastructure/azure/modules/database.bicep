@@ -19,7 +19,7 @@ param vnetId string
 @description('Subnet ID for database')
 param dbSubnetId string
 
-// PostgreSQL Flexible Server
+// PostgreSQL Flexible Server - SECURED WITH PRIVATE NETWORKING
 resource postgresServer 'Microsoft.DBforPostgreSQL/flexibleServers@2023-03-01-preview' = {
   name: 'econeura-psql-${environment}'
   location: location
@@ -42,6 +42,12 @@ resource postgresServer 'Microsoft.DBforPostgreSQL/flexibleServers@2023-03-01-pr
     highAvailability: {
       mode: 'Disabled'
     }
+    // CRITICAL SECURITY FIX: Disable public access and use VNet
+    publicNetworkAccess: 'Disabled'
+    network: {
+      delegatedSubnetResourceId: dbSubnetId
+      privateDnsZoneArmResourceId: ''  // Private DNS will be configured separately
+    }
   }
   tags: {
     environment: environment
@@ -59,15 +65,8 @@ resource database 'Microsoft.DBforPostgreSQL/flexibleServers/databases@2023-03-0
   }
 }
 
-// Firewall rule (allow Azure services)
-resource firewallRule 'Microsoft.DBforPostgreSQL/flexibleServers/firewallRules@2023-03-01-preview' = {
-  name: 'AllowAzureServices'
-  parent: postgresServer
-  properties: {
-    startIpAddress: '0.0.0.0'
-    endIpAddress: '0.0.0.0'
-  }
-}
+// REMOVED: Firewall rule exposing 0.0.0.0
+// Public network access is now disabled - database only accessible via VNet
 
 output id string = postgresServer.id
 output name string = postgresServer.name

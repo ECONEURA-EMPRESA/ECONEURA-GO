@@ -47,14 +47,36 @@ SUBSCRIPTION_ID=$(az account show --query id -o tsv)
 echo "📋 Subscription ID: $SUBSCRIPTION_ID"
 
 # 1. AZURE_CREDENTIALS
-echo -e "\n${BOLD}[1/4] Creating Service Principal...${RESET}"
+echo -e "\n${BOLD}[1/4] Creating Service Principal with LEAST PRIVILEGE...${RESET}"
 SP_NAME="econeura-github-actions-$(date +%s)"
 
+# Get Resource Group
+RG_NAME=$(az group list --query "[?contains(name, 'econeura')].name" -o tsv | head -n 1)
+if [ -z "$RG_NAME" ]; then
+    read -p "Enter Resource Group name: " RG_NAME
+fi
+echo "Using Resource Group: $RG_NAME"
+
+# SECURITY FIX: Use specific roles instead of Contributor
+# Create service principal WITHOUT role assignment
 SP_JSON=$(az ad sp create-for-rbac \
   --name "$SP_NAME" \
-  --role Contributor \
-  --scopes "/subscriptions/$SUBSCRIPTION_ID" \
+  --skip-assignment \
   --sdk-auth 2>/dev/null)
+
+if [ $? -ne 0 ]; then
+    echo -e "${RED}❌ Failed to create Service Principal${RESET}"
+    exit 1
+fi
+
+# Extract appId
+APP_ID=$(echo "$SP_JSON" | grep -o '"clientId"\s*:\s*"[^"]*"' | cut -d'"' -f4)
+
+# Assign minimal required roles at Resource Group scope
+echo "Assigning minimal roles..."
+az role assignment create --assignee "$APP_ID" --role "Website Contributor" --scope "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RG_NAME" 2>/dev/null
+az role assignment create --assignee "$APP_ID" --role "Web Plan Contributor" --scope "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RG_NAME" 2>/dev/null
+az role assignment create --assignee "$APP_ID" --role "Key Vault Secrets User" --scope "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RG_NAME" 2>/dev/null
 
 if [ $? -eq 0 ]; then
     echo "$SP_JSON" | gh secret set AZURE_CREDENTIALS -R "$REPO"

@@ -4,9 +4,9 @@ services:
     container_name: econeura-postgres
     restart: always
     environment:
-      POSTGRES_USER: econeura
-      POSTGRES_PASSWORD: econeurapassword
-      POSTGRES_DB: econeura
+      POSTGRES_USER: ${POSTGRES_USER:-econeura}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD must be set in .env file}
+      POSTGRES_DB: ${POSTGRES_DB:-econeura}
     ports:
       - "5432:5432"
     volumes:
