@@ -9,7 +9,7 @@ services:
     project: packages/backend
     language: js
     host: appservice
-  
+
   frontend:
     project: packages/frontend
     language: js
