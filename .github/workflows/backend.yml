@@ -38,6 +38,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Lint Backend Code
+        run: npx turbo run lint --filter=@econeura/backend...
+
+      - name: Type Check Backend
+        run: npx turbo run type-check --filter=@econeura/backend...
+
       - name: Build Backend
         run: npx turbo run build --filter=@econeura/backend...
 
