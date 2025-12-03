@@ -46,7 +46,7 @@ export class MakeAdapter {
       const response: AxiosResponse = await this.axiosInstance.post(
         validated.webhookUrl,
         validated.data,
-        validated.headers ? { headers: validated.headers } : undefined
+        validated.headers ? { headers: validated.headers as Record<string, string> } : undefined
       );
 
       logger.info('[MakeAdapter] Webhook ejecutado con éxito', {
