@@ -207,27 +207,27 @@ export function Login({ onLoginSuccess }: LoginProps) {
 
           {/* Título ECONEURA */}
           <h1 className="text-4xl font-black tracking-tight text-white mb-3"
-              style={{
-                fontFamily: '"Inter", "SF Pro Display", system-ui, -apple-system, sans-serif',
-                letterSpacing: '-0.03em',
-                textShadow: '0 2px 10px rgba(0, 0, 0, 0.3)'
-              }}>
+            style={{
+              fontFamily: '"Inter", "SF Pro Display", system-ui, -apple-system, sans-serif',
+              letterSpacing: '-0.03em',
+              textShadow: '0 2px 10px rgba(0, 0, 0, 0.3)'
+            }}>
             ECONEURA
           </h1>
 
           {/* Subtítulo */}
           <div className="space-y-2">
             <p className="text-xl font-semibold text-emerald-400"
-               style={{
-                 fontFamily: '"Inter", "SF Pro Display", system-ui, -apple-system, sans-serif',
-                 letterSpacing: '-0.01em'
-               }}>
+              style={{
+                fontFamily: '"Inter", "SF Pro Display", system-ui, -apple-system, sans-serif',
+                letterSpacing: '-0.01em'
+              }}>
               {mode === 'login' ? 'BIENVENIDO' : 'CREA TU CUENTA'}
             </p>
             <p className="text-sm text-slate-300 font-light leading-relaxed"
-               style={{
-                 fontFamily: '"Inter", "SF Pro Text", system-ui, -apple-system, sans-serif'
-               }}>
+              style={{
+                fontFamily: '"Inter", "SF Pro Text", system-ui, -apple-system, sans-serif'
+              }}>
               Accede a tu <span className="font-semibold text-emerald-400">ecosistema de inteligencia colectiva</span>
             </p>
           </div>
@@ -249,10 +249,10 @@ export function Login({ onLoginSuccess }: LoginProps) {
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-purple-500/10 to-blue-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <span className="relative z-10 flex items-center gap-3">
               <svg className="w-5 h-5" viewBox="0 0 24 24">
-                <path fill="#f25022" d="M0 0h11.377v11.372H0z"/>
-                <path fill="#00a4ef" d="M12.623 0H24v11.372H12.623z"/>
-                <path fill="#7fba00" d="M0 12.628h11.377V24H0z"/>
-                <path fill="#ffb900" d="M12.623 12.628H24V24H12.623z"/>
+                <path fill="#f25022" d="M0 0h11.377v11.372H0z" />
+                <path fill="#00a4ef" d="M12.623 0H24v11.372H12.623z" />
+                <path fill="#7fba00" d="M0 12.628h11.377V24H0z" />
+                <path fill="#ffb900" d="M12.623 12.628H24V24H12.623z" />
               </svg>
               Continuar con Microsoft
             </span>
@@ -372,7 +372,7 @@ export function Login({ onLoginSuccess }: LoginProps) {
         <div className="mt-10 pt-6 border-t border-white/10 text-center text-xs text-slate-400">
           Al continuar, aceptas nuestros{' '}
           <a href="/terms" target="_blank" className="text-emerald-400 hover:text-emerald-300 font-medium hover:underline transition-colors">
-            Términoss
+            Términos
           </a>{' '}
           y{' '}
           <a href="/privacy" target="_blank" className="text-emerald-400 hover:text-emerald-300 font-medium hover:underline transition-colors">

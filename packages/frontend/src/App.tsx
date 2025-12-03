@@ -4,6 +4,7 @@ import { ErrorBoundary } from './components/ErrorBoundary';
 import { AuthProvider } from './contexts/AuthContext';
 import { LoginView } from './pages/Login/LoginView';
 import { CockpitLayout } from './pages/Cockpit/CockpitLayout';
+import { LoadingSkeleton } from './components/LoadingSkeleton';
 
 
 interface User {
@@ -57,7 +58,7 @@ function AppContent() {
               path="/"
               element={
                 <ErrorBoundary>
-                  <Suspense fallback={<div>Cargando...</div>}>
+                  <Suspense fallback={<LoadingSkeleton />}>
                     <EconeuraCockpitWithLogin
                       token={token}
                       user={user}

@@ -133,6 +133,80 @@ npm run test
 
 # Linting
 npm run lint
+
+# Type-checking
+npx turbo run type-check
+```
+
+### Testing Local Completo
+
+#### 1. Backend Local
+```bash
+# Levantar servicios de infraestructura (PostgreSQL, Redis)
+docker-compose up -d
+
+# Instalar dependencias backend
+cd packages/backend
+npm install
+
+# Configurar variables de entorno
+cp ../../.env.example .env
+# Editar .env con tus valores locales
+
+# Ejecutar migraciones
+npm run db:migrate
+
+# Iniciar backend en modo desarrollo
+npm run dev
+
+# Verificar: http://localhost:3000/api/health
+```
+
+#### 2. Frontend Local
+```bash
+# En otra terminal
+cd packages/frontend
+npm install
+
+# Crear archivo .env local
+echo "VITE_API_URL=http://localhost:3000/api" > .env.local
+
+# Iniciar frontend
+npm run dev
+
+# Verificar: http://localhost:5173
+```
+
+#### 3. Verificación End-to-End
+1. ✅ Abrir http://localhost:5173
+2. ✅ Ver página de LOGIN
+3. ✅ Crear cuenta con email de prueba
+4. ✅ Acceder al COCKPIT
+5. ✅ Probar chat con NEURA
+6. ✅ Verificar Backend Status en footer (debe mostrar "Backend activo")
+
+#### Troubleshooting Común
+
+**Error: "Backend desconectado"**
+```bash
+# Verificar que backend esté corriendo
+curl http://localhost:3000/api/health
+# Debe retornar: {"status":"healthy"}
+```
+
+**Error: "Database connection failed"**
+```bash
+# Verificar que PostgreSQL esté activo
+docker ps | grep postgres
+# Si no está: docker-compose up -d postgres
+```
+
+**Error: Frontend no carga**
+```bash
+# Limpiar cache y reinstalar
+rm -rf node_modules package-lock.json
+npm install
+npm run dev
 ```
 
 ---
