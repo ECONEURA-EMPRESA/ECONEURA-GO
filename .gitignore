@@ -79,6 +79,87 @@ Thumbs.db
 packages/backend/uploads/
 **/uploads/*.txt
 
+# Dependencies
+node_modules
+
+# Build outputs
+dist
+build
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+validation_log*.txt
+test_report*.txt
+test_failure*.txt
+
+deployment-outputs.json
+backend-deploy.zip
+infrastructure/azure/main.json
+
+# Documentation archives and reports
+docs/archive/
+docs/reports/
+
+# Scripts (except verified ones)
+# scripts/
+# We keep scripts/ in git but ignore temp inside it
+scripts/temp/
+
+# Test outputs
+test-output*.txt
+debug-routes.ts
+frontend-test-diag*.txt
+
+# Logs directories
+*_logs/
+*_fail_logs/
+final_deploy_logs/
+backend_fail_logs/
+latest_logs/
+
+# Log archives
+*.zip
+
+# Temporary markdown files
+*CORRECCIONES*.md
+*PERFECTION*.md
+*SECRETOS*.md
+*INSTRUCCIONES*.md
+*MEJORAS*.md
+
+# Backup files
+*.BACKUP.*
+*_OFICIAL.*
+*BACKUP*
+
+# Analysis files
+*-analysis.json
+
+# Runtime logs
+packages/*/logs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+# Turbo
+.turbo/
+
+# Uploads
+packages/backend/uploads/
+**/uploads/*.txt
+
 # Azure
 .azure/
 
@@ -86,3 +167,18 @@ packages/backend/uploads/
 packages/*/dist/
 
 **/.env
+
+# === INTERNAL DOCUMENTATION (NOT FOR PUBLIC) ===
+MILESTONE.md
+DESIGN_SAFE_ZONE.md
+*_TECHNICAL_ANALYSIS.md
+*_FIXES_APPLIED.md
+packages/frontend/CRM_TECHNICAL_ANALYSIS.md
+packages/frontend/CRM_FIXES_APPLIED.md
+
+# === DEPLOYMENT INTERNALS ===
+infrastructure/azure/LAUNCH_PLAN_*.md
+infrastructure/azure/DEPLOYMENT_FAST.md
+
+# === PROCESS ARTIFACTS ===
+scripts/README-WORKFLOWS-*.md
