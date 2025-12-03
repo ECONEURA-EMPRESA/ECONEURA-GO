@@ -11,7 +11,7 @@
 [![Node.js](https://img.shields.io/badge/node-%3E%3D20.0.0-brightgreen)](https://nodejs.org/)
 [![TypeScript](https://img.shields.io/badge/typescript-5.6.3-blue)](https://www.typescriptlang.org/)
 
-**[🌐 Live Demo](https://econeura.com)** • **[📚 Docs](./docs)** • **[🚀 Quick Start](#-quick-start)**
+**[🌐 Live Demo](https://www.econeura.com)** • **[📚 Docs](./docs)** • **[🚀 Quick Start](#-quick-start)**
 
 ![ECONEURA Cockpit](docs/assets/econeura-login-screenshot.png)
 
@@ -119,7 +119,7 @@ cd ECONEURA-GO
 npm run dev
 ```
 
-*   **Frontend**: [https://econeura.com](https://econeura.com) (Production)
+*   **Frontend**: [https://www.econeura.com](https://www.econeura.com) (Production)
 *   **Backend**: [https://econeura-backend-production.azurewebsites.net](https://econeura-backend-production.azurewebsites.net)
 
 ### Comandos Manuales
