@@ -21,7 +21,7 @@ const createAgentSchema = z.object({
   webhook_url: z.string().url().optional(),
   neura_assigned: z.string().min(1),
   schedule: z.string().default('on-demand'),
-  config: z.record(z.unknown()).optional(),
+  config: z.record(z.string(), z.unknown()).optional(),
   tags: z.array(z.string()).optional()
 });
 
@@ -29,13 +29,13 @@ const updateAgentSchema = z.object({
   name: z.string().min(1).optional(),
   description: z.string().optional(),
   schedule: z.string().optional(),
-  config: z.record(z.unknown()).optional(),
+  config: z.record(z.string(), z.unknown()).optional(),
   tags: z.array(z.string()).optional(),
   status: z.enum(['active', 'inactive', 'paused']).optional()
 });
 
 const executeAgentSchema = z.object({
-  params: z.record(z.unknown()).optional(),
+  params: z.record(z.string(), z.unknown()).optional(),
   triggered_by: z.string().default('user')
 });
 

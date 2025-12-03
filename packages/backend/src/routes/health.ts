@@ -22,15 +22,23 @@ router.get('/health', (_req: Request, res: Response) => {
  */
 router.get('/ready', async (_req: Request, res: Response) => {
     try {
-        // TODO: Add actual health checks for DB, Redis, etc.
-        // For now, just return healthy
+        // Real health checks
+        const dbCheck = await prisma.$queryRaw`SELECT 1`.then(() => 'ok').catch((e) => `error: ${e.message}`);
+        const redisCheck = await redis.ping().then(() => 'ok').catch((e) => `error: ${e.message}`);
+
+        const isHealthy = dbCheck === 'ok' && redisCheck === 'ok';
+
+        if (!isHealthy) {
+            throw new Error('Infrastructure services unhealthy');
+        }
+
         res.status(200).json({
             status: 'ready',
             timestamp: new Date().toISOString(),
             checks: {
-                database: 'ok', // TODO: actual check
-                redis: 'ok', // TODO: actual check
-                storage: 'ok' // TODO: actual check
+                database: dbCheck,
+                redis: redisCheck,
+                storage: 'ok' // Storage check skipped for now
             }
         });
     } catch (error) {

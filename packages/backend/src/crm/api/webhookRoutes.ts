@@ -98,7 +98,7 @@ const leadCreatedSchema = z.object({
   department: z.enum(['cmo', 'cso']),
   agent_name: z.string().min(1),
   source_channel: z.string().optional(),
-  enrichment_data: z.record(z.unknown()).optional()
+  enrichment_data: z.record(z.string(), z.unknown()).optional()
 });
 
 router.post('/lead-created', webhookAuthMiddleware, async (req: Request, res: Response) => {

@@ -18,8 +18,8 @@ export interface N8NWebhookResponse {
 
 const n8nWebhookRequestSchema = z.object({
   webhookUrl: z.string().url(),
-  data: z.record(z.unknown()),
-  headers: z.record(z.string()).optional()
+  data: z.record(z.string(), z.unknown()),
+  headers: z.record(z.string(), z.string()).optional()
 });
 
 export class N8NAdapter {
