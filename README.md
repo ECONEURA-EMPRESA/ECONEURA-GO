@@ -13,7 +13,6 @@
 
 **[🌐 Live Demo](https://www.econeura.com)** • **[📚 Docs](./docs)** • **[🚀 Quick Start](#-quick-start)**
 
-![ECONEURA Cockpit](docs/assets/econeura-login-screenshot.png)
 
 </div>
 
