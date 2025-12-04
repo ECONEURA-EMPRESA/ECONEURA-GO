@@ -11,6 +11,22 @@ declare module 'express-serve-static-core' {
 
 export async function authMiddleware(req: Request, res: Response, next: NextFunction): Promise<void> {
   try {
+    // DEVELOPMENT BYPASS: Auto-auth en modo desarrollo
+    if (process.env.NODE_ENV === 'development') {
+      req.authContext = {
+        userId: 'dev-user-001',
+        tenantId: 'dev-tenant-001',
+        roles: ['admin', 'user'],
+        sessionId: 'dev-session'
+      };
+      setCorrelationContext({
+        tenantId: 'dev-tenant-001',
+        userId: 'dev-user-001'
+      });
+      next();
+      return;
+    }
+
     const authHeader = req.headers['authorization'];
     const token = typeof authHeader === 'string' && authHeader.startsWith('Bearer ')
       ? authHeader.slice('Bearer '.length)
