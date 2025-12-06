@@ -73,7 +73,8 @@ export async function executeNeuraAgentFromChat(
       ? {
           userId: options.userId,
           tenantId: 'unknown-tenant',
-          roles: []
+          roles: [],
+          sessionId: 'dev-session'
         }
       : undefined
   });
