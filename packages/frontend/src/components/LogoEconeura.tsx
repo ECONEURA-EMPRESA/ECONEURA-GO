@@ -23,7 +23,7 @@ const textSizeMap: Record<NonNullable<LogoEconeuraProps['size']>, string> = {
   xl: 'text-3xl'
 };
 
-export function LogoEconeura({
+export default function LogoEconeura({
   size = 'md',
   showText = true,
   className = '',

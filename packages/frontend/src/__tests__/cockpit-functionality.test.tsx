@@ -2,30 +2,7 @@
  * Tests unitarios para componentes críticos del Cockpit
  * Sin tocar diseño ni logo
  */
-import { describe, it, expect, vi } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/react';
-import { ConnectAgentModal } from '../components/ConnectAgentModal';
-import { AgentExecutionPanel } from '../components/AgentExecutionPanel';
-
-// Mock de componentes
-vi.mock('../components/ConnectAgentModal', () => ({
-  ConnectAgentModal: ({ agentTitle, isOpen, onClose }: any) => 
-    isOpen ? (
-      <div data-testid="connect-modal">
-        <h2>{agentTitle}</h2>
-        <button onClick={onClose}>Cerrar</button>
-      </div>
-    ) : null
-}));
-
-vi.mock('../components/AgentExecutionPanel', () => ({
-  AgentExecutionPanel: ({ visible, onClose }: any) => 
-    visible ? (
-      <div data-testid="agent-execution-panel">
-        <button onClick={onClose}>Cerrar Panel</button>
-      </div>
-    ) : null
-}));
+import { describe, it, expect } from 'vitest';
 
 describe('ECONEURA Cockpit - Funcionalidad', () => {
   it('debería renderizar el cockpit correctamente', () => {

@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { X, Terminal, Play, CheckCircle, AlertCircle, Loader, Cpu, Database, Shield } from 'lucide-react';
+import { X, Terminal, CheckCircle, AlertCircle, Loader, Cpu } from 'lucide-react';
 import { cx } from '../utils/classnames';
 
 export interface AgentExecutionPanelProps {
   visible?: boolean;
   onClose?: () => void;
-  chatContext?: string;
   userIntent?: string;
   dept?: any;
   darkMode?: boolean;
@@ -15,7 +14,7 @@ export interface AgentExecutionPanelProps {
   onConnectAgent?: (agent: any) => void;
 }
 
-export function AgentExecutionPanel({ visible, onClose, chatContext, userIntent }: AgentExecutionPanelProps) {
+export function AgentExecutionPanel({ visible, onClose, userIntent }: AgentExecutionPanelProps) {
   const [steps, setSteps] = useState<Array<{ id: number; text: string; status: 'pending' | 'running' | 'done' | 'error' }>>([]);
   const [logs, setLogs] = useState<string[]>([]);
 

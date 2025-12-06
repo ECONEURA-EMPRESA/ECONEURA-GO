@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { BarChart3, TrendingUp, Users, MessageSquare, Clock, Zap } from 'lucide-react';
+import { BarChart3, TrendingUp, Users, MessageSquare, Clock } from 'lucide-react';
 
 interface AnalyticsData {
   userMetrics: {
@@ -53,7 +53,6 @@ class LocalAnalyticsService implements AnalyticsService {
   async getAnalytics(): Promise<AnalyticsData> {
     // Simular datos de analytics
     const now = new Date();
-    const last30Days = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
 
     return {
       userMetrics: {

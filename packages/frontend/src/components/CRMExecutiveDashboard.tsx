@@ -81,7 +81,6 @@ const HeroMetric = memo(({
   const isAboveTarget = revenue >= target;
   const diff = revenue - target;
   const diffPercent = target > 0 ? ((diff / target) * 100) : 0;
-  const _rgb = hexToRgb(accentColor);
 
   // Estilo premium elegante
   const bgCard = darkMode
@@ -202,7 +201,6 @@ const TopAgentCard = memo(({
   darkMode: boolean;
   accentColor: string;
 }) => {
-  const _rgb = hexToRgb(accentColor);
   const bgCard = darkMode
     ? 'bg-gradient-to-br from-slate-800/80 to-slate-900/80'
     : 'bg-gradient-to-br from-white to-slate-50/50';
@@ -331,7 +329,6 @@ const ConversionFunnel = memo(({
   darkMode: boolean;
   accentColor: string;
 }) => {
-  const _rgb = hexToRgb(accentColor);
   const bgCard = darkMode
     ? 'bg-gradient-to-br from-slate-800/80 to-slate-900/80'
     : 'bg-gradient-to-br from-white to-slate-50/50';
@@ -467,7 +464,6 @@ const AgentLeaderboard = memo(({
   darkMode: boolean;
   accentColor: string;
 }) => {
-  const _rgb = hexToRgb(accentColor);
   const bgCard = darkMode
     ? 'bg-gradient-to-br from-slate-800/80 to-slate-900/80'
     : 'bg-gradient-to-br from-white to-slate-50/50';
@@ -643,7 +639,6 @@ export function CRMExecutiveDashboard({ departmentName, accentColor, darkMode }:
 
   const revenue = salesMetrics?.total_revenue || metrics?.totalRevenue || 420000;
   const target = metrics?.revenueTarget || 400000;
-  const _dealsWon = metrics?.dealsWon || (salesMetrics?.total_revenue ? Math.round(salesMetrics.total_revenue / 5000) : 87);
   const dealsInProgress = metrics?.dealsInProgress || 161;
   const totalLeads = totalCount || leads.length || 1240;
 
@@ -665,7 +660,6 @@ export function CRMExecutiveDashboard({ departmentName, accentColor, darkMode }:
     ];
   }, [totalLeads, dealsInProgress, revenue]);
 
-  const _textPrimary = darkMode ? 'text-white' : 'text-slate-900';
   const textSecondary = darkMode ? 'text-slate-400' : 'text-slate-600';
 
   const handleRefresh = useCallback(async () => {

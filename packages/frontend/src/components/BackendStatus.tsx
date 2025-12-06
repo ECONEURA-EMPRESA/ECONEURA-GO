@@ -22,7 +22,7 @@ export function BackendStatus() {
                 setStatus('unhealthy');
             }
             setLastCheck(new Date());
-        } catch (error) {
+        } catch {
             setStatus('unhealthy');
             setLastCheck(new Date());
         }

@@ -9,7 +9,6 @@ interface EconeuraHeaderProps {
 }
 
 export function EconeuraHeader({
-  isDarkMode: _isDarkMode,
   onToggleSettings,
   onToggleMenu,
   isMenuOpen

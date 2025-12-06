@@ -6,14 +6,13 @@ import { Department, TagIcon, getDeptIcon, getPalette } from '../data/neuraData'
 
 interface DashboardMetricsProps {
     dept: Department;
-    darkMode?: boolean;
     palette?: { textHex: string; bgHex: string; accentText: string };
     setChatOpen?: (open: boolean) => void;
     setPortalOpen?: (open: boolean) => void;
     setAgentExecutionOpen?: (open: boolean) => void;
 }
 
-export function DashboardMetrics({ dept, darkMode, palette, setChatOpen, setPortalOpen, setAgentExecutionOpen }: DashboardMetricsProps) {
+export function DashboardMetrics({ dept, palette, setChatOpen, setPortalOpen, setAgentExecutionOpen }: DashboardMetricsProps) {
     const pal = palette || getPalette(dept.id);
     const DeptIconComp = getDeptIcon(dept.id);
 
@@ -101,6 +100,7 @@ export function DashboardMetrics({ dept, darkMode, palette, setChatOpen, setPort
                             opacity: 0.9
                         }}
                         onClick={() => setChatOpen?.(true)}
+                        data-testid="open-chat-button"
                     >
                         <MessageCircle className="w-4 h-4" />
                         Abrir chat

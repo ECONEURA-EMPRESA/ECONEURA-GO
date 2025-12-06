@@ -11,7 +11,6 @@ interface HITLApprovalModalProps {
   onClose: () => void;
   onApprove: () => void;
   onReject: () => void;
-  darkMode: boolean;
   data: {
     functionName: string;
     functionArgs: Record<string, unknown>;

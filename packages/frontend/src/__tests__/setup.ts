@@ -31,7 +31,7 @@ global.IntersectionObserver = vi.fn().mockImplementation(() => ({
 // Mock fetch globally
 global.fetch = vi.fn();
 
-import { expect, afterEach } from 'vitest';
+import { afterEach } from 'vitest';
 import { cleanup } from '@testing-library/react';
 import React from 'react';
 

@@ -1,30 +1,23 @@
 import React, { useMemo, useState, useEffect, useRef, memo } from "react";
-import { Link } from "react-router-dom";
 import {
-  Crown, Cpu, Shield, Workflow, Users, Target, LineChart, Wallet, Database,
-  ClipboardList, Megaphone, FileText, Radar,
-  Bug, Gauge, Activity as ActivityIcon, Inbox, Mail, TrendingUp, FileBarChart2, CalendarDays,
-  Mic, MicOff, Volume2, StopCircle, Play, Pause, Moon, Sun, User, LogOut, Settings, Menu,
-  DollarSign, FileCheck, Clock, Send, Book, Globe, Loader, Brain
+  Workflow, Radar,
+  Activity as ActivityIcon,
+  Play, Pause, Moon, Sun, User, LogOut, Settings, Menu,
+  Brain
 } from "lucide-react";
 import { API_URL } from './config/api';
-import { getApiUrl, getAuthToken, createAuthHeaders } from './utils/apiUrl';
+import { getApiUrl } from './utils/apiUrl';
 // Imports de componentes premium removidos - manteniendo diseño original
-import { AnalyticsDashboard } from './components/AnalyticsDashboard';
 // WorkflowManager eliminado - pendiente implementación
-import { shouldExecuteAgentsForNeura, getSpecializedContext, getSpecializedReasoning, calculateAgentConfidence } from "./services/NeuraAgentIntegration";
 import { ConnectAgentModal } from './components/ConnectAgentModal';
 import { ChatHistory } from './components/ChatHistory';
 // import { CustomerPortal } from './components/CustomerPortal'; // Component not exported
 import { LibraryPanel } from './components/LibraryPanel';
-import { ReferencesBlock } from './components/ReferencesBlock';
 import { HITLApprovalModal } from './components/HITLApprovalModal';
 // Sistema de internacionalización eliminado - solo español
 import { Toaster, toast } from "sonner";
 import confetti from "canvas-confetti";
 import Fuse from "fuse.js";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 
 // Tipos exportados (únicos)
 declare const process: any;
@@ -67,7 +60,7 @@ type PendingAttachment = {
 
 import { cx } from './utils/classnames';
 import { hexToRgb, rgba } from './utils/colors';
-import { LogoEconeura as BrandLogo } from './components/LogoEconeura';
+import BrandLogo from './components/LogoEconeura';
 import { AgentExecutionPanel } from './components/AgentExecutionPanel';
 import { DepartmentSelector } from './components/DepartmentSelector';
 import { DashboardMetrics } from './components/DashboardMetrics';
@@ -141,34 +134,6 @@ function correlationId() {
   }
 }
 
-// Función para comprimir imágenes
-function compressImage(base64Image: string, maxWidth = 800, quality = 0.7): Promise<string> {
-  return new Promise((resolve) => {
-    const img = new Image();
-    img.onload = () => {
-      const canvas = document.createElement('canvas');
-      const ctx = canvas.getContext('2d');
-
-      // Calcular nuevas dimensiones manteniendo aspect ratio
-      let { width, height } = img;
-      if (width > maxWidth) {
-        height = (height * maxWidth) / width;
-        width = maxWidth;
-      }
-
-      canvas.width = width;
-      canvas.height = height;
-
-      // Dibujar imagen redimensionada
-      ctx?.drawImage(img, 0, 0, width, height);
-
-      // Convertir a base64 con compresión
-      const compressedBase64 = canvas.toDataURL('image/jpeg', quality);
-      resolve(compressedBase64);
-    };
-    img.src = base64Image;
-  });
-}
 
 // Obtener webhook Make por departamento
 function getDeptWebhook(deptId: string): string | undefined {
@@ -287,20 +252,6 @@ declare global {
 }
 
 const theme = { border: '#e5e7eb', muted: '#64748b', ink: '#1f2937', surface: '#ffffff' };
-
-function LogoEconeura({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-
-const light = { surface: '#FFFFFF', ink: '#1F2937', border: '#E5E7EB' };
-const paletteLocal = { ceo: { primary: '#5D7177' } };
 
 function FooterComponent() {
   const handleFooterClick = (section: string) => {
@@ -427,8 +378,6 @@ export default function EconeuraCockpit({ user, onLogout }: EconeuraCockpitProps
     removeAttachment,
     sendChatMessage
   } = useNeuraChat(activeDept, dept, handleLogout);
-  const [showAllUsage, setShowAllUsage] = useState(false);
-  const [pendingAgentExecution, setPendingAgentExecution] = useState<string | null>(null);
   const [listening, setListening] = useState(false);
 
   // Estado para modal de conexión
@@ -438,15 +387,11 @@ export default function EconeuraCockpit({ user, onLogout }: EconeuraCockpitProps
   // Estado para historial de chats
   const [chatHistoryOpen, setChatHistoryOpen] = useState(false);
 
-  // Customer portal state
-  const [portalOpen, setPortalOpen] = useState(false);
-
   // Agent execution panel state
   const [agentExecutionOpen, setAgentExecutionOpen] = useState(false);
 
   // NEURA Library state
   const [libraryOpen, setLibraryOpen] = useState(false);
-  const [useInternet, setUseInternet] = useState(false);
 
   // HITL state
   const [hitlModalOpen, setHitlModalOpen] = useState(false);
@@ -466,7 +411,7 @@ export default function EconeuraCockpit({ user, onLogout }: EconeuraCockpitProps
   });
 
   // User data
-  const [userData, setUserData] = useState(() => {
+  const [userData] = useState(() => {
     if (typeof window !== 'undefined') {
       const stored = localStorage.getItem('econeura_user');
       return stored ? JSON.parse(stored) : null;
@@ -539,7 +484,6 @@ export default function EconeuraCockpit({ user, onLogout }: EconeuraCockpitProps
   const [voiceSupported] = useState<boolean>(typeof window !== 'undefined' && 'speechSynthesis' in window);
   const recognitionRef = useRef<SpeechRecognition | null>(null);
   // ✅ SIN LÍMITES: Permitir cualquier tamaño (el LLM manejará lo que pueda)
-  const MAX_UPLOAD_BYTES = 50 * 1024 * 1024; // 50MB (solo para mostrar warning, no bloquear)
   // const [pendingAttachment, setPendingAttachment] = useState<PendingAttachment | null>(null); // Movido a hook
   // const [isUploadingAttachment, setIsUploadingAttachment] = useState(false); // Movido a hook
   // const fileInputRef = useRef<HTMLInputElement>(null); // Movido a hook/componente
@@ -599,8 +543,6 @@ export default function EconeuraCockpit({ user, onLogout }: EconeuraCockpitProps
       window.speechSynthesis.speak(u);
     } catch { }
   }
-
-  function stopSpeak() { try { if ('speechSynthesis' in window) window.speechSynthesis.cancel(); } catch { } }
 
   function toggleListen() {
     const rec = recognitionRef.current;
@@ -732,14 +674,6 @@ export default function EconeuraCockpit({ user, onLogout }: EconeuraCockpitProps
     } finally {
       setBusyId(null);
     }
-  }
-
-  function openChatWithErrorSamples() {
-    setChatOpen(true);
-    setChatMsgs([
-      { id: correlationId(), text: 'Lo siento, ha ocurrido un error al procesar tu solicitud. Por favor, inténtalo de nuevo más tarde.', role: 'assistant' },
-      { id: correlationId(), text: 'Lo siento, ha ocurrido un error al procesar tu solicitud. Por favor, inténtalo de nuevo más tarde.', role: 'assistant' },
-    ]);
   }
 
   function startCreateAgent(deptId: string) {
@@ -1145,7 +1079,6 @@ Crea un agente y conéctalo a Make.
                   dept={dept}
                   palette={pal}
                   setChatOpen={setChatOpen}
-                  setPortalOpen={setPortalOpen}
                   setAgentExecutionOpen={setAgentExecutionOpen}
                 />
 
@@ -1287,12 +1220,8 @@ Crea un agente y conéctalo a Make.
         < EconeuraModals
           chatHistoryOpen={chatHistoryOpen}
           setChatHistoryOpen={setChatHistoryOpen}
-          portalOpen={portalOpen}
-          setPortalOpen={setPortalOpen}
           token={userToken || ''}
           darkMode={darkMode}
-          chatContext={chatInput}
-          userIntent={chatInput}
         />
 
         {/* Modal de Conexión de Proveedores */}
@@ -1700,23 +1629,15 @@ export const __RUN_SELF_TESTS = (overrides?: Record<string, unknown>) => {
 interface EconeuraModalsProps {
   chatHistoryOpen: boolean;
   setChatHistoryOpen: (open: boolean) => void;
-  portalOpen: boolean;
-  setPortalOpen: (open: boolean) => void;
   token: string | null;
   darkMode: boolean;
-  chatContext?: string;
-  userIntent?: string;
 }
 
 export function EconeuraModals({
   chatHistoryOpen,
   setChatHistoryOpen,
-  portalOpen,
-  setPortalOpen,
   token,
-  darkMode,
-  chatContext,
-  userIntent
+  darkMode
 }: EconeuraModalsProps) {
   return (
     <>

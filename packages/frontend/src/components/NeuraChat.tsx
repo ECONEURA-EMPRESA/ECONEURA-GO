@@ -255,7 +255,7 @@ export function NeuraChat({
 
                         {/* Loading Indicator */}
                         {isLoading && (
-                            <div className="flex items-start gap-3 px-8 py-4 animate-pulse">
+                            <div data-testid="loading-indicator" className="flex items-start gap-3 px-8 py-4 animate-pulse">
                                 <div className="w-8 h-8 rounded-full bg-gradient-to-br from-slate-200 to-slate-300 flex items-center justify-center flex-shrink-0">
                                     <Brain className="w-4 h-4 text-slate-600" />
                                 </div>
@@ -357,6 +357,7 @@ export function NeuraChat({
                                         ? "bg-slate-100 text-slate-400 cursor-not-allowed"
                                         : "bg-slate-900 text-white hover:bg-slate-800 hover:shadow-md hover:scale-105"
                                 )}
+                                aria-label="Enviar"
                             >
                                 {isLoading ? <Loader className="w-5 h-5 animate-spin" /> : <Send className="w-5 h-5" />}
                             </button>

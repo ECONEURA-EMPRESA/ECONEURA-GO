@@ -1,7 +1,6 @@
 import express from 'express';
 import cors, { type CorsOptions } from 'cors';
 import helmet from 'helmet';
-import compression from 'compression';
 import cookieParser from 'cookie-parser';
 import path from 'path';
 import fs from 'fs';
