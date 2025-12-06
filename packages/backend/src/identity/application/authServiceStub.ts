@@ -30,7 +30,8 @@ export class DevAuthService implements AuthService {
     return {
       userId: 'dev-user',
       tenantId: 'dev-tenant',
-      roles: ['admin']
+      roles: ['admin'],
+      sessionId: 'dev-session'
     };
   }
 

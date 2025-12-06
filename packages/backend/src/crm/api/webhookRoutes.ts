@@ -471,7 +471,7 @@ const leadUpdatedSchema = z.object({
   score: z.number().min(1).max(10).optional(), // Score 1-10 según dominio Lead
   status: z.enum(['new', 'qualified', 'contacted', 'lost']).optional(),
   agent_name: z.string().min(1),
-  scoring_details: z.record(z.unknown()).optional()
+  scoring_details: z.record(z.string(), z.unknown()).optional()
 });
 
 router.post('/lead-updated', webhookAuthMiddleware, async (req: Request, res: Response) => {
