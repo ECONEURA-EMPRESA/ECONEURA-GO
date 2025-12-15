@@ -30,7 +30,7 @@ jobs:
           npx turbo run test --filter=@econeura/backend...
 
       - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: backend-app
           path: |
@@ -48,7 +48,7 @@ jobs:
 
     steps:
       - name: Download artifact from build job
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v7
         with:
           name: backend-app
 
