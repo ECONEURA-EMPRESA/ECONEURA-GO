@@ -24,10 +24,10 @@
     "node": ">=20.0.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.1",
+    "@eslint/js": "^9.39.2",
     "@types/cors": "^2.8.19",
-    "globals": "^16.5.0",
-    "typescript-eslint": "^8.48.1",
-    "turbo": "^2.6.3"
+    "globals": "^17.0.0",
+    "typescript-eslint": "^8.52.0",
+    "turbo": "^2.7.4"
   }
 }
