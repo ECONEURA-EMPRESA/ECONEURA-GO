@@ -9,7 +9,7 @@
     },
     "devDependencies": {
         "typescript": "^5.6.3",
-        "eslint": "^9.15.0",
+        "eslint": "^9.39.2",
         "@econeura/config": "*"
     }
 }
